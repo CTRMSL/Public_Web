@@ -618,6 +618,118 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(47,224,200,.55)}50%{box-shadow:0 0 0 8px rgba(47,224,200,0)}}
 .live{animation:pulse 2s infinite}
 @media (prefers-reduced-motion:reduce){.live{animation:none}}
+
+/* ─────────────────────────────────────────────────────────
+   Gold-rotate animated text — cycles light→bright gold tones
+   Used in footer tagline + logo-strip "Trusted across..." label
+   ───────────────────────────────────────────────────────── */
+.gold-rotate{
+  background:linear-gradient(90deg,
+    #b88c3a 0%,
+    #d6a849 18%,
+    #f0c574 36%,
+    #fde3a7 50%,
+    #f0c574 64%,
+    #d6a849 82%,
+    #b88c3a 100%
+  );
+  background-size:220% 100%;
+  background-position:0% 50%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  animation:gold-shift 6s linear infinite;
+  font-weight:700;
+  letter-spacing:.005em;
+}
+@keyframes gold-shift{
+  0%{background-position:0% 50%}
+  100%{background-position:220% 50%}
+}
+@media (prefers-reduced-motion:reduce){
+  .gold-rotate{animation:none;background-position:50% 50%}
+}
+/* Footer tagline — size & spacing override */
+.brand-col .gold-rotate{
+  display:inline-block;
+  font-family:var(--display);
+  font-size:18px;
+  letter-spacing:.012em;
+  margin-bottom:6px;
+  text-transform:none;
+}
+@media (max-width:680px){.brand-col .gold-rotate{font-size:16px}}
+/* Logo-strip label override — uppercase, full bold gold */
+.logo-strip .lbl.gold-rotate-wrap{margin-bottom:24px}
+.logo-strip .gold-rotate-trust{
+  font-family:var(--mono);
+  font-size:13px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.logo-strip .gold-rotate-trust em{font-style:normal}
+/* Eyebrow / section-eye in rotating gold — slightly larger size */
+.eyebrow.is-gold,.section-eye.is-gold{font-size:12.5px;letter-spacing:.18em}
+.eyebrow.is-gold::before,.section-eye.is-gold::before{background:linear-gradient(90deg,var(--gold),transparent)}
+.eyebrow.is-gold .dot-indic{background:var(--gold-bright);box-shadow:0 0 12px var(--gold)}
+.eyebrow.is-gold .gold-rotate,.section-eye.is-gold .gold-rotate{font-family:var(--mono);font-weight:700;letter-spacing:inherit;text-transform:uppercase}
+@media (max-width:680px){.eyebrow.is-gold,.section-eye.is-gold{font-size:11px}}
+
+/* ─────────────────────────────────────────────────────────
+   Slide-5 (About gist) — refined layout
+   ───────────────────────────────────────────────────────── */
+.about-slide{grid-template-columns:1.15fr .85fr !important;gap:44px !important;max-width:1180px;margin:0 auto;align-items:center}
+.about-slide-left h1{font-size:clamp(30px,4.2vw,52px) !important;line-height:1.08 !important;margin-bottom:14px !important;letter-spacing:-.022em !important}
+.about-slide-left p{font-size:16px;line-height:1.6;margin-bottom:22px;color:var(--text-mute);max-width:520px}
+.about-slide-left .pillar-mini{margin-bottom:14px !important}
+/* Stats: 4 columns in one line on desktop, 2x2 on small */
+.about-slide-grid{grid-template-columns:repeat(4,1fr) !important;gap:10px !important;max-width:560px}
+.about-slide-grid div{padding:13px 12px !important;border-radius:10px !important;text-align:center;background:rgba(255,255,255,.03) !important;border-color:rgba(255,255,255,.08) !important}
+.about-slide-grid b{font-size:18px !important;color:var(--gold-bright) !important;font-weight:700 !important;margin-bottom:4px !important}
+.about-slide-grid span{font-size:10px !important;letter-spacing:.08em !important}
+@media (max-width:680px){
+  .about-slide-grid{grid-template-columns:repeat(2,1fr) !important;max-width:none}
+  .about-slide-grid b{font-size:20px !important}
+}
+/* Portrait card — simpler, less text */
+.about-portrait{padding:28px 26px !important;min-height:auto !important;border-radius:18px !important}
+.about-portrait .sil{width:110px !important;height:110px !important;margin:0 auto 14px !important;border-width:1px !important}
+.about-portrait .sil svg{width:60%;height:auto;margin:25%}
+.about-portrait .name{font-size:20px !important}
+.about-portrait .role{margin-top:5px !important;font-size:9.5px !important}
+.about-portrait .qual{margin-top:14px !important;font-size:10.5px !important;padding:9px 14px;border:1px solid var(--border);border-radius:999px;display:inline-block;background:rgba(255,255,255,.02);letter-spacing:.04em}
+.about-portrait .vision{margin-top:14px !important;padding-top:14px !important;font-size:12.5px !important;line-height:1.55 !important}
+
+/* ─────────────────────────────────────────────────────────
+   Plans / Tiers section (Standard · Pro · Pro+)
+   ───────────────────────────────────────────────────────── */
+.plans-section{padding:96px 0;background:linear-gradient(180deg,#070b1f,#0a1230);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.plans-section::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 50% 0%,rgba(78,168,255,.07),transparent 65%);pointer-events:none}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;align-items:stretch;position:relative;z-index:1}
+.tier{position:relative;padding:34px 30px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,var(--surface),#0b1230);display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease,box-shadow .3s ease}
+.tier:hover{transform:translateY(-4px);border-color:var(--border-hi);box-shadow:0 28px 60px -32px rgba(78,168,255,.4)}
+.tier.featured{border-color:rgba(214,168,73,.45);background:linear-gradient(180deg,rgba(214,168,73,.06),#0b1230 60%);box-shadow:0 0 0 1px rgba(214,168,73,.18),0 30px 70px -30px rgba(214,168,73,.35)}
+.tier.featured:hover{transform:translateY(-6px)}
+.tier-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#1a1408;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:5px 14px;border-radius:999px;box-shadow:0 6px 16px -6px rgba(214,168,73,.6);white-space:nowrap}
+.tier-name{font-family:var(--display);font-weight:700;font-size:28px;color:#fff;letter-spacing:-.012em;margin-bottom:6px}
+.tier-name .plus{color:var(--gold-bright);font-weight:700;margin-left:2px}
+.tier-tagline{font-size:13.5px;color:var(--text-mute);line-height:1.55;margin-bottom:22px;min-height:42px}
+.tier-features{list-style:none;padding:0;margin:0 0 26px;flex:1}
+.tier-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text);padding:8px 0;border-top:1px solid rgba(255,255,255,.04);line-height:1.55}
+.tier-features li:first-child{border-top:none}
+.tier-features li::before{content:"";flex:none;margin-top:6px;width:14px;height:14px;border-radius:50%;background:rgba(78,168,255,.16);border:1px solid rgba(127,194,255,.4);position:relative}
+.tier-features li{position:relative}
+.tier-features li::after{content:"";position:absolute;left:3.5px;top:13px;width:5px;height:8px;border-right:1.5px solid var(--electric-bright);border-bottom:1.5px solid var(--electric-bright);transform:rotate(45deg)}
+.tier.featured .tier-features li::before{background:rgba(214,168,73,.18);border-color:rgba(214,168,73,.5)}
+.tier.featured .tier-features li::after{border-color:var(--gold-bright)}
+.tier-features li b{font-weight:600;color:#fff}
+.tier-features .fine{display:block;margin-top:3px;font-family:var(--mono);font-size:10.5px;color:var(--text-faint);letter-spacing:.04em;padding-left:0}
+.tier .tier-cta{margin-top:auto;width:100%;justify-content:center;font-size:14px}
+.plans-note{text-align:center;margin-top:28px;color:var(--text-faint);font-size:13px;font-style:italic;position:relative;z-index:1}
+.plans-note b{color:var(--text-mute);font-style:normal}
+@media (max-width:960px){.plans-grid{grid-template-columns:1fr;gap:18px}.tier{padding:30px 26px}.tier.featured{order:-1}}
 </style>
 </head>
 <body data-theme="dark-enterprise">
@@ -633,6 +745,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
     <div class="nav-links" id="navLinks">
       <a href="#product" class="active">Product</a>
       <a href="#packs">Analytics Packs</a>
+      <a href="#plans">Plans</a>
       <a href="#workflow">Workflow</a>
       <a href="#three-lines">3 Lines of Defence</a>
       <a href="#security">Security</a>
@@ -675,7 +788,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <div class="container">
         <div>
           <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
-          <div class="eyebrow"><span class="dot-indic live"></span>Created by Auditors · Engineered for Assurance</div>
+          <div class="eyebrow is-gold"><span class="dot-indic live"></span><span class="gold-rotate">Created by Auditors · Engineered for Assurance</span></div>
           <h1 class="hero-title">Automated analytics<br/>built for the <em>modern assurance</em> team.</h1>
           <p class="hero-lede">
             <b>1,050+ automated checks</b> turn 100% of your population into exception reports,
@@ -716,7 +829,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <div class="container">
         <div>
           <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
-          <div class="eyebrow"><span class="dot-indic"></span>Three Lines of Defence · Across Industries</div>
+          <div class="eyebrow is-gold"><span class="dot-indic"></span><span class="gold-rotate">Three Lines of Defence · Across Industries</span></div>
           <h1 class="hero-title">Empowering the<br/><em>Three Lines</em> of Defence.</h1>
           <p class="hero-lede">
             One platform for <b>Statutory &amp; Internal Auditors</b>, <b>CROs &amp; Risk Management</b>,
@@ -812,14 +925,14 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <div class="container">
         <div class="about-slide">
           <div class="about-slide-left">
-            <span class="pillar-mini" style="margin-bottom:18px">About VIGILO · 15-year vision</span>
+            <span class="pillar-mini">About VIGILO · 15-year vision</span>
             <h1>Built by auditors.<br/><em>Engineered for assurance.</em></h1>
-            <p><b>VIGILO</b> is the work of a small, deliberate team — a Chartered-Accountant founder with <b>20+ years of practice across 150+ entities</b>, a co-pillar partner, and a dedicated engineering bench. Built to save 40–50% of audit time and lift the constant retraining burden that high attrition imposes on professional firms.</p>
+            <p><b>VIGILO</b> is the work of a Chartered-Accountant-led team — <b>20+ years of practice across 150+ entities</b>, codified into a Financial Intelligence Platform that saves 40–50% of audit time and lifts the constant retraining burden of high attrition in professional firms.</p>
             <div class="about-slide-grid">
               <div><b>20+ yrs</b><span>Audit practice</span></div>
               <div><b>150+</b><span>Entities</span></div>
-              <div><b>40-50%</b><span>Audit-time saved</span></div>
-              <div><b>15-yr</b><span>Product vision</span></div>
+              <div><b>40-50%</b><span>Time saved</span></div>
+              <div><b>15-yr</b><span>Vision</span></div>
             </div>
             <div class="hero-cta" style="margin-top:26px">
               <a href="about/" class="btn btn-primary btn-lg">Read our story →</a>
@@ -831,9 +944,9 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
               <svg viewBox="0 0 80 80" fill="none" stroke="rgba(127,194,255,0.6)" stroke-width="1.6"><circle cx="40" cy="30" r="13"/><path d="M16 72c0-12 10-21 24-21s24 9 24 21"/></svg>
             </div>
             <div class="name">Chandra Mohan</div>
-            <div class="role">Founder · Architect · Brain behind VIGILO</div>
-            <div class="qual">B.Com · FCA · CISA · CIA · CFE · IFRS (ICAI) · FAFD (ICAI) · HDSE</div>
-            <div class="vision"><b>Vision</b> · Deliver a world-class, state-of-the-art Financial Intelligence Platform — supported by a 10+ year experienced engineering bench and colleagues across the profession.</div>
+            <div class="role">Founder · Architect</div>
+            <div class="qual">B.Com · FCA · CISA · CIA · CFE</div>
+            <div class="vision"><b>Vision</b> · A world-class Financial Intelligence Platform — supported by a 10+ year engineering bench.</div>
           </aside>
         </div>
       </div>
@@ -859,7 +972,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 <!-- ═══════════════════ LOGO STRIP (placeholder until real client logos approved) ═══════════════════ -->
 <section class="logo-strip" aria-label="Trusted across the assurance ecosystem">
   <div class="container">
-    <p class="lbl"><b>Trusted</b> across the assurance ecosystem</p>
+    <p class="lbl gold-rotate-wrap"><span class="gold-rotate gold-rotate-trust">Trusted across the assurance ecosystem</span></p>
     <div class="logo-row" aria-label="Partner / customer logos — placeholders pending approval">
       <div class="placeholder">Logo 1</div>
       <div class="placeholder">Logo 2</div>
@@ -1088,6 +1201,67 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   </div>
 </section>
 
+<!-- ═══════════════════ PLANS · TIERS ═══════════════════ -->
+<section id="plans" class="plans-section" aria-label="Plans and tiers">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">Plans · Engagement Tiers</div>
+      <h2 class="section-h2">Choose the right tier <em>for your engagement</em>.</h2>
+      <p class="section-sub">From single-domain reviews to enterprise-wide assurance — pick the tier that fits your scale. Every tier ships with the same exception-led methodology and defensible audit trail.</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- Standard -->
+      <article class="tier reveal">
+        <div class="tier-name">Standard</div>
+        <div class="tier-tagline">Foundational analytics for focused, single-domain audits.</div>
+        <ul class="tier-features">
+          <li><span><b>5 core analytics packs</b><span class="fine">LMS · GL · P2P · HR · O2C</span></span></li>
+          <li>Up to <b>1M&nbsp;records</b> per engagement</li>
+          <li>Monthly data refresh</li>
+          <li>Standard exception reports and downloadable review packs</li>
+          <li>Audit-ready documentation trail</li>
+          <li>Implementation support · <b>2 BD SLA</b></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost btn-lg tier-cta">Get Started →</a>
+      </article>
+
+      <!-- Pro · featured -->
+      <article class="tier featured reveal">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-name">Pro</div>
+        <div class="tier-tagline">Comprehensive coverage for mid &amp; large BFSI portfolios.</div>
+        <ul class="tier-features">
+          <li><span><b>All 10 analytics packs</b><span class="fine">Adds Inventory · PPE · Executive Reporting · TPR · Retail Deposits</span></span></li>
+          <li>Up to <b>10M&nbsp;records</b> per engagement</li>
+          <li>Weekly data refresh</li>
+          <li>Custom checks &amp; threshold tuning</li>
+          <li>Reconciliations: <b>GSTR-2B vs PR · 26AS vs Books</b></li>
+          <li>Priority email support · <b>1 BD SLA</b></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-lg tier-cta" onclick="openAccessForm(event)">Choose Pro →</a>
+      </article>
+
+      <!-- Pro+ -->
+      <article class="tier reveal">
+        <div class="tier-name">Pro<span class="plus">+</span></div>
+        <div class="tier-tagline">Enterprise scale with dedicated deployment and 24/7 SLA.</div>
+        <ul class="tier-features">
+          <li>Everything in <b>Pro</b>, plus:</li>
+          <li><b>Unlimited records</b> · multi-entity rollups</li>
+          <li>Real-time / on-demand refresh</li>
+          <li>Bespoke logic &amp; engagement workflows</li>
+          <li>On-premise / private-VPC deployment option</li>
+          <li>Dedicated success manager · <b>24/7 SLA</b></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost btn-lg tier-cta">Contact Sales →</a>
+      </article>
+    </div>
+
+    <p class="plans-note">Every tier includes the same exception-led methodology and audit-ready evidence trail. <b>Contact us for engagement-specific scoping.</b></p>
+  </div>
+</section>
+
 <!-- ═══════════════════ OUTPUTS · VISUALISATIONS ═══════════════════ -->
 <section aria-label="Outputs and visualisations">
   <div class="container">
@@ -1126,7 +1300,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 <section class="tld-band" id="three-lines" aria-label="Three Lines of Defence">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="section-eye">Three Lines of Defence · Across Industries</div>
+      <div class="section-eye is-gold"><span class="gold-rotate">Three Lines of Defence · Across Industries</span></div>
       <h2 class="section-h2">Empowering the<br/><em>Three Lines</em> of Defence.</h2>
       <p class="section-sub">Built for Statutory &amp; Internal Auditors, CRO and Risk Management Functions, and CFOs &amp; Executives — strengthening audit, risk and financial oversight across the organisation, in BFSI and across general enterprise.</p>
     </div>
@@ -1518,13 +1692,14 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
     <div class="ft-grid">
       <div class="col brand-col">
         <img src="assets/vigilo_full_updated.png" alt="VIGILO by CTR" />
-        <p><b>Created by Auditors · Engineered for Assurance.</b> A Financial Intelligence Platform for the three lines of defence, across industries.</p>
+        <p><span class="gold-rotate">Created by Auditors · Engineered for Assurance.</span><br/>A Financial Intelligence Platform for the three lines of defence, across industries.</p>
       </div>
       <div class="col">
         <h5>Product</h5>
         <ul>
           <li><a href="#product">Overview</a></li>
           <li><a href="#packs">Analytics Packs</a></li>
+          <li><a href="#plans">Plans · Tiers</a></li>
           <li><a href="#workflow">How it Works</a></li>
           <li><a href="#three-lines">Three Lines</a></li>
           <li><a href="#security">Security</a></li>
