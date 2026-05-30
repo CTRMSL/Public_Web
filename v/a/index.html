@@ -14,7 +14,7 @@
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet" />
 <style>
 /* ─────────────────────────────────────────────────────────────
    VIGILO · Premium Dark Enterprise theme (Version A)
@@ -640,8 +640,10 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   color:transparent;
   -webkit-text-fill-color:transparent;
   animation:gold-shift 6s linear infinite;
-  font-weight:700;
+  font-weight:800;
   letter-spacing:.005em;
+  /* Subtle gold under-shadow restores perceived weight despite transparent fill */
+  filter:drop-shadow(0 0 .4px rgba(214,168,73,.85)) drop-shadow(0 1px 1px rgba(0,0,0,.15));
 }
 @keyframes gold-shift{
   0%{background-position:0% 50%}
@@ -655,6 +657,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   display:inline-block;
   font-family:var(--display);
   font-size:18px;
+  font-weight:800;
   letter-spacing:.012em;
   margin-bottom:6px;
   text-transform:none;
@@ -667,14 +670,14 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   font-size:13px;
   letter-spacing:.22em;
   text-transform:uppercase;
-  font-weight:700;
+  font-weight:800;
 }
 .logo-strip .gold-rotate-trust em{font-style:normal}
-/* Eyebrow / section-eye in rotating gold — slightly larger size */
-.eyebrow.is-gold,.section-eye.is-gold{font-size:12.5px;letter-spacing:.18em}
+/* Eyebrow / section-eye in rotating gold — slightly larger size, heavier weight */
+.eyebrow.is-gold,.section-eye.is-gold{font-size:12.5px;letter-spacing:.18em;font-weight:800}
 .eyebrow.is-gold::before,.section-eye.is-gold::before{background:linear-gradient(90deg,var(--gold),transparent)}
 .eyebrow.is-gold .dot-indic{background:var(--gold-bright);box-shadow:0 0 12px var(--gold)}
-.eyebrow.is-gold .gold-rotate,.section-eye.is-gold .gold-rotate{font-family:var(--mono);font-weight:700;letter-spacing:inherit;text-transform:uppercase}
+.eyebrow.is-gold .gold-rotate,.section-eye.is-gold .gold-rotate{font-family:var(--mono);font-weight:800;letter-spacing:inherit;text-transform:uppercase}
 @media (max-width:680px){.eyebrow.is-gold,.section-eye.is-gold{font-size:11px}}
 
 /* ─────────────────────────────────────────────────────────
