@@ -2237,59 +2237,79 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
 })();
 
 // ── Scroll-spy: highlight current section in the nav as the user scrolls ──
+// Uses position-based detection (not IntersectionObserver ratios) so that the
+// sequence is guaranteed to follow DOM order regardless of section heights.
 (function(){
-  if(!('IntersectionObserver' in window))return;
   var spyLinks=Array.from(document.querySelectorAll('.nav-links a[data-spy]'));
   if(!spyLinks.length)return;
-  var sectionMap={}; // id -> array of links (in case of duplicates)
+  var sectionMap={};
   spyLinks.forEach(function(a){
     var id=a.getAttribute('data-spy');
     (sectionMap[id]=sectionMap[id]||[]).push(a);
   });
-  var sections=Object.keys(sectionMap).map(function(id){return document.getElementById(id);}).filter(Boolean);
+  // Sections in DOM order
+  var sections=spyLinks
+    .map(function(a){return document.getElementById(a.getAttribute('data-spy'));})
+    .filter(Boolean)
+    .filter(function(el,i,arr){return arr.indexOf(el)===i;})  // dedupe
+    .sort(function(a,b){
+      var pa=a.getBoundingClientRect().top+window.pageYOffset;
+      var pb=b.getBoundingClientRect().top+window.pageYOffset;
+      return pa-pb;
+    });
   if(!sections.length)return;
 
-  var visible={};
-  function setActive(){
-    // pick the section with the largest intersection ratio currently visible
-    var best=null,bestR=0;
-    Object.keys(visible).forEach(function(id){if(visible[id]>bestR){bestR=visible[id];best=id;}});
-    // Fallback: above all sections (hero) -> activate the first nav link
-    if(!best&&spyLinks.length)best=spyLinks[0].getAttribute('data-spy');
-    spyLinks.forEach(function(a){a.classList.remove('active');a.removeAttribute('aria-current');});
-    if(best&&sectionMap[best]){
-      sectionMap[best].forEach(function(a){a.classList.add('active');a.setAttribute('aria-current','location');});
-    }
+  function setActive(id){
+    spyLinks.forEach(function(a){
+      var isCurr=a.getAttribute('data-spy')===id;
+      a.classList.toggle('active',isCurr);
+      if(isCurr){a.setAttribute('aria-current','location');}
+      else{a.removeAttribute('aria-current');}
+    });
   }
-  setActive();  // initial state on load
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      var id=e.target.id;
-      if(e.isIntersecting)visible[id]=e.intersectionRatio;
-      else delete visible[id];
-    });
-    setActive();
-  },{
-    // top margin matches the sticky nav height; bottom margin biases toward upper-visible section
-    rootMargin:'-72px 0px -55% 0px',
-    threshold:[0,.05,.15,.3,.5,.75,1]
-  });
-  sections.forEach(function(s){io.observe(s);});
 
-  // Click a nav link → set active immediately (don't wait for scroll observer)
+  function update(){
+    var navH=(document.querySelector('.nav')||{}).offsetHeight||80;
+    // Activation line = a little below the sticky nav (let the user feel
+    // they're "into" the section before it activates)
+    var threshold=window.pageYOffset+navH+80;
+    var current=sections[0].id; // default: first section (above-all-sections fallback)
+    for(var i=0;i<sections.length;i++){
+      var top=sections[i].getBoundingClientRect().top+window.pageYOffset;
+      if(top<=threshold)current=sections[i].id;
+      else break; // sections are in DOM order — stop once we pass the threshold
+    }
+    // Near page bottom — force activate the last section so Contact lights up
+    // when the user is at the footer
+    if(window.innerHeight+window.pageYOffset>=document.documentElement.scrollHeight-80){
+      current=sections[sections.length-1].id;
+    }
+    setActive(current);
+  }
+
+  // Throttle scroll updates with rAF
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      requestAnimationFrame(function(){update();ticking=false;});
+      ticking=true;
+    }
+  },{passive:true});
+  window.addEventListener('resize',function(){requestAnimationFrame(update);});
+
+  // Initial state
+  update();
+
+  // Click a nav link → set active immediately so the user sees the change
+  // before the smooth-scroll has finished animating
   spyLinks.forEach(function(a){
-    a.addEventListener('click',function(){
-      setTimeout(function(){
-        spyLinks.forEach(function(x){x.classList.remove('active');x.removeAttribute('aria-current');});
-        a.classList.add('active');a.setAttribute('aria-current','location');
-      },50);
-    });
+    a.addEventListener('click',function(){setActive(a.getAttribute('data-spy'));});
   });
 
-  // On page load with a hash, activate immediately
+  // Deep-link with hash → activate matching link immediately
   if(location.hash){
-    var id=location.hash.slice(1);
-    if(sectionMap[id])sectionMap[id].forEach(function(x){x.classList.add('active');x.setAttribute('aria-current','location');});
+    var hid=location.hash.slice(1);
+    if(sectionMap[hid])setActive(hid);
   }
 })();
 </script>
