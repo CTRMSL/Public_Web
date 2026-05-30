@@ -30,6 +30,16 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--text-dark);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,h5,p,li,blockquote{overflow-wrap:break-word;word-wrap:break-word;hyphens:manual}
+@media (max-width:560px){
+  .about-hero{padding:56px 0 40px}
+  .about-hero h1{font-size:30px !important;letter-spacing:0 !important;line-height:1.2 !important;max-width:100% !important}
+  .about-hero p,.lead,.sub{font-size:15px !important;line-height:1.55 !important}
+  .h2{font-size:24px !important;letter-spacing:0 !important;line-height:1.2 !important}
+  .container{padding:0 16px}
+  .qstrip .v{font-size:22px !important}
+}
+@media (max-width:380px){.about-hero h1{font-size:26px !important} .h2{font-size:22px !important}}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
@@ -137,10 +147,8 @@ section{padding:84px 0;position:relative;background:var(--paper);color:var(--tex
 /* Founder profile */
 .founder{display:grid;grid-template-columns:280px 1fr;gap:38px;align-items:start;padding:40px;border:1px solid var(--gold-line);background:#fff;box-shadow:var(--shadow);margin-top:28px;position:relative}
 .founder::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-bright),var(--gold))}
-.founder .portrait{position:relative;width:280px;height:340px;overflow:hidden;background:linear-gradient(160deg,var(--cream),var(--paper));border:1px solid var(--paper-edge);display:grid;place-items:center}
-.founder .portrait svg{width:62%;height:auto;opacity:.5}
-.founder .portrait .note{position:absolute;bottom:14px;left:14px;right:14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--text-faint-dark);text-align:center;line-height:1.45;background:rgba(253,249,241,.95);padding:8px 10px;border:1px dashed var(--gold-line)}
-.founder .portrait .note b{color:var(--gold-deep);display:block;margin-bottom:3px;font-family:var(--mono)}
+.founder .portrait{position:relative;width:280px;height:340px;overflow:hidden;background:linear-gradient(160deg,var(--cream),var(--paper));border:1px solid var(--gold-line);box-shadow:var(--shadow)}
+.founder .portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .founder-content .role{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:6px;display:inline-block;padding:5px 10px;border:1px solid var(--gold-line);background:rgba(214,168,73,.06)}
 .founder-content h3{font-family:var(--serif);font-size:36px;color:var(--navy);font-weight:600;letter-spacing:-.015em;margin:8px 0 6px}
 .founder-content .qual{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--text-mute-dark);margin-bottom:18px;padding:8px 14px;display:inline-block;border:1px solid var(--paper-edge);background:var(--cream)}
@@ -204,8 +212,8 @@ footer{background:var(--navy-deep);color:var(--text-mute-light);padding:56px 0 3
     <div class="nav-links">
       <a href="../#product">Product</a>
       <a href="../#packs">Analytics Packs</a>
-      <a href="../#three-lines">3 Lines of Defense</a>
       <a href="../#workflow">Workflow</a>
+      <a href="../#three-lines">3 Lines of Defense</a>
       <a href="../#security">Security</a>
       <a href="./" class="active">About</a>
       <a href="../#contact">Contact</a>
@@ -311,9 +319,8 @@ footer{background:var(--navy-deep);color:var(--text-mute-light);padding:56px 0 3
     <div class="eye">Founder Profile</div>
     <h2 class="h2">The architect behind the platform.</h2>
     <article class="founder reveal">
-      <div class="portrait" role="img" aria-label="Photograph of Chandra Mohan — placeholder">
-        <svg viewBox="0 0 200 220" fill="none" stroke="rgba(168,122,28,0.5)" stroke-width="1.4"><circle cx="100" cy="78" r="34"/><path d="M40 200c0-32 27-58 60-58s60 26 60 58"/></svg>
-        <div class="note"><b>Photo placeholder</b>Add <code>about-chandramohan.jpg</code> (800×980px) to <code>/assets/</code> and update <code>&lt;img&gt;</code> here.</div>
+      <div class="portrait">
+        <img src="../assets/about-chandramohan.jpg" alt="Chandra Mohan, Founder · VIGILO by CTR" loading="lazy" />
       </div>
       <div class="founder-content">
         <div class="role">Founder · Architect · Chartered Accountant</div>
