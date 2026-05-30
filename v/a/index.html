@@ -539,7 +539,8 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 @media (max-width:880px){.contact-hero-grid{grid-template-columns:1fr;gap:24px} .contact-hero .ring{width:200px;height:200px}}
 
 .contact-directory{padding:64px 0 84px}
-.dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:42px}
+.dir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:42px}
+@media (max-width:1080px){.dir-grid{grid-template-columns:repeat(2,1fr);gap:22px}}
 .dir-col{padding:30px;border:1px solid var(--border);border-radius:18px;background:var(--surface-2)}
 .dir-col h4{font-family:var(--display);font-size:18px;color:#fff;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .dir-col h4 svg{width:20px;height:20px;color:var(--electric-bright)}
@@ -563,6 +564,40 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 
 /* Old cta-final / legacy class — hide so we don't render twice when re-themed */
 .cta-final{display:none}
+
+/* ─────────────────────────────────────────────────────────
+   Request-demo form modal (posts to Google Forms hidden iframe)
+   ───────────────────────────────────────────────────────── */
+.access-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:320;padding:24px;overflow-y:auto}
+.access-modal:not([hidden]){display:flex}
+.access-modal .bd{position:absolute;inset:0;background:rgba(2,6,18,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.access-card{position:relative;max-width:540px;width:100%;background:linear-gradient(180deg,var(--surface),#0a1230);border:1px solid var(--border-hi);border-radius:20px;padding:34px 32px 32px;box-shadow:var(--shadow-glow);max-height:96vh;overflow-y:auto}
+.access-card::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,transparent,var(--electric),var(--cyan),transparent)}
+.access-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font-size:22px;line-height:1;cursor:pointer;transition:background .15s,border-color .15s}
+.access-close:hover{background:rgba(78,168,255,.25);border-color:var(--electric)}
+.access-head{margin-bottom:22px}
+.access-head .pill{display:inline-flex;align-items:center;padding:5px 12px;border:1px solid var(--border-hi);border-radius:999px;background:rgba(78,168,255,.1);color:var(--electric-bright);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.access-head h3{font-family:var(--display);font-weight:700;font-size:24px;color:#fff;letter-spacing:-.01em;margin-bottom:6px}
+.access-head p{color:var(--text-mute);font-size:14px;line-height:1.55}
+.access-form{display:grid;gap:14px}
+.af-field{display:grid;gap:6px}
+.af-field label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute);font-weight:600}
+.af-field .af-req{color:var(--amber);margin-left:3px}
+.af-field input,.af-field select{font-family:var(--sans);font-size:14.5px;padding:11px 14px;border:1px solid var(--border-hi);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;transition:border-color .15s,background .15s}
+.af-field input::placeholder{color:var(--text-faint)}
+.af-field input:focus,.af-field select:focus{outline:none;border-color:var(--electric);background:rgba(78,168,255,.08)}
+.af-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%239aa6c8' d='M0 0l5 6 5-6z'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+.af-field select option{background:#0e1638;color:#fff}
+.af-submit{margin-top:6px;padding:13px 22px;background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;font-family:var(--sans);font-weight:700;font-size:15px;border-radius:10px;border:1px solid rgba(255,255,255,.2);cursor:pointer;box-shadow:0 8px 22px -10px rgba(78,168,255,.6);transition:filter .15s}
+.af-submit:hover:not(:disabled){filter:brightness(1.08)}
+.af-submit:disabled{opacity:.7;cursor:wait}
+.af-submit--ghost{background:transparent;color:#fff;border-color:var(--border-hi);box-shadow:none}
+.af-note{font-family:var(--mono);font-size:10.5px;color:var(--text-faint);text-align:center;letter-spacing:.04em;line-height:1.5}
+.access-thanks{text-align:center;padding:20px 0}
+.access-thanks .af-thanks-icon{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),#1a8a4a);color:#fff;display:grid;place-items:center;font-size:36px;font-weight:700;margin:0 auto 18px;box-shadow:0 12px 32px -10px rgba(47,212,122,.5)}
+.access-thanks h3{font-family:var(--display);font-size:22px;color:#fff;margin-bottom:8px;font-weight:700}
+.access-thanks p{color:var(--text-mute);font-size:14.5px;line-height:1.55;margin-bottom:20px}
+@media (max-width:560px){.access-modal{padding:12px} .access-card{padding:26px 22px 22px} .access-head h3{font-size:20px}}
 
 /* ─────────────────────────────────────────────────────────
    Demo video modal
@@ -616,7 +651,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
           <p class="pop-sub">Get access to VIGILO workspace, pilots and analytics packs.</p>
         </div>
       </div>
-      <a href="#contact" class="btn btn-primary">Request Demo →</a>
+      <a href="#" class="btn btn-primary" onclick="openAccessForm(event)">Request Demo →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <svg class="icn-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="icn-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -1288,7 +1323,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
           <p>We're <b>always eager</b> to answer questions about VIGILO and the analytics that power assurance, risk and finance teams. Or anything else you may need.</p>
           <p style="margin-top:-8px">Reach us by email or phone, or request a demo and we'll respond within <b>one business day</b>.</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px">
-            <a href="#demo-form" class="btn btn-primary btn-lg">Request a demo →</a>
+            <a href="#" class="btn btn-primary btn-lg" onclick="openAccessForm(event)">Request a demo →</a>
             <a href="#" class="btn btn-ghost btn-lg" onclick="openDemo(event)">▶ Watch walkthrough</a>
           </div>
         </div>
@@ -1305,6 +1340,14 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   <div class="contact-directory">
     <div class="container">
       <div class="dir-grid">
+
+        <div class="dir-col">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h7M7 16h5"/></svg>Form (preferred)</h4>
+          <ul>
+            <li><b>Request a demo &amp; pilot</b><span>The fastest path — share organisation, role &amp; email; we respond within one business day.</span></li>
+          </ul>
+          <a href="#" onclick="openAccessForm(event)" style="display:inline-flex;margin-top:14px;padding:11px 18px;border-radius:999px;background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 8px 20px -10px rgba(78,168,255,.55);transition:filter .15s">Open the form →</a>
+        </div>
 
         <div class="dir-col">
           <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>Email</h4>
@@ -1342,7 +1385,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         <div class="dir-card">
           <h5>Demos &amp; pilots</h5>
           <p>Walk a slice of your real data through VIGILO — bounded scope, no disruption.</p>
-          <a href="#demo-form">Request a pilot →</a>
+          <a href="#" onclick="openAccessForm(event)">Open the form →</a>
         </div>
         <div class="dir-card">
           <h5>FAQs</h5>
@@ -1378,6 +1421,79 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 </section>
 
 </main>
+
+<!-- ═══════════════════ REQUEST-DEMO FORM MODAL (Google Form integration) ═══════════════════ -->
+<div id="accessModal" class="access-modal" hidden role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+  <div class="bd" onclick="closeAccessForm()"></div>
+  <div class="access-card">
+    <button class="access-close" type="button" onclick="closeAccessForm()" aria-label="Close form">×</button>
+
+    <div class="access-head">
+      <div class="pill"><em>VIGILO</em> · Request a demo</div>
+      <h3 id="accessTitle">Tell us a little about you</h3>
+      <p>Share your details — our team will respond within <b>one business day</b> with a tailored walkthrough and a bounded pilot scope.</p>
+    </div>
+
+    <!-- Posts to the existing Google Form formResponse endpoint so submissions
+         land in the same linked Google Sheet automatically. Field names are
+         Google Form entry IDs — preserved verbatim from the original site. -->
+    <form id="accessForm" class="access-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfbaRfiHGGX8s1S9WhJS9Xyhf-TWS99csLy3nxtRY2SIvimQg/formResponse"
+          method="POST"
+          target="accessFormTarget"
+          onsubmit="return onAccessSubmit(this)">
+
+      <div class="af-field">
+        <label for="af-org">Organisation name<span class="af-req">*</span></label>
+        <input type="text" id="af-org" name="entry.1826202423" required autocomplete="organization" placeholder="e.g. State Bank of India" />
+      </div>
+
+      <div class="af-field">
+        <label for="af-nature">Nature of organisation<span class="af-req">*</span></label>
+        <select id="af-nature" name="entry.NATURE_PENDING" required>
+          <option value="" disabled selected>Select one…</option>
+          <option>Bank — Public / Private / Foreign</option>
+          <option>NBFC</option>
+          <option>Insurance</option>
+          <option>Asset Management / Mutual Fund</option>
+          <option>Stock Broker / Securities</option>
+          <option>Co-operative Bank</option>
+          <option>Audit Firm</option>
+          <option>Consulting / Advisory</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="af-field">
+        <label for="af-name">Your name<span class="af-req">*</span></label>
+        <input type="text" id="af-name" name="entry.374353224" required autocomplete="name" placeholder="Full name" />
+      </div>
+
+      <div class="af-field">
+        <label for="af-email">Work email<span class="af-req">*</span></label>
+        <input type="email" id="af-email" name="entry.1036546383" required autocomplete="email" placeholder="you@organisation.com" />
+      </div>
+
+      <!-- Anti-spam honeypot — bots fill this; humans don't see it. -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true" />
+
+      <button type="submit" class="af-submit">Submit request →</button>
+      <p class="af-note">By submitting, you agree to be contacted about VIGILO by CTR.</p>
+    </form>
+
+    <!-- Success state — swapped in after submission -->
+    <div id="accessThanks" class="access-thanks" hidden>
+      <div class="af-thanks-icon">✓</div>
+      <h3>Thanks — request received!</h3>
+      <p>We'll get back to you within <b>one business day</b> at the email you provided.</p>
+      <button type="button" class="af-submit af-submit--ghost" onclick="closeAccessForm()">Close</button>
+    </div>
+
+    <!-- Hidden iframe — form posts here so the page doesn't navigate. -->
+    <iframe name="accessFormTarget" id="accessFormTarget" style="display:none" tabindex="-1" aria-hidden="true"></iframe>
+  </div>
+</div>
 
 <!-- ═══════════════════ DEMO VIDEO MODAL ═══════════════════ -->
 <div id="demoModal" class="demo-modal" hidden role="dialog" aria-modal="true" aria-labelledby="demoTitle">
@@ -1445,6 +1561,34 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 
 <!-- ═══════════════════ Scripts ═══════════════════ -->
 <script>
+// ── Request-demo form modal (Google Forms-backed) ──
+(function(){
+  function open(e){
+    if(e&&e.preventDefault)e.preventDefault();
+    var form=document.getElementById('accessForm'),thanks=document.getElementById('accessThanks'),modal=document.getElementById('accessModal');
+    if(!modal)return;
+    if(form)form.hidden=false;
+    if(thanks)thanks.hidden=true;
+    modal.hidden=false;document.body.style.overflow='hidden';
+    var first=modal.querySelector('input,select,button');if(first)setTimeout(function(){first.focus();},120);
+  }
+  function close(){var m=document.getElementById('accessModal');if(!m)return;m.hidden=true;document.body.style.overflow='';}
+  function submit(form){
+    if(form.website&&form.website.value)return false; // honeypot
+    var btn=form.querySelector('.af-submit');
+    if(btn){btn.disabled=true;btn.dataset.label=btn.innerHTML;btn.innerHTML='Submitting…';}
+    setTimeout(function(){
+      document.getElementById('accessForm').hidden=true;
+      document.getElementById('accessThanks').hidden=false;
+      if(btn){btn.disabled=false;if(btn.dataset.label)btn.innerHTML=btn.dataset.label;}
+      form.reset();
+    },900);
+    return true; // let the form submit into the hidden iframe
+  }
+  window.openAccessForm=open;window.closeAccessForm=close;window.onAccessSubmit=submit;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+
 // ── Sign In popover ──
 (function(){
   var btn=document.getElementById('signinBtn'),pop=document.getElementById('signinPop');
