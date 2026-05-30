@@ -1,6 +1,6 @@
 # VIGILO by CTR — Public design review
 
-This repository hosts four design versions of the new VIGILO by CTR landing page,
+This repository hosts five design versions of the new VIGILO by CTR landing page,
 deployed via **GitHub Pages** for review by external stakeholders.
 
 ## Live URLs
@@ -10,6 +10,7 @@ deployed via **GitHub Pages** for review by external stakeholders.
 - **Version B — Clean White SaaS** · https://ctrmsl.github.io/Public_Web/v/b/
 - **Version C — Institutional / Risk-Intelligence (short)** · https://ctrmsl.github.io/Public_Web/v/c/
 - **Version D — Editorial / Institutional Full** · https://ctrmsl.github.io/Public_Web/v/d/
+- **Version E — Refined Dark Premium (senior craft)** · https://ctrmsl.github.io/Public_Web/v/e/
 
 ## Structure
 
@@ -21,7 +22,8 @@ deployed via **GitHub Pages** for review by external stakeholders.
     a/  index.html  assets/  vigilo-professional-demo.mp4    ← Version A + demo video
     b/  index.html  assets/                                   ← Version B
     c/  index.html  assets/                                   ← Version C
-    d/  index.html  assets/                                   ← Version D
+    d/  index.html  assets/  about-d/                         ← Version D + About-D
+    e/  index.html  assets/  about-e/  vigilo-professional-demo.mp4 ← Version E (refined) + About-E + demo
 ```
 
 ## What's in each version
@@ -32,6 +34,7 @@ deployed via **GitHub Pages** for review by external stakeholders.
 | **B** | Clean White SaaS | Bright theme, oversized stat numerals, generous whitespace. Snowflake-style. |
 | **C** | Institutional / Risk-Intelligence | Editorial navy + cream + gold, Playfair Display serif. Short concept (hero + packs + CTA). |
 | **D** | Editorial Full | Version C's palette applied across the full landing structure. |
+| **E** | Refined Dark Premium | All of A's features matured — Manrope display type, single steel-blue accent, 1-px editorial lines, tabular-numeric stats, terminal utility bar, film-grain overlay, refined cubic-bezier motion. Built like a 20-year-old institution would. |
 
 ## Positioning
 
@@ -40,7 +43,7 @@ VIGILO is positioned as a **Financial Intelligence Platform** for the **three li
 ## Reviewer feedback
 
 Reply with:
-1. Preferred version: A / B / C / D
+1. Preferred version: A / B / C / D / E
 2. One thing you'd change
 3. One thing that should not change
 
