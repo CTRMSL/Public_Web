@@ -186,13 +186,47 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 @media (max-width:980px){.float-card{display:none}}
 
 /* Carousel controls */
-.car-controls{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:5}
-.car-dot{width:32px;height:4px;border-radius:4px;background:rgba(255,255,255,.12);transition:background .25s,width .25s;border:0;padding:0;cursor:pointer}
-.car-dot.is-active{background:linear-gradient(90deg,var(--electric),var(--cyan));width:48px}
-.car-arrow{width:42px;height:42px;border-radius:50%;border:1px solid var(--border-hi);background:rgba(13,23,55,.6);backdrop-filter:blur(8px);display:grid;place-items:center;color:#fff;transition:background .15s,border-color .15s}
-.car-arrow:hover{background:rgba(78,168,255,.16);border-color:var(--electric)}
-.car-arrow svg{width:18px;height:18px}
-@media (max-width:640px){.car-controls{gap:10px;bottom:14px} .car-arrow{width:36px;height:36px}}
+/* Modern carousel controls — sleek glass pill containing arrows + dots + play/pause */
+.car-controls{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  display:inline-flex;align-items:center;gap:6px;z-index:8;
+  padding:7px 12px;border:1px solid rgba(255,255,255,.10);border-radius:999px;
+  background:rgba(8,12,32,.62);backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+.car-controls > * + *{margin-left:0}
+.car-arrow{width:28px;height:28px;border-radius:50%;border:0;background:transparent;
+  color:rgba(255,255,255,.65);display:grid;place-items:center;cursor:pointer;
+  transition:color .18s,background .18s;padding:0}
+.car-arrow:hover{color:#fff;background:rgba(255,255,255,.08)}
+.car-arrow:focus-visible{outline:2px solid var(--electric);outline-offset:2px}
+.car-arrow svg{width:13px;height:13px}
+.car-dot{width:22px;height:3px;border-radius:3px;background:rgba(255,255,255,.18);
+  transition:background .25s,width .25s;border:0;padding:0;cursor:pointer;
+  flex:none}
+.car-dot:hover{background:rgba(255,255,255,.32)}
+.car-dot.is-active{background:linear-gradient(90deg,var(--electric),var(--cyan));width:32px}
+.car-dot + .car-dot{margin-left:4px}
+#carPlayPause{width:28px;height:28px;border-radius:50%;border:0;background:transparent;
+  color:rgba(255,255,255,.65);display:grid;place-items:center;cursor:pointer;
+  transition:color .18s,background .18s;padding:0;margin-left:4px;
+  border-left:1px solid rgba(255,255,255,.10);border-radius:0 999px 999px 0;padding-left:8px;width:36px}
+#carPlayPause:hover{color:#fff;background:rgba(255,255,255,.06)}
+#carPlayPause svg{width:11px;height:11px}
+.car-arrow + .car-dot{margin-left:6px}
+.car-dot + .car-arrow{margin-left:6px}
+@media (max-width:640px){
+  .car-controls{bottom:14px;padding:5px 9px;gap:4px}
+  .car-arrow{width:24px;height:24px}
+  .car-arrow svg{width:11px;height:11px}
+  .car-dot{width:16px}
+  .car-dot.is-active{width:24px}
+  #carPlayPause{display:none} /* save space on mobile — pause-on-touch via JS still works */
+}
+
+/* Slide-5 mission strip — clear the carousel controls on desktop */
+@media (min-width:921px){
+  .slide[data-slide="5"] .about-mission{margin-bottom:64px}
+}
 
 /* Mini visual for slide 2 — transaction network */
 .net{position:relative;aspect-ratio:1.4/1;display:grid;place-items:center}
