@@ -66,6 +66,8 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:28px}
 .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .brand img{height:42px;width:auto}
+.brand--logo img{height:54px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+@media (max-width:640px){.brand--logo img{height:44px}}
 .brand b{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.02em;color:#fff}
 .brand b span{color:var(--gold)}
 .nav-links{display:flex;gap:4px;margin-left:18px;flex:1}
@@ -211,9 +213,8 @@ footer{padding:56px 0 32px;background:#04081a;border-top:1px solid var(--border)
 
 <nav class="nav" aria-label="Primary">
   <div class="nav-inner">
-    <a class="brand" href="../">
-      <img src="../assets/vigilo_shield.png" alt="" />
-      <b>VIGILO <span>by CTR</span></b>
+    <a class="brand brand--logo" href="../">
+      <img src="../assets/vigilo_logo_new.png" alt="VIGILO by CTR — Analytics & Visualization" />
     </a>
     <div class="nav-links">
       <a href="../#product">Product</a>
@@ -431,7 +432,7 @@ footer{padding:56px 0 32px;background:#04081a;border-top:1px solid var(--border)
   <div class="container">
     <div class="ft-grid">
       <div class="col brand-col">
-        <img src="../assets/vigilo_full_updated.png" alt="VIGILO by CTR" />
+        <img src="../assets/vigilo_logo_new.png" alt="VIGILO by CTR" />
         <p><b style="color:var(--text)">Created by Auditors · Engineered for Assurance.</b> A Financial Intelligence Platform for the three lines of defence, across industries.</p>
       </div>
       <div class="col">

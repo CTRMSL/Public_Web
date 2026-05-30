@@ -12,7 +12,7 @@
 <!-- Open Graph -->
 <meta property="og:title" content="VIGILO by CTR — Financial Intelligence Platform for Assurance, Risk & Finance" />
 <meta property="og:description" content="A Financial Intelligence Platform for the three lines of defence. 1,050+ checks across 10 process cycles — built by auditors, engineered for assurance." />
-<meta property="og:image" content="https://ctrmsl.com/assets/vigilo_full_updated.png" />
+<meta property="og:image" content="https://ctrmsl.com/assets/vigilo_logo_new.png" />
 <meta property="og:url" content="https://ctrmsl.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="VIGILO by CTR" />
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="VIGILO by CTR — Financial Intelligence Platform" />
 <meta name="twitter:description" content="1,050+ automated checks · 100% population testing · for the three lines of defence." />
-<meta name="twitter:image" content="https://ctrmsl.com/assets/vigilo_full_updated.png" />
+<meta name="twitter:image" content="https://ctrmsl.com/assets/vigilo_logo_new.png" />
 <!-- Security meta (origin-fallback; primary defence is HTTP headers — see _headers) -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://ctrmsl.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://docs.google.com; form-action 'self' https://docs.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
@@ -28,7 +28,7 @@
 <!-- JSON-LD structured data -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-  {"@type":"Organization","@id":"https://ctrmsl.com/#org","name":"VIGILO by CTR","legalName":"CTR Management Services (Pvt) Ltd","url":"https://ctrmsl.com/","logo":"https://ctrmsl.com/assets/vigilo_full_updated.png","sameAs":["https://www.linkedin.com/company/vigilo-by-ctr"],"description":"Financial Intelligence Platform for the three lines of defence — built by auditors, engineered for assurance.","founder":{"@type":"Person","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect"}},
+  {"@type":"Organization","@id":"https://ctrmsl.com/#org","name":"VIGILO by CTR","legalName":"CTR Management Services (Pvt) Ltd","url":"https://ctrmsl.com/","logo":"https://ctrmsl.com/assets/vigilo_logo_new.png","sameAs":["https://www.linkedin.com/company/vigilo-by-ctr"],"description":"Financial Intelligence Platform for the three lines of defence — built by auditors, engineered for assurance.","founder":{"@type":"Person","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect"}},
   {"@type":"SoftwareApplication","@id":"https://ctrmsl.com/#product","name":"VIGILO","applicationCategory":"BusinessApplication","operatingSystem":"Web / Private VPC / On-premise","offers":{"@type":"Offer","category":"Standard, Pro, Pro+"},"description":"1,050+ automated checks across 10 process cycles for statutory and internal audit teams.","publisher":{"@id":"https://ctrmsl.com/#org"}},
   {"@type":"WebSite","@id":"https://ctrmsl.com/#site","url":"https://ctrmsl.com/","name":"VIGILO by CTR","publisher":{"@id":"https://ctrmsl.com/#org"}}
 ]}
@@ -99,6 +99,10 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .brand img{height:42px;width:auto}
 .brand-mark{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.02em;color:#fff}
 .brand-mark span{color:var(--gold)}
+/* New horizontal logo (shield + wordmark in one image) — taller, no separate text */
+.brand--logo img{height:54px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+@media (max-width:640px){.brand--logo img{height:44px}}
+@media (max-width:380px){.brand--logo img{height:38px}}
 .nav-links{display:flex;gap:4px;margin-left:18px;flex:1}
 .nav-links a{padding:9px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text-mute);transition:color .15s,background .15s}
 .nav-links a:hover,.nav-links a.active{color:#fff;background:var(--surface-2)}
@@ -848,9 +852,8 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 <!-- ═════════════════════════ NAV ═════════════════════════ -->
 <nav class="nav" aria-label="Primary">
   <div class="nav-inner">
-    <a class="brand" href="#main" aria-label="VIGILO by CTR home">
-      <img src="assets/vigilo_shield.png" alt="" />
-      <span class="brand-mark">VIGILO <span>by CTR</span></span>
+    <a class="brand brand--logo" href="#main" aria-label="VIGILO by CTR home">
+      <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR — Analytics & Visualization" />
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#product" class="active">Product</a>
@@ -1832,7 +1835,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   <div class="container">
     <div class="ft-grid">
       <div class="col brand-col">
-        <img src="assets/vigilo_full_updated.png" alt="VIGILO by CTR" />
+        <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR" />
         <p><span class="gold-rotate">Created by Auditors · Engineered for Assurance.</span><br/>A Financial Intelligence Platform for the three lines of defence, across industries.</p>
       </div>
       <div class="col">
