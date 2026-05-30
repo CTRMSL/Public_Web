@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>VIGILO by CTR — Financial Intelligence Platform (Version C · Institutional / Risk-Intelligence)</title>
+<meta name="description" content="Version C design — institutional risk-intelligence landing concept for VIGILO, the Financial Intelligence Platform for the three lines of assurance." />
+<meta name="theme-color" content="#0a1640" />
+<link rel="icon" type="image/png" href="assets/vigilo_shield.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0a1640; --bg-2:#0d1d54; --bg-3:#11236a;
+  --paper:#fdf9f1; --cream:#f5ecdb; --paper-edge:#e9dfc7;
+  --navy-deep:#060d2a; --navy:#0a1640; --navy-2:#152760;
+  --gold:#d6a849; --gold-bright:#f0c574; --gold-deep:#a87a1c;
+  --text-light:#f4ecd6; --text-mute-light:#bdc4dc; --text-faint-light:#8c95b5;
+  --text-dark:#0a1640; --text-mute-dark:#475774;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --max:1280px;
+  --shadow:0 30px 80px -36px rgba(0,0,0,.5);
+  --gold-line:rgba(214,168,73,.36);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--text-dark);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px;position:relative;z-index:1}
+@media (max-width:640px){.container{padding:0 20px}}
+
+/* Top utility bar */
+.utility{background:var(--navy-deep);color:var(--text-mute-light);font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-family:var(--mono);letter-spacing:.06em}
+.utility .container{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.utility b{color:var(--gold-bright)}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:80;background:rgba(10,22,64,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gold-line)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0;color:#fff}
+.brand img{height:46px;width:auto}
+.brand-mark{font-family:var(--serif);font-weight:600;font-size:22px;color:#fff;letter-spacing:.02em}
+.brand-mark span{color:var(--gold-bright);font-weight:600}
+.nav-links{display:flex;gap:0;margin-left:24px;flex:1}
+.nav-links a{padding:10px 16px;font-size:13.5px;font-weight:500;color:var(--text-mute-light);border-bottom:2px solid transparent;text-transform:uppercase;letter-spacing:.06em}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-bright);border-bottom-color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:1px solid transparent;font-weight:600;font-size:13px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:transform .12s,background .15s,color .15s,border-color .15s}
+.btn-primary{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,.25);color:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright)}
+.btn-lg{padding:14px 26px;font-size:13.5px}
+.nav-cta{display:flex;gap:10px;align-items:center}
+@media (max-width:880px){.nav-links{display:none}}
+
+/* Hero — institutional editorial */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy-2) 100%);color:var(--text-light)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(900px 500px at 15% 0%,rgba(214,168,73,.10),transparent 60%),
+    radial-gradient(700px 600px at 90% 90%,rgba(214,168,73,.06),transparent 65%);}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.08;
+  background-image:linear-gradient(rgba(214,168,73,.4) 1px,transparent 1px);background-size:100% 36px;
+  mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);}
+.carousel{position:relative;min-height:min(780px,84vh)}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease;display:flex;align-items:center;padding:56px 0 72px;background:transparent !important;color:inherit !important}
+.slide.is-active{opacity:1;visibility:visible}
+.slide .container{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;width:100%}
+@media (max-width:980px){.slide .container{grid-template-columns:1fr;gap:36px}}
+.brand-pill{display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--gold-line);background:rgba(214,168,73,.08);color:var(--gold-bright);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.brand-pill::before{content:"§";font-family:var(--serif);color:var(--gold);margin-right:10px;font-style:italic}
+.brand-pill em{font-style:normal;color:#fff;margin-right:6px;font-weight:700}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:24px;display:inline-flex;align-items:center;gap:14px;border-left:3px solid var(--gold);padding-left:14px}
+.hero-title{font-family:var(--serif);font-weight:600;font-size:clamp(40px,5.6vw,72px);line-height:1.05;letter-spacing:-0.015em;margin-bottom:22px;color:#fff}
+.hero-title em{font-style:italic;color:var(--gold-bright);font-weight:600}
+.hero-lede{color:var(--text-mute-light);font-size:18px;line-height:1.65;max-width:560px;margin-bottom:34px}
+.hero-lede b{color:#fff;font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:560px}
+.hero-meta div{padding:14px 16px;border-left:2px solid var(--gold);background:rgba(255,255,255,.025)}
+.hero-meta b{display:block;font-family:var(--serif);color:var(--gold-bright);font-size:22px;font-weight:600;line-height:1;margin-bottom:4px}
+.hero-meta span{font-size:11.5px;color:var(--text-mute-light);text-transform:uppercase;letter-spacing:.08em;font-family:var(--mono)}
+
+/* Editorial card with chart */
+.editorial{position:relative;border:1px solid var(--gold-line);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(214,168,73,.04));padding:24px;box-shadow:var(--shadow)}
+.editorial::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-bright),var(--gold))}
+.editorial-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--gold-line);padding-bottom:14px;margin-bottom:18px}
+.editorial-head .tag{font-family:var(--mono);font-size:10.5px;color:var(--gold-bright);letter-spacing:.16em;text-transform:uppercase}
+.editorial-head .live{font-family:var(--mono);font-size:11px;color:var(--text-mute-light)}
+.editorial-head .live i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#36e08b;margin-right:6px;box-shadow:0 0 8px #36e08b}
+.editorial img{border:1px solid rgba(255,255,255,.06);border-radius:4px;display:block;width:100%}
+.editorial-foot{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;border-top:1px solid var(--gold-line);padding-top:16px}
+.editorial-foot div{padding:0 14px;border-right:1px solid rgba(255,255,255,.08)}
+.editorial-foot div:last-child{border-right:0}
+.editorial-foot b{display:block;font-family:var(--serif);font-size:24px;color:#fff;line-height:1}
+.editorial-foot span{display:block;font-family:var(--mono);font-size:10px;color:var(--text-mute-light);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+
+.car-controls{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:5}
+.car-dot{width:32px;height:3px;background:rgba(255,255,255,.18);border:0;cursor:pointer}
+.car-dot.is-active{background:var(--gold-bright);width:48px}
+.car-arrow{width:42px;height:42px;border:1px solid var(--gold-line);background:rgba(0,0,0,.25);color:#fff;display:grid;place-items:center}
+.car-arrow:hover{background:rgba(214,168,73,.12);border-color:var(--gold)}
+.car-arrow svg{width:16px;height:16px}
+
+/* Headline strip — institutional ticker */
+.strip{background:var(--cream);color:var(--navy);padding:14px 0;border-bottom:1px solid var(--paper-edge);font-family:var(--mono);font-size:12px}
+.strip .container{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center}
+.strip span{display:inline-flex;align-items:center;gap:8px;color:var(--text-mute-dark)}
+.strip b{color:var(--navy);font-weight:700}
+.strip .sep{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+/* Sections (light cream) */
+section{padding:96px 0;position:relative;background:var(--paper);color:var(--text-dark)}
+@media (max-width:760px){section{padding:64px 0}}
+.section-rule{border-top:2px solid var(--navy);max-width:1280px;margin:0 auto}
+.section-eye{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:16px}
+.section-eye::before{content:"§";font-family:var(--serif);font-size:20px;color:var(--gold);font-style:italic}
+.section-h2{font-family:var(--serif);font-weight:600;font-size:clamp(34px,4.4vw,54px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px;color:var(--navy);max-width:820px}
+.section-h2 em{font-style:italic;color:var(--gold)}
+.section-sub{color:var(--text-mute-dark);font-size:18px;max-width:680px;margin-bottom:48px;line-height:1.55}
+.section-head.center{text-align:center}
+.section-head.center .section-h2,.section-head.center .section-sub{margin-left:auto;margin-right:auto}
+
+/* Packs */
+.packs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--paper-edge);border:1px solid var(--paper-edge)}
+.pack{padding:24px;background:var(--paper);transition:background .2s,box-shadow .2s}
+.pack:hover{background:#fff;box-shadow:inset 4px 0 0 var(--gold)}
+.pack .pico{font-family:var(--serif);font-size:13px;color:var(--gold-deep);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.pack h3{font-family:var(--serif);font-size:18px;color:var(--navy);font-weight:600;margin-bottom:4px;line-height:1.2}
+.pack .cnt{font-family:var(--mono);font-size:12px;color:var(--gold-deep);font-weight:600;letter-spacing:.04em}
+.pack p{font-size:12.5px;color:var(--text-mute-dark);line-height:1.5;margin-top:8px}
+@media (max-width:1080px){.packs-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.packs-grid{grid-template-columns:1fr}}
+
+/* Outputs / Visualisations — institutional 1px-divided grid */
+.viz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--paper-edge);border:1px solid var(--paper-edge)}
+.viz-card{background:var(--paper);transition:background .2s}
+.viz-card:hover{background:#fff}
+.viz-card img{width:100%;height:auto;display:block;aspect-ratio:16/10;object-fit:cover;object-position:center;border-bottom:1px solid var(--paper-edge)}
+.viz-card .meta{padding:20px 24px}
+.viz-card .meta .tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:6px}
+.viz-card .meta h4{font-family:var(--serif);font-size:18px;color:var(--navy);font-weight:600;margin-bottom:4px;line-height:1.2}
+.viz-card .meta p{font-size:13px;color:var(--text-mute-dark);line-height:1.5}
+@media (max-width:760px){.viz-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.cta-final{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy-2) 100%);color:#fff;padding:96px 0;border-top:6px solid var(--gold)}
+.cta-final h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.8vw,46px);color:#fff;letter-spacing:-.015em;margin-bottom:16px;max-width:760px}
+.cta-final h2 em{font-style:italic;color:var(--gold-bright)}
+.cta-final p{color:var(--text-mute-light);font-size:17px;max-width:600px;margin-bottom:30px}
+.cta-final .btn-ghost{border-color:rgba(255,255,255,.3)}
+
+footer{background:var(--navy-deep);color:var(--text-mute-light);padding:48px 0;font-size:13px;text-align:center}
+footer img{height:60px;margin:0 auto 14px;display:block;filter:brightness(0) invert(1) sepia(.4) saturate(2) hue-rotate(15deg)}
+footer .copy{font-family:var(--mono);letter-spacing:.06em;font-size:11.5px}
+</style>
+</head>
+<body data-theme="bfsi-risk">
+
+<!-- Utility strip — institutional touch -->
+<div class="utility">
+  <div class="container">
+    <span>VIGILO ANALYTICS · INDEX</span>
+    <span>SECURE DEPLOYMENT · ON-PREM &amp; PRIVATE VPC</span>
+    <span><b>LIVE</b> · 1,050+ AUTOMATED CHECKS</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#"><img src="assets/vigilo_shield.png" alt="" /><span class="brand-mark">VIGILO <span>by CTR</span></span></a>
+    <div class="nav-links">
+      <a href="#" class="active">Product</a><a href="#">Analytics Packs</a><a href="#">3 Lines of Defense</a><a href="#">Workflow</a><a href="#">Security</a><a href="#">Insights</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ghost">Sign In</a>
+      <a href="#" class="btn btn-primary">Request Demo</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="carousel" id="carousel">
+    <section class="slide is-active">
+      <div class="container">
+        <div>
+          <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
+          <div class="eyebrow">Volume I · Audit Intelligence</div>
+          <h1 class="hero-title">Created by Auditors.<br/><em>Engineered for Assurance.</em></h1>
+          <p class="hero-lede"><b>1,050+ automated checks</b> turn 100% of your population into exception reports and review-ready evidence — for <b>Statutory &amp; Internal Auditors</b>, <b>CROs &amp; Risk Management</b>, and <b>CFOs &amp; Executives</b> across industries.</p>
+          <div class="hero-cta"><a href="#" class="btn btn-primary btn-lg">View Product</a><a href="#" class="btn btn-ghost btn-lg">Request Demo</a></div>
+          <div class="hero-meta">
+            <div><b>100%</b><span>Population</span></div>
+            <div><b>10M+</b><span>Rows Processed</span></div>
+            <div><b>&lt;24h</b><span>To Exception</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="editorial">
+            <div class="editorial-head">
+              <span class="tag">Engagement · Risk Dashboard</span>
+              <span class="live"><i></i>LIVE</span>
+            </div>
+            <img src="assets/dashboard_1.png" alt="VIGILO risk dashboard" />
+            <div class="editorial-foot">
+              <div><b>3,182</b><span>Exceptions</span></div>
+              <div><b>100%</b><span>Coverage</span></div>
+              <div><b>&lt;24h</b><span>Cycle</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" hidden>
+      <div class="container">
+        <div>
+          <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
+          <div class="eyebrow">Volume II · Three Lines · Across Industries</div>
+          <h1 class="hero-title">Built for the <em>three lines</em><br/>of assurance.</h1>
+          <p class="hero-lede">One platform for the audit, risk and finance functions of modern enterprises — <b>industry-deep, from BFSI to general enterprise</b>.</p>
+          <div class="hero-cta"><a href="#" class="btn btn-primary btn-lg">Explore Packs</a><a href="#" class="btn btn-ghost btn-lg">Three Lines</a></div>
+          <div class="hero-meta">
+            <div><b>180+</b><span>LMS Checks</span></div>
+            <div><b>200+</b><span>P2P Checks</span></div>
+            <div><b>10</b><span>Cycles Covered</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="editorial">
+            <div class="editorial-head">
+              <span class="tag">Executive · Portfolio Risk</span>
+              <span class="live"><i></i>LIVE</span>
+            </div>
+            <img src="assets/executive_reports_1.png" alt="VIGILO executive reports" />
+            <div class="editorial-foot">
+              <div><b>2.74%</b><span>PAR</span></div>
+              <div><b>180+</b><span>LMS Checks</span></div>
+              <div><b>RBI</b><span>Aligned</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="slide" hidden>
+      <div class="container">
+        <div>
+          <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
+          <div class="eyebrow">Volume III · VIGILO in Action</div>
+          <h1 class="hero-title">From raw data to<br/><em>informed action</em>.</h1>
+          <p class="hero-lede"><b>Detect</b> exceptions early. <b>Prevent</b> non-compliances. <b>Decide</b> with full-population evidence. <b>Document</b> a defensible trail — for assurance, risk and finance.</p>
+          <div class="hero-cta"><a href="#" class="btn btn-primary btn-lg">View Demo</a><a href="#" class="btn btn-ghost btn-lg">Download Overview</a></div>
+          <div class="hero-meta">
+            <div><b>05</b><span>Workflow Steps</span></div>
+            <div><b>PG</b><span>PostgreSQL</span></div>
+            <div><b>EQCR</b><span>Ready</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="editorial">
+            <div class="editorial-head">
+              <span class="tag">Analytics · Workflow</span>
+              <span class="live"><i></i>LIVE</span>
+            </div>
+            <img src="assets/analytics_window.png" alt="VIGILO analytics workflow" />
+            <div class="editorial-foot">
+              <div><b>05</b><span>Steps</span></div>
+              <div><b>1,050+</b><span>Checks</span></div>
+              <div><b>Audit</b><span>Trail</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="car-controls">
+      <button class="car-arrow" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="car-dot is-active" data-go="0"></button><button class="car-dot" data-go="1"></button><button class="car-dot" data-go="2"></button>
+      <button class="car-arrow" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- Institutional ticker strip -->
+<div class="strip">
+  <div class="container">
+    <span><b>100%</b> POPULATION</span><span class="sep"></span>
+    <span><b>1,050+</b> CHECKS</span><span class="sep"></span>
+    <span><b>&gt;90%</b> FEWER MAN-HOURS</span><span class="sep"></span>
+    <span><b>&lt;24h</b> EXCEPTION REPORTS</span><span class="sep"></span>
+    <span><b>ON-PREM</b> · PRIVATE-VPC</span><span class="sep"></span>
+    <span><b>POSTGRESQL</b>-BACKED</span>
+  </div>
+</div>
+
+<!-- Packs (editorial grid with 1px dividers) -->
+<section>
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:48px">
+      <div class="section-eye">Analytics Coverage</div>
+      <h2 class="section-h2">Ten process cycles. <em>1,050+ ready-to-run checks.</em></h2>
+      <p class="section-sub">A proprietary library refined over two decades — covering the cycles that drive audit findings across industries, with deep BFSI coverage.</p>
+    </div>
+    <div class="packs-grid">
+      <div class="pack"><div class="pico">I. Procurement</div><h3>Procure-to-Pay</h3><div class="cnt">200+ Checks</div><p>Vendor · Invoice · 3-way Match.</p></div>
+      <div class="pack"><div class="pico">II. Lending</div><h3>Loan Management</h3><div class="cnt">180+ Checks</div><p>IRAC · ECL · DPD · KYC.</p></div>
+      <div class="pack"><div class="pico">III. Receivables</div><h3>Order-to-Cash</h3><div class="cnt">100+ Checks</div><p>AR Ageing · Credit · Write-offs.</p></div>
+      <div class="pack"><div class="pico">IV. General Ledger</div><h3>GL Review</h3><div class="cnt">100+ Checks</div><p>JV · Postings · Controls.</p></div>
+      <div class="pack"><div class="pico">V. Inventory</div><h3>Inventory</h3><div class="cnt">90+ Checks</div><p>Valuation · Movement · Ageing.</p></div>
+      <div class="pack"><div class="pico">VI. People</div><h3>Hire-to-Retire</h3><div class="cnt">75+ Checks</div><p>Payroll · Attendance · Statutory.</p></div>
+      <div class="pack"><div class="pico">VII. Executive</div><h3>Executive Reporting</h3><div class="cnt">70+ Checks</div><p>MIS · KPIs · Summary Reports.</p></div>
+      <div class="pack"><div class="pico">VIII. Assets</div><h3>PPE</h3><div class="cnt">70+ Checks</div><p>Capex · Depreciation · Disposals.</p></div>
+      <div class="pack"><div class="pico">IX. Counterparties</div><h3>Third-Party / Related</h3><div class="cnt">60+ Checks</div><p>Connected-party Detection.</p></div>
+      <div class="pack"><div class="pico">X. Deposits</div><h3>Retail Deposits</h3><div class="cnt">60+ Checks</div><p>KYC · Dormancy · Concentration.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Outputs / Visualisations -->
+<section>
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:48px">
+      <div class="section-eye">Outputs · Visualisations</div>
+      <h2 class="section-h2">From signals to <em>visualisation</em>.</h2>
+      <p class="section-sub">Bar, multi-line, pie, doughnut, split table-plus-chart — every exception comes with the picture that makes it actionable.</p>
+    </div>
+    <div class="viz-grid">
+      <figure class="viz-card"><img src="assets/chart_monthly_bars.png" alt="Bar chart of monthly transaction volumes" loading="lazy" /><figcaption class="meta"><div class="tag">I. Monthly Trend</div><h4>Volumes &amp; outliers at a glance</h4><p>Period-over-period bars surface spikes and seasonality.</p></figcaption></figure>
+      <figure class="viz-card"><img src="assets/chart_state_bars.png" alt="Bars by state code" loading="lazy" /><figcaption class="meta"><div class="tag">II. Distribution</div><h4>Where exceptions concentrate</h4><p>State · branch · vendor · product hot-spots.</p></figcaption></figure>
+      <figure class="viz-card"><img src="assets/chart_lms_npa_bars.png" alt="LMS NPA bar chart" loading="lazy" /><figcaption class="meta"><div class="tag">III. LMS Stage Ageing</div><h4>DPD ageing &amp; staging movement</h4><p>Stage 1 → 2 → 3 movement and NPA-building products.</p></figcaption></figure>
+      <figure class="viz-card"><img src="assets/chart_table_plus_bar.png" alt="Table plus bar split view" loading="lazy" /><figcaption class="meta"><div class="tag">IV. Drill-Through</div><h4>Chart ↔ underlying transactions</h4><p>Click a bar to drop into the exception register.</p></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.4fr auto;gap:36px;align-items:center">
+      <div>
+        <div class="eyebrow" style="border-left-color:var(--gold-bright);color:var(--gold-bright)">Request Access · Pilot Programme</div>
+        <h2>Transform assurance, risk and finance with <em>exception-led analytics</em>.</h2>
+        <p>Evaluate VIGILO on a defined scope of your own data — no disruption, no sampling. We respond within one business day.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#" class="btn btn-primary btn-lg">Request Demo</a>
+        <a href="#" class="btn btn-ghost btn-lg">Watch Walkthrough</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <img src="assets/vigilo_full_updated.png" alt="VIGILO by CTR" />
+    <span class="copy">FINANCIAL INTELLIGENCE PLATFORM · CREATED BY AUDITORS · ENGINEERED FOR ASSURANCE · CTRMSL.COM · © 2026 VIGILO BY CTR</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const car=document.getElementById('carousel');
+  const slides=Array.from(car.querySelectorAll('.slide'));
+  const dots=Array.from(car.querySelectorAll('.car-dot'));
+  let idx=0,timer=null;
+  function show(i){idx=(i+slides.length)%slides.length;slides.forEach((s,k)=>{const a=k===idx;s.classList.toggle('is-active',a);s.hidden=!a;});dots.forEach((d,k)=>d.classList.toggle('is-active',k===idx));}
+  function next(){show(idx+1)} function prev(){show(idx-1)}
+  function start(){clearInterval(timer);timer=setInterval(next,6500);}
+  document.getElementById('prev').onclick=()=>{prev();start();};
+  document.getElementById('next').onclick=()=>{next();start();};
+  dots.forEach(d=>d.onclick=()=>{show(+d.dataset.go);start();});
+  car.addEventListener('mouseenter',()=>clearInterval(timer));
+  car.addEventListener('mouseleave',start);
+  start();
+})();
+</script>
+</body>
+</html>

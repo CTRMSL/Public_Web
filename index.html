@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>VIGILO by CTR — Design Review · Pick a version</title>
+<meta name="description" content="Four design versions of the VIGILO by CTR landing page — open any one to interact with the full design." />
+<meta name="theme-color" content="#060a1c" />
+<link rel="icon" type="image/png" href="previews/logo.png" />
+<meta property="og:title" content="VIGILO by CTR — Design Review" />
+<meta property="og:description" content="Four design versions of the VIGILO landing page. Tap one to review." />
+<meta property="og:image" content="previews/a.png" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#060a1c; --bg-2:#0a1230;
+  --surface:#0e1638; --surface-2:rgba(255,255,255,.04);
+  --border:rgba(255,255,255,.10); --border-hi:rgba(122,176,255,.28);
+  --text:#eef2ff; --text-mute:#9aa6c8; --text-faint:#6b76a0;
+  --electric:#4ea8ff; --electric-bright:#7fc2ff;
+  --cyan:#2fe0c8; --gold:#d6a849; --gold-bright:#f0c574;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 12% -10%, rgba(78,168,255,.10), transparent 55%),
+    radial-gradient(1100px 700px at 92% 8%, rgba(47,224,200,.07), transparent 60%);}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--electric);outline-offset:3px;border-radius:6px}
+
+.container{max-width:1240px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+@media(max-width:640px){.container{padding:0 18px}}
+
+/* Top bar */
+.bar{padding:22px 0 18px;border-bottom:1px solid var(--border);background:rgba(6,10,28,.82);backdrop-filter:saturate(140%) blur(14px)}
+.bar .container{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:40px;width:auto}
+.brand b{font-family:var(--serif);font-weight:600;font-size:22px;color:#fff;letter-spacing:.01em}
+.brand b span{color:var(--gold-bright);font-weight:600}
+.brand small{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);display:block;line-height:1;margin-top:4px}
+.bar .tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--electric-bright);border:1px solid var(--border-hi);padding:7px 14px;border-radius:999px}
+
+/* Hero */
+.hero{padding:68px 0 34px;text-align:center}
+.hero .eye{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--electric-bright);margin-bottom:18px}
+.hero .eye::before,.hero .eye::after{content:"";width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--electric))}
+.hero .eye::after{background:linear-gradient(90deg,var(--electric),transparent)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.2vw,58px);line-height:1.08;letter-spacing:-.02em;margin-bottom:18px;color:#fff}
+.hero h1 em{font-style:italic;color:var(--gold-bright);font-weight:600}
+.hero p{color:var(--text-mute);font-size:17px;line-height:1.6;max-width:640px;margin:0 auto}
+.hero p b{color:#fff;font-weight:600}
+@media(max-width:520px){.hero{padding:48px 0 28px}.hero p{font-size:15.5px}}
+
+/* Versions grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;padding:34px 0 64px}
+@media(max-width:760px){.grid{grid-template-columns:1fr;gap:18px;padding:28px 0 48px}}
+
+.card{position:relative;display:flex;flex-direction:column;border:1px solid var(--border);border-radius:20px;background:linear-gradient(180deg,var(--surface),#0b1230);overflow:hidden;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;text-decoration:none;color:inherit}
+.card:hover{transform:translateY(-4px);border-color:var(--border-hi);box-shadow:0 30px 70px -36px rgba(78,168,255,.45)}
+.card .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#020618}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.card .shot::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--electric),var(--cyan),transparent);opacity:.75}
+.card .body{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column}
+.card .badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--electric-bright);font-weight:600;margin-bottom:12px}
+.card .badge .letter{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;background:rgba(78,168,255,.16);border:1px solid var(--border-hi);color:#fff;font-family:var(--serif);font-weight:600;font-size:14px;font-style:italic}
+.card.b .badge .letter{background:rgba(255,255,255,.96);color:#001f5c;border-color:rgba(255,255,255,.4)}
+.card.b .badge{color:#3e8aff}
+.card.b .shot::after{background:linear-gradient(90deg,transparent,#3e8aff,#00b3a4,transparent)}
+.card.c .badge .letter,.card.d .badge .letter{background:rgba(214,168,73,.18);color:var(--gold-bright);border-color:rgba(214,168,73,.45)}
+.card.c .badge,.card.d .badge{color:var(--gold-bright)}
+.card.c .shot::after,.card.d .shot::after{background:linear-gradient(90deg,transparent,var(--gold),var(--gold-bright),transparent)}
+.card h2{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.15;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
+.card .blurb{font-size:14px;color:var(--text-mute);line-height:1.55;margin-bottom:18px;flex:1}
+.card .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.card .meta span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);padding:4px 10px;border:1px solid var(--border);border-radius:999px;font-weight:600}
+.card .cta{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:11px 20px;border-radius:10px;font-family:var(--sans);font-weight:600;font-size:14px;background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;border:1px solid rgba(255,255,255,.2);box-shadow:0 8px 20px -10px rgba(78,168,255,.6);transition:filter .15s}
+.card .cta:hover{filter:brightness(1.08)}
+.card.b .cta{background:#0066ff;color:#fff;box-shadow:0 8px 20px -10px rgba(0,102,255,.55)}
+.card.c .cta,.card.d .cta{background:var(--gold);color:#1a1408;box-shadow:0 8px 20px -10px rgba(214,168,73,.55);border-color:rgba(255,255,255,.18)}
+.recommended{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#1a1408;background:linear-gradient(135deg,var(--gold-bright),var(--gold));padding:6px 12px;border-radius:999px;font-weight:700;z-index:3;box-shadow:0 6px 18px -8px rgba(214,168,73,.7)}
+
+/* Tips */
+.tips{padding:28px 0 64px;border-top:1px solid var(--border)}
+.tips h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--electric-bright);margin-bottom:14px;text-align:center}
+.tips ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:980px;margin:0 auto}
+.tips li{padding:18px 20px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.025);color:var(--text-mute);font-size:13.5px;line-height:1.5}
+.tips li b{color:#fff;font-weight:600;display:block;margin-bottom:4px;font-family:var(--serif);font-size:15px}
+@media(max-width:780px){.tips ul{grid-template-columns:1fr}}
+
+footer{padding:30px 0 50px;text-align:center;color:var(--text-faint);font-family:var(--mono);font-size:11px;letter-spacing:.1em}
+footer a{color:var(--gold-bright)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="container">
+    <a class="brand" href="./">
+      <img src="previews/logo.png" alt="VIGILO" />
+      <div><b>VIGILO <span>by CTR</span></b><small>Financial Intelligence Platform</small></div>
+    </a>
+    <span class="tag">★ Design Review · 4 versions</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eye">Pick a version to review</div>
+    <h1>Four directions for the new <em>VIGILO</em> landing page.</h1>
+    <p>Tap any card to open the full interactive design. Carousel, hover, scroll, mobile layout — everything works just like the live site. <b>Best on a phone or laptop.</b></p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="grid">
+
+    <!-- Version A (recommended) -->
+    <a class="card a" href="v/a/" aria-label="Open Version A — Premium Dark Enterprise">
+      <span class="recommended">★ Recommended</span>
+      <div class="shot"><img src="previews/a.png" alt="Version A hero — premium dark enterprise" loading="eager" /></div>
+      <div class="body">
+        <div class="badge"><span class="letter">A</span>Premium Dark Enterprise</div>
+        <h2>The recommended design — modern, premium, demo-video included.</h2>
+        <p class="blurb">Dark navy + electric-blue accents, real product UI in macOS-style device frames, the full 10-section landing, and the wired 30-second demo video.</p>
+        <div class="meta"><span>1,050+ checks</span><span>3-slide carousel</span><span>Demo video</span><span>Most depth</span></div>
+        <span class="cta">Open Version A →</span>
+      </div>
+    </a>
+
+    <!-- Version B -->
+    <a class="card b" href="v/b/" aria-label="Open Version B — Clean White SaaS">
+      <div class="shot"><img src="previews/b.png" alt="Version B hero — clean white SaaS" loading="lazy" /></div>
+      <div class="body">
+        <div class="badge"><span class="letter">B</span>Clean White SaaS</div>
+        <h2>Bright, restrained, Snowflake-style — let the numbers do the talking.</h2>
+        <p class="blurb">Clean white background, oversized statistics, electric-blue accents, generous whitespace. Easy on the eye, very modern SaaS.</p>
+        <div class="meta"><span>White theme</span><span>Oversized stats</span><span>Snowflake-style</span></div>
+        <span class="cta">Open Version B →</span>
+      </div>
+    </a>
+
+    <!-- Version C -->
+    <a class="card c" href="v/c/" aria-label="Open Version C — Institutional / Risk-Intelligence">
+      <div class="shot"><img src="previews/c.png" alt="Version C hero — institutional / risk-intelligence" loading="lazy" /></div>
+      <div class="body">
+        <div class="badge"><span class="letter">C</span>Institutional · Risk-Intelligence</div>
+        <h2>Editorial gravitas — Moody's / S&amp;P feel in navy + cream + gold.</h2>
+        <p class="blurb">A short institutional concept: serif Playfair Display headlines on cream paper, navy hero, gold accents. Strong "research note" credibility.</p>
+        <div class="meta"><span>Navy + gold</span><span>Serif editorial</span><span>Short concept</span></div>
+        <span class="cta">Open Version C →</span>
+      </div>
+    </a>
+
+    <!-- Version D -->
+    <a class="card d" href="v/d/" aria-label="Open Version D — Editorial Full">
+      <div class="shot"><img src="previews/d.png" alt="Version D hero — editorial full" loading="lazy" /></div>
+      <div class="body">
+        <div class="badge"><span class="letter">D</span>Editorial · Institutional Full</div>
+        <h2>The editorial palette applied across the entire landing structure.</h2>
+        <p class="blurb">Version C's voice extended to every section: product showcase, 4-up stats, 10 packs, workflow, three lines of defense, use cases, security band, CTA.</p>
+        <div class="meta"><span>Full structure</span><span>Cream + gold</span><span>Most editorial</span></div>
+        <span class="cta">Open Version D →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="tips">
+  <div class="container">
+    <h3>Tips for the reviewer</h3>
+    <ul>
+      <li><b>Carousel auto-rotates</b> every 6.5 s. Hover (or tap) to pause; swipe / arrows / dots all work.</li>
+      <li><b>Product showcase</b> — click the thumbnails on the right to swap the main dashboard image.</li>
+      <li><b>Watch Demo / Walkthrough</b> button on Version A plays the 30-sec product video right inside the page.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Created by Auditors · Engineered for Assurance · <a href="https://ctrmsl.com/">ctrmsl.com</a> · © 2026 VIGILO by CTR
+  </div>
+</footer>
+
+</body>
+</html>
