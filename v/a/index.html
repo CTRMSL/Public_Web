@@ -571,13 +571,14 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 .access-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:320;padding:24px;overflow-y:auto}
 .access-modal:not([hidden]){display:flex}
 .access-modal .bd{position:absolute;inset:0;background:rgba(2,6,18,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.access-card{position:relative;max-width:540px;width:100%;background:linear-gradient(180deg,var(--surface),#0a1230);border:1px solid var(--border-hi);border-radius:20px;padding:34px 32px 32px;box-shadow:var(--shadow-glow);max-height:96vh;overflow-y:auto}
-.access-card::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,transparent,var(--electric),var(--cyan),transparent)}
+.access-card{position:relative;max-width:540px;width:100%;background:linear-gradient(180deg,var(--surface),#0a1230);border:1.5px solid rgba(214,168,73,.55);border-radius:20px;padding:34px 32px 32px;box-shadow:0 0 0 1px rgba(214,168,73,.18),0 30px 80px -30px rgba(214,168,73,.5),0 0 60px -20px rgba(214,168,73,.35);max-height:96vh;overflow-y:auto}
+.access-card::before{content:"";position:absolute;top:-1.5px;left:-1.5px;right:-1.5px;height:3px;border-top-left-radius:20px;border-top-right-radius:20px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-bright),var(--gold),transparent);animation:gold-shift 4s linear infinite;background-size:200% 100%}
 .access-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font-size:22px;line-height:1;cursor:pointer;transition:background .15s,border-color .15s}
 .access-close:hover{background:rgba(78,168,255,.25);border-color:var(--electric)}
 .access-head{margin-bottom:22px}
 .access-head .pill{display:inline-flex;align-items:center;padding:5px 12px;border:1px solid var(--border-hi);border-radius:999px;background:rgba(78,168,255,.1);color:var(--electric-bright);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
-.access-head h3{font-family:var(--display);font-weight:700;font-size:24px;color:#fff;letter-spacing:-.01em;margin-bottom:6px}
+.access-head h3{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.012em;margin-bottom:6px;background:linear-gradient(90deg,#b88c3a 0%,#d6a849 22%,#f0c574 42%,#fde3a7 55%,#f0c574 68%,#d6a849 82%,#b88c3a 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gold-shift 6s linear infinite;display:inline-block;filter:drop-shadow(0 0 .4px rgba(214,168,73,.85)) drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+@media (prefers-reduced-motion:reduce){.access-head h3{animation:none}}
 .access-head p{color:var(--text-mute);font-size:14px;line-height:1.55}
 .access-form{display:grid;gap:14px}
 .af-field{display:grid;gap:6px}
@@ -681,29 +682,102 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 @media (max-width:680px){.eyebrow.is-gold,.section-eye.is-gold{font-size:11px}}
 
 /* ─────────────────────────────────────────────────────────
-   Slide-5 (About gist) — refined layout
+   Slide-5 (About gist) — full-width layout (no blank right void)
    ───────────────────────────────────────────────────────── */
-.about-slide{grid-template-columns:1.15fr .85fr !important;gap:44px !important;max-width:1180px;margin:0 auto;align-items:center}
-.about-slide-left h1{font-size:clamp(30px,4.2vw,52px) !important;line-height:1.08 !important;margin-bottom:14px !important;letter-spacing:-.022em !important}
-.about-slide-left p{font-size:16px;line-height:1.6;margin-bottom:22px;color:var(--text-mute);max-width:520px}
+.slide[data-slide="5"] .container{display:block !important;padding-left:32px;padding-right:32px}
+@media (max-width:640px){.slide[data-slide="5"] .container{padding-left:20px;padding-right:20px}}
+.about-slide{display:grid !important;grid-template-columns:1.25fr .95fr !important;gap:56px !important;max-width:1240px;margin:0 auto;align-items:start;width:100%}
+.about-slide-left h1{font-size:clamp(28px,3.8vw,46px) !important;line-height:1.08 !important;margin-bottom:14px !important;letter-spacing:-.022em !important}
+.about-slide-left p{font-size:15.5px;line-height:1.6;margin-bottom:20px;color:var(--text-mute);max-width:560px}
 .about-slide-left .pillar-mini{margin-bottom:14px !important}
 /* Stats: 4 columns in one line on desktop, 2x2 on small */
 .about-slide-grid{grid-template-columns:repeat(4,1fr) !important;gap:10px !important;max-width:560px}
-.about-slide-grid div{padding:13px 12px !important;border-radius:10px !important;text-align:center;background:rgba(255,255,255,.03) !important;border-color:rgba(255,255,255,.08) !important}
-.about-slide-grid b{font-size:18px !important;color:var(--gold-bright) !important;font-weight:700 !important;margin-bottom:4px !important}
-.about-slide-grid span{font-size:10px !important;letter-spacing:.08em !important}
+.about-slide-grid div{padding:12px 12px !important;border-radius:10px !important;text-align:center;background:rgba(255,255,255,.03) !important;border-color:rgba(255,255,255,.08) !important}
+.about-slide-grid b{font-size:17px !important;color:var(--gold-bright) !important;font-weight:800 !important;margin-bottom:3px !important;font-family:var(--display)}
+.about-slide-grid span{font-size:9.5px !important;letter-spacing:.08em !important;font-weight:700}
 @media (max-width:680px){
   .about-slide-grid{grid-template-columns:repeat(2,1fr) !important;max-width:none}
   .about-slide-grid b{font-size:20px !important}
 }
-/* Portrait card — simpler, less text */
-.about-portrait{padding:28px 26px !important;min-height:auto !important;border-radius:18px !important}
-.about-portrait .sil{width:110px !important;height:110px !important;margin:0 auto 14px !important;border-width:1px !important}
+/* Right column wrapper — portrait card + sub-bands */
+.about-right-stack{display:flex;flex-direction:column;gap:14px;width:100%}
+/* Portrait card — fills column width fully */
+.about-portrait{padding:26px 24px !important;min-height:auto !important;border-radius:18px !important;width:100%;text-align:left !important;display:grid !important;grid-template-columns:96px 1fr;gap:18px;align-items:center;justify-content:start !important}
+.about-portrait .sil{width:96px !important;height:96px !important;margin:0 !important;border-width:1px !important;flex:none;grid-row:span 2}
 .about-portrait .sil svg{width:60%;height:auto;margin:25%}
-.about-portrait .name{font-size:20px !important}
-.about-portrait .role{margin-top:5px !important;font-size:9.5px !important}
-.about-portrait .qual{margin-top:14px !important;font-size:10.5px !important;padding:9px 14px;border:1px solid var(--border);border-radius:999px;display:inline-block;background:rgba(255,255,255,.02);letter-spacing:.04em}
-.about-portrait .vision{margin-top:14px !important;padding-top:14px !important;font-size:12.5px !important;line-height:1.55 !important}
+.about-portrait .name{font-size:20px !important;font-family:var(--display);font-weight:800;letter-spacing:-.012em;line-height:1.1}
+.about-portrait .role{margin-top:4px !important;font-size:10px !important;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);font-weight:700}
+.about-portrait .name-block{grid-column:2}
+.about-portrait .qual{margin-top:14px !important;font-size:10.5px !important;padding:8px 12px;border:1px solid var(--border);border-radius:999px;display:inline-block;background:rgba(255,255,255,.02);letter-spacing:.04em;font-family:var(--mono);color:var(--text-mute);grid-column:1 / -1}
+.about-portrait .vision{margin-top:0 !important;padding-top:14px !important;font-size:13px !important;line-height:1.55 !important;grid-column:1 / -1;font-style:italic;color:var(--text-mute)}
+.about-portrait .vision b{font-style:normal;color:var(--electric-bright);font-weight:700}
+
+/* Sub-cards in right column — fills the vertical blank space */
+.about-aux{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-aux-card{padding:18px 18px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,rgba(78,168,255,.04),rgba(255,255,255,.018));position:relative;overflow:hidden}
+.about-aux-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--electric),transparent);opacity:.5}
+.about-aux-card .ic{width:30px;height:30px;border-radius:8px;background:rgba(214,168,73,.12);border:1px solid rgba(214,168,73,.35);display:grid;place-items:center;color:var(--gold-bright);margin-bottom:10px}
+.about-aux-card .ic svg{width:16px;height:16px}
+.about-aux-card h4{font-family:var(--display);font-size:13.5px;color:#fff;font-weight:700;margin-bottom:4px;letter-spacing:-.005em;line-height:1.25}
+.about-aux-card p{font-size:12px !important;color:var(--text-mute);line-height:1.5;margin:0 !important}
+
+/* Mission strip — sits below both columns to fill horizontal blank space */
+.about-mission{margin-top:36px;padding:24px 28px;border:1px solid rgba(214,168,73,.25);border-radius:16px;background:linear-gradient(135deg,rgba(214,168,73,.06),rgba(78,168,255,.04));display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+.about-mission .mark{font-family:var(--display);font-size:48px;color:var(--gold-bright);line-height:.7;opacity:.55;flex:none}
+.about-mission .text{font-family:var(--display);font-style:italic;font-size:16px;color:#fff;line-height:1.45;font-weight:500}
+.about-mission .text b{color:var(--gold-bright);font-style:normal;font-weight:700}
+.about-mission .att{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);font-weight:700;text-align:right;line-height:1.5;flex:none}
+.about-mission .att b{display:block;color:var(--gold-bright);font-weight:700}
+@media (max-width:920px){
+  .about-slide{grid-template-columns:1fr !important;gap:32px !important}
+  .about-aux{grid-template-columns:1fr 1fr}
+  .about-mission{grid-template-columns:auto 1fr;gap:18px}
+  .about-mission .att{display:none}
+}
+@media (max-width:520px){.about-aux{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   "Financial Intelligence Platform" — gold treatment (non-distracting)
+   Applied in:
+     · brand-pill (gold trailing tag)
+     · product section h2 (gold gradient on em)
+     · footer copyright accent line
+   Skipped in flow text where bold/em already carry emphasis.
+   ───────────────────────────────────────────────────────── */
+.brand-pill .fip{
+  background:linear-gradient(90deg,#d6a849,#f0c574,#fde3a7,#f0c574,#d6a849);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+  animation:gold-shift 7s linear infinite;
+  font-weight:800;
+  filter:drop-shadow(0 0 .3px rgba(214,168,73,.85));
+}
+@media (prefers-reduced-motion:reduce){.brand-pill .fip{animation:none}}
+.section-h2 em.fip-gold{
+  background:none !important;
+  -webkit-background-clip:initial !important;background-clip:initial !important;
+  color:var(--gold-bright) !important;
+  -webkit-text-fill-color:var(--gold-bright) !important;
+  filter:none;
+  font-weight:700;
+}
+.ft-bottom .fip{color:var(--gold-bright);font-weight:700}
+
+/* Slide-3 workflow step numerals 01-04 — gold + bolder */
+.wf-step .n{
+  background:linear-gradient(135deg,rgba(214,168,73,.20),rgba(240,197,116,.10)) !important;
+  border-color:rgba(214,168,73,.45) !important;
+  color:var(--gold-bright) !important;
+  font-weight:800 !important;
+  font-size:14px !important;
+  letter-spacing:.02em;
+  text-shadow:0 1px 8px rgba(214,168,73,.35);
+}
+.wf-step:hover .n{
+  background:linear-gradient(135deg,rgba(214,168,73,.28),rgba(240,197,116,.16)) !important;
+  border-color:rgba(240,197,116,.6) !important;
+}
 
 /* ─────────────────────────────────────────────────────────
    Plans / Tiers section (Standard · Pro · Pro+)
@@ -790,7 +864,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
     <section class="slide is-active" data-slide="1" aria-roledescription="slide" aria-label="Slide 1 of 5 —Created by Auditors. Engineered for Assurance.">
       <div class="container">
         <div>
-          <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
+          <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
           <div class="eyebrow is-gold"><span class="dot-indic live"></span><span class="gold-rotate">Created by Auditors · Engineered for Assurance</span></div>
           <h1 class="hero-title">Automated analytics<br/>built for the <em>modern assurance</em> team.</h1>
           <p class="hero-lede">
@@ -831,7 +905,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
     <section class="slide" data-slide="2" aria-roledescription="slide" aria-label="Slide 2 of 5 —Built for the three lines of defence" hidden>
       <div class="container">
         <div>
-          <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
+          <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
           <div class="eyebrow is-gold"><span class="dot-indic"></span><span class="gold-rotate">Three Lines of Defence · Across Industries</span></div>
           <h1 class="hero-title">Empowering the<br/><em>Three Lines</em> of Defence.</h1>
           <p class="hero-lede">
@@ -873,7 +947,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
     <section class="slide" data-slide="3" aria-roledescription="slide" aria-label="Slide 3 of 5 —From raw data to informed action" hidden>
       <div class="container">
         <div>
-          <div class="brand-pill"><em>VIGILO</em> · Financial Intelligence Platform</div>
+          <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
           <div class="eyebrow"><span class="dot-indic"></span>VIGILO in Action</div>
           <h1 class="hero-title">From raw data to<br/><em>informed action</em>.</h1>
           <p class="hero-lede">
@@ -937,20 +1011,56 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
               <div><b>40-50%</b><span>Time saved</span></div>
               <div><b>15-yr</b><span>Vision</span></div>
             </div>
-            <div class="hero-cta" style="margin-top:26px">
+            <div class="hero-cta" style="margin-top:24px">
               <a href="about/" class="btn btn-primary btn-lg">Read our story →</a>
               <a href="#contact" class="btn btn-ghost btn-lg">Request Demo</a>
             </div>
           </div>
-          <aside class="about-portrait" aria-label="VIGILO founder">
-            <div class="sil" aria-hidden="true">
-              <svg viewBox="0 0 80 80" fill="none" stroke="rgba(127,194,255,0.6)" stroke-width="1.6"><circle cx="40" cy="30" r="13"/><path d="M16 72c0-12 10-21 24-21s24 9 24 21"/></svg>
+
+          <div class="about-right-stack">
+            <aside class="about-portrait" aria-label="VIGILO founder">
+              <div class="sil" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none" stroke="rgba(127,194,255,0.6)" stroke-width="1.6"><circle cx="40" cy="30" r="13"/><path d="M16 72c0-12 10-21 24-21s24 9 24 21"/></svg>
+              </div>
+              <div class="name-block">
+                <div class="name">Chandra Mohan</div>
+                <div class="role">Founder · Architect</div>
+              </div>
+              <div class="qual">B.Com · FCA · CISA · CIA · CFE · FAFD</div>
+              <div class="vision"><b>Vision</b> · A world-class Financial Intelligence Platform — supported by a 10+ year engineering bench.</div>
+            </aside>
+
+            <!-- Two-up aux cards: what the team is + what the product covers -->
+            <div class="about-aux">
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M3 20v-1.5a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4V20"/><path d="M14 20v-1.5a4 4 0 0 1 4-4h.5a3.5 3.5 0 0 1 3.5 3.5V20"/></svg></div>
+                <h4>CA-led · Engineering-strong</h4>
+                <p>Founder + audit-led review board, plus a 10+ year engineering bench building defensible pipelines.</p>
+              </div>
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
+                <h4>10 cycles · 1,050+ checks</h4>
+                <p>P2P · LMS · O2C · GL · Inventory · HR · Exec Reporting · PPE · TPR · Retail Deposits.</p>
+              </div>
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 14h6"/></svg></div>
+                <h4>BFSI specialisation</h4>
+                <p>Two decades of statutory, internal and forensic audits — deep coverage of banking, NBFC and FinServ data.</p>
+              </div>
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z"/></svg></div>
+                <h4>Defensible by design</h4>
+                <p>Every flag traceable to source, rule version and reviewer — EQCR &amp; TCWG-ready evidence packs.</p>
+              </div>
             </div>
-            <div class="name">Chandra Mohan</div>
-            <div class="role">Founder · Architect</div>
-            <div class="qual">B.Com · FCA · CISA · CIA · CFE</div>
-            <div class="vision"><b>Vision</b> · A world-class Financial Intelligence Platform — supported by a 10+ year engineering bench.</div>
-          </aside>
+          </div>
+        </div>
+
+        <!-- Mission strip — fills the horizontal blank space below the two columns -->
+        <div class="about-mission" role="note" aria-label="VIGILO mission">
+          <div class="mark" aria-hidden="true">"</div>
+          <p class="text">To deliver a <b>world-class, state-of-the-art Financial Intelligence Platform</b> that returns 40–50% of an auditor's time to the work that actually requires judgement.</p>
+          <div class="att">Founder's Vision<b>VIGILO by CTR · 2026</b></div>
         </div>
       </div>
     </section>
@@ -1025,7 +1135,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eye">The Product</div>
-      <h2 class="section-h2">A <em>Financial Intelligence Platform</em> — built by auditors.</h2>
+      <h2 class="section-h2">A <em class="fip-gold">Financial Intelligence Platform</em> — built by auditors.</h2>
       <p class="section-sub">Engagement dashboards, full-population analytics, exception registers and defensible evidence packs — one disciplined workspace for assurance, risk and finance, from raw data to informed action.</p>
     </div>
 
@@ -1530,9 +1640,6 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
           <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>Email</h4>
           <ul>
             <li><b>Demo &amp; pilots</b><span><a href="mailto:info@ctrmsl.com?subject=VIGILO%20Demo%20Request">info@ctrmsl.com</a></span></li>
-            <li><b>Sales &amp; commercial</b><span><a href="mailto:info@ctrmsl.com?subject=VIGILO%20Sales%20Enquiry">info@ctrmsl.com</a></span></li>
-            <li><b>Support &amp; success</b><span><a href="mailto:info@ctrmsl.com?subject=VIGILO%20Support">info@ctrmsl.com</a></span></li>
-            <li><b>Partnerships</b><span><a href="mailto:info@ctrmsl.com?subject=VIGILO%20Partnership">info@ctrmsl.com</a></span></li>
           </ul>
         </div>
 
@@ -1728,7 +1835,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       </div>
     </div>
     <div class="ft-bottom">
-      <span>© 2026 VIGILO by CTR · <a href="https://ctrmsl.com/" style="color:var(--text-mute)">ctrmsl.com</a> · ★ Financial Intelligence Platform</span>
+      <span>© 2026 VIGILO by CTR · <a href="https://ctrmsl.com/" style="color:var(--text-mute)">ctrmsl.com</a> · ★ <span class="fip">Financial Intelligence Platform</span></span>
       <div class="social" aria-label="Social links">
         <a href="https://www.linkedin.com/company/vigilo-by-ctr" target="_blank" rel="noopener noreferrer" aria-label="VIGILO on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-11 14H6V10h2zm-1-8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 8h-2v-3.5c0-.83-.67-1.5-1.5-1.5S11 12.67 11 13.5V17H9v-7h2v1.07c.42-.65 1.17-1.07 2-1.07 1.66 0 3 1.34 3 3z"/></svg></a>
         <a href="mailto:info@ctrmsl.com" aria-label="Email VIGILO"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></a>
