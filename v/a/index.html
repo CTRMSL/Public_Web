@@ -488,15 +488,26 @@ footer{padding:48px 0 32px;background:#04081a;border-top:1px solid var(--border)
 .testi-foot{text-align:center;margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--text-faint);text-transform:uppercase}
 
 /* ─────────────────────────────────────────────────────────
-   Logo strip — placeholder until real client logos available
+   Trust strip — "Built for institutions like these" — industry-category pills
+   (Replaces the earlier placeholder-logo layout. When real client logos are
+    available with permission, swap back to grayscale <img> tiles.)
    ───────────────────────────────────────────────────────── */
-.logo-strip{padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,.012)}
-.logo-strip .lbl{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute);margin-bottom:24px}
+.logo-strip{padding:56px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,.012)}
+.logo-strip .lbl{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute);margin-bottom:28px}
 .logo-strip .lbl b{color:#fff}
-.logo-row{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;align-items:center}
-.logo-row .placeholder{height:48px;border:1px dashed var(--border-hi);border-radius:10px;display:grid;place-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--text-faint);text-transform:uppercase;background:rgba(255,255,255,.018);opacity:.7;transition:opacity .15s,border-color .15s}
-.logo-row .placeholder:hover{opacity:1;border-color:var(--border-hi);color:var(--text-mute)}
-@media (max-width:880px){.logo-row{grid-template-columns:repeat(3,1fr)}}
+.segments-row{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;align-items:stretch;max-width:1180px;margin:0 auto}
+.seg{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025);transition:transform .25s,border-color .25s,background .25s;min-height:96px;text-align:center}
+.seg::before{content:"";position:absolute;top:0;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.45;transition:opacity .25s}
+.seg:hover{transform:translateY(-2px);border-color:var(--border-hi);background:rgba(255,255,255,.04)}
+.seg:hover::before{opacity:.85}
+.seg .ic{width:30px;height:30px;border-radius:7px;background:rgba(214,168,73,.10);border:1px solid rgba(214,168,73,.32);display:grid;place-items:center;color:var(--gold-bright);flex:none}
+.seg .ic svg{width:15px;height:15px}
+.seg b{font-family:var(--display);font-weight:700;font-size:13.5px;color:#fff;letter-spacing:-.005em;line-height:1.2}
+.seg span{font-family:var(--mono);font-size:9.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-faint);line-height:1.4}
+.segments-foot{text-align:center;margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)}
+.segments-foot em{font-style:normal;color:var(--gold-bright)}
+@media (max-width:980px){.segments-row{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.segments-row{grid-template-columns:repeat(2,1fr);gap:10px}.seg{padding:14px 10px;min-height:88px}.seg b{font-size:12.5px}}
 @media (max-width:520px){.logo-row{grid-template-columns:repeat(2,1fr)}}
 
 /* ─────────────────────────────────────────────────────────
@@ -1150,18 +1161,44 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 </header>
 
 <!-- ═══════════════════ LOGO STRIP (placeholder until real client logos approved) ═══════════════════ -->
-<section class="logo-strip" aria-label="Trusted across the assurance ecosystem">
+<section class="logo-strip" aria-label="Built for institutions across the assurance ecosystem">
   <div class="container">
-    <p class="lbl gold-rotate-wrap"><span class="gold-rotate gold-rotate-trust">Trusted across the assurance ecosystem</span></p>
-    <div class="logo-row" aria-label="Partner / customer logos — placeholders pending approval">
-      <div class="placeholder">Logo 1</div>
-      <div class="placeholder">Logo 2</div>
-      <div class="placeholder">Logo 3</div>
-      <div class="placeholder">Logo 4</div>
-      <div class="placeholder">Logo 5</div>
-      <div class="placeholder">Logo 6</div>
+    <p class="lbl gold-rotate-wrap"><span class="gold-rotate gold-rotate-trust">Built for institutions like these</span></p>
+    <!-- Industry segments — used until real client logos are approved for public display.
+         When ready, swap to a grid of grayscale <img src="assets/logo-clientname.svg" alt="Client Name" /> tiles. -->
+    <div class="segments-row" role="list">
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10M19 21V10M3 10l9-6 9 6"/><path d="M9 21v-7M15 21v-7"/></svg></div>
+        <b>Public-Sector<br/>Banks</b>
+        <span>Statutory · ECL · IRAC</span>
+      </div>
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><circle cx="8" cy="15" r="1.5"/></svg></div>
+        <b>Private Banks<br/>&amp; NBFCs</b>
+        <span>LMS · Retail Deposits</span>
+      </div>
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l9-1 9 1v8c0 5-4 9-9 11-5-2-9-6-9-11V3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <b>Tier-1<br/>Audit Firms</b>
+        <span>EQCR · Working Papers</span>
+      </div>
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M3 20v-1.5a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4V20M14 20v-1.5a3.5 3.5 0 0 1 3.5-3.5h.5a3.5 3.5 0 0 1 3.5 3.5V20"/></svg></div>
+        <b>Big-4 Alumni<br/>Practices</b>
+        <span>Internal Audit · IFC</span>
+      </div>
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M21 21l-5-5"/><path d="M8 11l2 2 4-4"/></svg></div>
+        <b>Forensic<br/>&amp; Investigation</b>
+        <span>Fraud · TPR · Tracing</span>
+      </div>
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><rect x="5" y="8" width="3" height="12"/><rect x="11" y="4" width="3" height="16"/><rect x="17" y="12" width="3" height="8"/></svg></div>
+        <b>CRO, CFO &amp;<br/>Finance Teams</b>
+        <span>Risk · MIS · Closing</span>
+      </div>
     </div>
-    <!-- Replace each ".placeholder" with a grayscale <img src="assets/logo-clientname.svg" alt="Client Name" /> once approved. -->
+    <p class="segments-foot">Real client attributions available <em>under NDA</em> · 150+ entities served</p>
   </div>
 </section>
 
