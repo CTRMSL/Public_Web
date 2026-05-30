@@ -1,0 +1,25 @@
+# Cloudflare Pages / Netlify redirect rules
+# (For Cloudflare Workers or Apache, replicate via the equivalent config.)
+# Hosts that auto-canonicalise HTTPS (Cloudflare Pages, Netlify, Vercel) make HTTP→HTTPS
+# implicit. If ctrmsl.com is served via Cloudflare on its own origin, enable:
+# Cloudflare → SSL/TLS → Edge Certificates → Always Use HTTPS = On
+
+# Legacy paths (in case anyone shared the old single-page anchors as paths)
+/contact   /#contact   301
+/product   /#product   301
+/packs     /#packs     301
+/plans     /#plans     301
+/workflow  /#workflow  301
+/security  /#security  301
+/faq       /#faqs      301
+/faqs      /#faqs      301
+/3-lines-of-defence  /#three-lines  301
+/three-lines         /#three-lines  301
+
+# Common-typo redirects
+/about.html  /about/  301
+/privacy.html /privacy/ 301
+/terms.html  /terms/  301
+
+# 404 fallback (do NOT use 200 status — keeps the "Not Found" semantics)
+/*  /404.html  404

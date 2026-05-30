@@ -4,16 +4,38 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>VIGILO by CTR — Financial Intelligence Platform for Assurance, Risk &amp; Finance</title>
-<meta name="description" content="VIGILO is a Financial Intelligence Platform for the three lines of defence — Statutory & Internal Auditors, CRO & Risk Functions, CFOs & Executives. 1,050+ automated checks, 100% population testing, defensible evidence — across industries." />
+<meta name="description" content="VIGILO — a Financial Intelligence Platform for the three lines of defence. 1,050+ automated checks, 100% population testing, defensible audit evidence." />
 <meta name="theme-color" content="#060a1c" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://ctrmsl.com/" />
 <link rel="icon" type="image/png" href="assets/vigilo_shield.png" />
+<!-- Open Graph -->
 <meta property="og:title" content="VIGILO by CTR — Financial Intelligence Platform for Assurance, Risk & Finance" />
 <meta property="og:description" content="A Financial Intelligence Platform for the three lines of defence. 1,050+ checks across 10 process cycles — built by auditors, engineered for assurance." />
-<meta property="og:image" content="assets/vigilo_full_updated.png" />
+<meta property="og:image" content="https://ctrmsl.com/assets/vigilo_full_updated.png" />
+<meta property="og:url" content="https://ctrmsl.com/" />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="VIGILO by CTR" />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="VIGILO by CTR — Financial Intelligence Platform" />
+<meta name="twitter:description" content="1,050+ automated checks · 100% population testing · for the three lines of defence." />
+<meta name="twitter:image" content="https://ctrmsl.com/assets/vigilo_full_updated.png" />
+<!-- Security meta (origin-fallback; primary defence is HTTP headers — see _headers) -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://ctrmsl.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://docs.google.com; form-action 'self' https://docs.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"Organization","@id":"https://ctrmsl.com/#org","name":"VIGILO by CTR","legalName":"CTR Management Services (Pvt) Ltd","url":"https://ctrmsl.com/","logo":"https://ctrmsl.com/assets/vigilo_full_updated.png","sameAs":["https://www.linkedin.com/company/vigilo-by-ctr"],"description":"Financial Intelligence Platform for the three lines of defence — built by auditors, engineered for assurance.","founder":{"@type":"Person","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect"}},
+  {"@type":"SoftwareApplication","@id":"https://ctrmsl.com/#product","name":"VIGILO","applicationCategory":"BusinessApplication","operatingSystem":"Web / Private VPC / On-premise","offers":{"@type":"Offer","category":"Standard, Pro, Pro+"},"description":"1,050+ automated checks across 10 process cycles for statutory and internal audit teams.","publisher":{"@id":"https://ctrmsl.com/#org"}},
+  {"@type":"WebSite","@id":"https://ctrmsl.com/#site","url":"https://ctrmsl.com/","name":"VIGILO by CTR","publisher":{"@id":"https://ctrmsl.com/#org"}}
+]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="image" href="assets/dashboard_1.png" />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet" />
 <style>
 /* ─────────────────────────────────────────────────────────────
@@ -43,7 +65,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16
 h1,h2,h3,h4,h5,p,li,blockquote{overflow-wrap:break-word;word-wrap:break-word;hyphens:manual}
 @media (max-width:560px){
   .hero-title{font-size:30px !important;letter-spacing:-.005em !important;line-height:1.18 !important;max-width:100% !important}
-  .hero-title em,.section-h2 em,.about-slide-left h1 em{background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;color:var(--electric-bright) !important;-webkit-text-fill-color:var(--electric-bright) !important}
+  .hero-title em,.section-h2 em,.about-slide-left h1,.about-slide-left h2 em{background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;color:var(--electric-bright) !important;-webkit-text-fill-color:var(--electric-bright) !important}
   .section-h2{font-size:24px !important;line-height:1.2 !important}
   .hero-lede,.section-sub{font-size:15px !important}
   .container{padding:0 16px}
@@ -389,8 +411,8 @@ footer{padding:48px 0 32px;background:#04081a;border-top:1px solid var(--border)
    About-gist slide (hero slide 5)
    ───────────────────────────────────────────────────────── */
 .about-slide{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;width:100%;max-width:1180px;margin:0 auto}
-.about-slide-left h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.06;letter-spacing:-.025em;color:#fff;margin-bottom:18px}
-.about-slide-left h1 em{font-style:normal;background:linear-gradient(120deg,var(--electric-bright),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-slide-left h1,.about-slide-left h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.06;letter-spacing:-.025em;color:#fff;margin-bottom:18px}
+.about-slide-left h1,.about-slide-left h2 em{font-style:normal;background:linear-gradient(120deg,var(--electric-bright),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
 .about-slide-left p{color:var(--text-mute);font-size:17px;line-height:1.65;max-width:540px;margin-bottom:22px}
 .about-slide-left p b{color:#fff;font-weight:600}
 .about-slide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -687,7 +709,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 .slide[data-slide="5"] .container{display:block !important;padding-left:32px;padding-right:32px}
 @media (max-width:640px){.slide[data-slide="5"] .container{padding-left:20px;padding-right:20px}}
 .about-slide{display:grid !important;grid-template-columns:1.25fr .95fr !important;gap:56px !important;max-width:1240px;margin:0 auto;align-items:start;width:100%}
-.about-slide-left h1{font-size:clamp(28px,3.8vw,46px) !important;line-height:1.08 !important;margin-bottom:14px !important;letter-spacing:-.022em !important}
+.about-slide-left h1,.about-slide-left h2{font-size:clamp(28px,3.8vw,46px) !important;line-height:1.08 !important;margin-bottom:14px !important;letter-spacing:-.022em !important}
 .about-slide-left p{font-size:15.5px;line-height:1.6;margin-bottom:20px;color:var(--text-mute);max-width:560px}
 .about-slide-left .pillar-mini{margin-bottom:14px !important}
 /* Stats: 4 columns in one line on desktop, 2x2 on small */
@@ -842,17 +864,8 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-cta">
-      <div class="signin-wrap">
-        <button type="button" class="btn btn-ghost" id="signinBtn" aria-haspopup="true" aria-expanded="false" aria-controls="signinPop">Sign In ▾</button>
-        <div class="signin-pop" id="signinPop" role="dialog" aria-label="Sign in" aria-modal="false">
-          <button type="button" class="pop-close" aria-label="Close" onclick="closeSignin()">×</button>
-          <a href="https://app.ctrmsl.com/" target="_blank" rel="noopener noreferrer" class="pop-cta">Sign In</a>
-          <a href="#contact" class="pop-link" onclick="closeSignin()">Create Profile</a>
-          <a href="#contact" class="pop-link" onclick="closeSignin()">My VIGILO</a>
-          <p class="pop-sub">Get access to VIGILO workspace, pilots and analytics packs.</p>
-        </div>
-      </div>
-      <a href="#" class="btn btn-primary" onclick="openAccessForm(event)">Request Demo →</a>
+      <!-- Sign In dropdown hidden until app.ctrmsl.com subdomain is live (audit P0 fix) -->
+      <a href="#" class="btn btn-primary" onclick="openAccessForm(event)">Request a Demo →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <svg class="icn-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="icn-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -884,7 +897,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
           </p>
           <div class="hero-cta">
             <a href="#product" class="btn btn-primary btn-lg">View Product →</a>
-            <a href="#contact" class="btn btn-ghost btn-lg">Request Demo</a>
+            <a href="#contact" class="btn btn-ghost btn-lg">Request a Demo</a>
           </div>
           <div class="hero-meta">
             <span><span class="dot-bullet"></span><b>100%</b> Population coverage</span>
@@ -918,7 +931,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         <div>
           <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
           <div class="eyebrow is-gold"><span class="dot-indic"></span><span class="gold-rotate">Three Lines of Defence · Across Industries</span></div>
-          <h1 class="hero-title">Empowering the<br/><em>Three Lines</em> of Defence.</h1>
+          <h2 class="hero-title">Empowering the<br/><em>Three Lines</em> of Defence.</h2>
           <p class="hero-lede">
             One platform for <b>Statutory &amp; Internal Auditors</b>, <b>CROs &amp; Risk Management</b>,
             and <b>CFOs &amp; Executives</b> — across industries — converting full-population data into
@@ -960,7 +973,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         <div>
           <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
           <div class="eyebrow"><span class="dot-indic"></span>VIGILO in Action</div>
-          <h1 class="hero-title">From raw data to<br/><em>informed action</em>.</h1>
+          <h2 class="hero-title">From raw data to<br/><em>informed action</em>.</h2>
           <p class="hero-lede">
             <b>Detect</b> exceptions early. <b>Prevent</b> control breakdowns and non-compliances.
             <b>Decide</b> with full-population evidence. <b>Document</b> a defensible trail — one disciplined
@@ -1014,7 +1027,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         <div class="about-slide">
           <div class="about-slide-left">
             <span class="pillar-mini">About VIGILO · 15-year vision</span>
-            <h1>Built by auditors.<br/><em>Engineered for assurance.</em></h1>
+            <h2>Built by auditors.<br/><em>Engineered for assurance.</em></h2>
             <p><b>VIGILO</b> is the work of a Chartered-Accountant-led team — <b>20+ years of practice across 150+ entities</b>, codified into a Financial Intelligence Platform that saves 40–50% of audit time and lifts the constant retraining burden of high attrition in professional firms.</p>
             <div class="about-slide-grid">
               <div><b>20+ yrs</b><span>Audit practice</span></div>
@@ -1024,7 +1037,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
             </div>
             <div class="hero-cta" style="margin-top:24px">
               <a href="about/" class="btn btn-primary btn-lg">Read our story →</a>
-              <a href="#contact" class="btn btn-ghost btn-lg">Request Demo</a>
+              <a href="#contact" class="btn btn-ghost btn-lg">Request a Demo</a>
             </div>
           </div>
 
@@ -1090,6 +1103,10 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <button class="car-dot" data-go="4" aria-label="Go to slide 5"></button>
       <button class="car-arrow" id="carNext" aria-label="Next slide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <button class="car-arrow" id="carPlayPause" aria-label="Pause auto-rotate" aria-pressed="false" title="Pause auto-rotate">
+        <svg id="carPauseIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        <svg id="carPlayIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 5v14l11-7z"/></svg>
       </button>
     </div>
   </div>
@@ -1162,27 +1179,27 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       </figure>
       <div class="shot-thumb-stack" role="tablist" aria-label="Screenshots">
         <button class="thumb is-active reveal" role="tab" aria-selected="true" data-shot="assets/dashboard_1.png" data-title="Engagement Dashboard" data-desc="Active analytics, KPIs and exception summaries at a glance." data-tag="01 / 06 · Overview">
-          <img src="assets/dashboard_1.png" alt="" loading="lazy" />
+          <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard thumbnail — active analytics, KPIs, exception summaries" loading="lazy" />
           <div class="meta"><h4>Engagement Dashboard</h4><p>Active analytics, KPIs and exception summaries.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/analytics_window.png" data-title="Analytics Catalogue" data-desc="Browse, configure and execute the analytics library." data-tag="02 / 06 · Library">
-          <img src="assets/analytics_window.png" alt="" loading="lazy" />
+          <img src="assets/analytics_window.png" alt="Analytics catalogue window — browse and execute the analytics library" loading="lazy" />
           <div class="meta"><h4>Analytics Catalogue</h4><p>Browse, configure and execute the library.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/executive_reports_1.png" data-title="Executive Reports" data-desc="Portfolio-wide risk lens for CROs, CFOs and partners." data-tag="03 / 06 · Executive">
-          <img src="assets/executive_reports_1.png" alt="" loading="lazy" />
+          <img src="assets/executive_reports_1.png" alt="Executive reports — portfolio risk lens for CROs, CFOs and partners" loading="lazy" />
           <div class="meta"><h4>Executive Reports</h4><p>Portfolio risk lens for CROs, CFOs and partners.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/ecl_summary.png" data-title="ECL Summary" data-desc="Ind AS 109 / IFRS 9 staging, PD/LGD/EAD movement." data-tag="04 / 06 · ECL">
-          <img src="assets/ecl_summary.png" alt="" loading="lazy" />
+          <img src="assets/ecl_summary.png" alt="ECL summary report — Ind AS 109 / IFRS 9 staging movement view" loading="lazy" />
           <div class="meta"><h4>ECL Summary</h4><p>Ind AS 109 staging &amp; PD/LGD/EAD movement.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/gl_granular_review.png" data-title="GL Granular Review" data-desc="JV scrutiny, postings and control-account anomalies." data-tag="05 / 06 · GL">
-          <img src="assets/gl_granular_review.png" alt="" loading="lazy" />
+          <img src="assets/gl_granular_review.png" alt="GL granular review interface — JV scrutiny and control-account anomaly detection" loading="lazy" />
           <div class="meta"><h4>GL Granular Review</h4><p>JV scrutiny &amp; control-account anomalies.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/variance_analytics.png" data-title="Variance Analytics" data-desc="Period-over-period bridges, outlier detection." data-tag="06 / 06 · Variance">
-          <img src="assets/variance_analytics.png" alt="" loading="lazy" />
+          <img src="assets/variance_analytics.png" alt="Variance analytics — period-over-period bridges and outlier detection" loading="lazy" />
           <div class="meta"><h4>Variance Analytics</h4><p>Period-over-period bridges &amp; outliers.</p></div>
         </button>
       </div>
@@ -1710,7 +1727,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         <p>Evaluate VIGILO on a defined scope of your own data — no disruption, no sampling. We respond within one business day.</p>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="mailto:info@ctrmsl.com" class="btn btn-primary btn-lg">Request Demo →</a>
+        <a href="mailto:info@ctrmsl.com" class="btn btn-primary btn-lg">Request a Demo →</a>
         <a href="#" class="btn btn-ghost btn-lg" onclick="openDemo(event)">▶ Watch Walkthrough</a>
       </div>
     </div>
@@ -1798,8 +1815,9 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   <div class="demo-card">
     <button class="demo-close" type="button" onclick="closeDemo()" aria-label="Close demo">×</button>
     <h3 id="demoTitle" class="sr">VIGILO product demo</h3>
-    <video class="demo-vid" controls playsinline preload="metadata" poster="assets/dashboard_1.png">
+    <video class="demo-vid" controls playsinline preload="none" poster="assets/dashboard_1.png">
       <source src="vigilo-professional-demo.mp4" type="video/mp4" />
+      <track kind="captions" src="vigilo-professional-demo.vtt" srclang="en" label="English" default />
       Your browser does not support HTML5 video. <a href="vigilo-professional-demo.mp4">Download the demo</a>.
     </video>
     <div class="demo-cap">
@@ -1840,15 +1858,15 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <div class="col">
         <h5>Legal</h5>
         <ul>
-          <li><a href="#" style="color:var(--text-faint)">Privacy (TBD)</a></li>
-          <li><a href="#" style="color:var(--text-faint)">Terms (TBD)</a></li>
+          <li><a href="privacy/">Privacy Policy</a></li>
+          <li><a href="terms/">Terms of Use</a></li>
           <li><span style="color:var(--text-faint)">No cookies · No tracking</span></li>
           <li><span style="color:var(--text-faint)">On-prem · Private-VPC ready</span></li>
         </ul>
       </div>
     </div>
     <div class="ft-bottom">
-      <span>© 2026 VIGILO by CTR · <a href="https://ctrmsl.com/" style="color:var(--text-mute)">ctrmsl.com</a> · ★ <span class="fip">Financial Intelligence Platform</span></span>
+      <span>© 2026 CTR Management Services (Pvt) Ltd · VIGILO by CTR · <a href="https://ctrmsl.com/" style="color:var(--text-mute)">ctrmsl.com</a> · ★ <span class="fip">Financial Intelligence Platform</span></span>
       <div class="social" aria-label="Social links">
         <a href="https://www.linkedin.com/company/vigilo-by-ctr" target="_blank" rel="noopener noreferrer" aria-label="VIGILO on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-11 14H6V10h2zm-1-8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 8h-2v-3.5c0-.83-.67-1.5-1.5-1.5S11 12.67 11 13.5V17H9v-7h2v1.07c.42-.65 1.17-1.07 2-1.07 1.66 0 3 1.34 3 3z"/></svg></a>
         <a href="mailto:info@ctrmsl.com" aria-label="Email VIGILO"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></a>
@@ -1939,6 +1957,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
     car.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}paused=false;start();},{passive:true});
     // Keyboard arrows when carousel focused
     document.addEventListener('keydown',e=>{if(!document.activeElement||!car.contains(document.activeElement))return;if(e.key==='ArrowLeft')prev();else if(e.key==='ArrowRight')next();});
+    // Explicit play/pause (WCAG 2.2.2)
+    var pp=document.getElementById('carPlayPause'),pIcon=document.getElementById('carPlayIcon'),pPause=document.getElementById('carPauseIcon');
+    var stopped=false;
+    if(pp){
+      pp.addEventListener('click',function(){
+        stopped=!stopped;
+        if(stopped){stop();pp.setAttribute('aria-pressed','true');pp.setAttribute('aria-label','Resume auto-rotate');pp.setAttribute('title','Resume auto-rotate');pIcon.style.display='block';pPause.style.display='none';}
+        else{pp.setAttribute('aria-pressed','false');pp.setAttribute('aria-label','Pause auto-rotate');pp.setAttribute('title','Pause auto-rotate');pIcon.style.display='none';pPause.style.display='block';start();}
+      });
+    }
+    var _origStart=start;
+    start=function(){if(stopped)return;_origStart();};
     start();
     // Pause when tab hidden
     document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
