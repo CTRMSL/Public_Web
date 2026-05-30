@@ -2,24 +2,2316 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="refresh" content="0; url=v/a/" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="robots" content="noindex" />
-<title>VIGILO by CTR — redirecting…</title>
-<link rel="canonical" href="https://ctrmsl.github.io/Public_Web/v/a/" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>VIGILO by CTR — Financial Intelligence Platform for Assurance, Risk &amp; Finance</title>
+<meta name="description" content="VIGILO — a Financial Intelligence Platform for the three lines of defence. 1,050+ automated checks, 100% population testing, defensible audit evidence." />
+<meta name="theme-color" content="#060a1c" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://ctrmsl.com/" />
+<link rel="icon" type="image/png" href="assets/vigilo_shield.png" />
+<!-- Open Graph -->
+<meta property="og:title" content="VIGILO by CTR — Financial Intelligence Platform for Assurance, Risk & Finance" />
+<meta property="og:description" content="A Financial Intelligence Platform for the three lines of defence. 1,050+ checks across 10 process cycles — built by auditors, engineered for assurance." />
+<meta property="og:image" content="https://ctrmsl.com/assets/vigilo_logo_new.png" />
+<meta property="og:url" content="https://ctrmsl.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="VIGILO by CTR" />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="VIGILO by CTR — Financial Intelligence Platform" />
+<meta name="twitter:description" content="1,050+ automated checks · 100% population testing · for the three lines of defence." />
+<meta name="twitter:image" content="https://ctrmsl.com/assets/vigilo_logo_new.png" />
+<!-- Security meta (origin-fallback; primary defence is HTTP headers — see _headers) -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://ctrmsl.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://docs.google.com; form-action 'self' https://docs.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"Organization","@id":"https://ctrmsl.com/#org","name":"VIGILO by CTR","legalName":"CTR Management Services (Pvt) Ltd","url":"https://ctrmsl.com/","logo":"https://ctrmsl.com/assets/vigilo_logo_new.png","sameAs":["https://www.linkedin.com/company/vigilo-by-ctr"],"description":"Financial Intelligence Platform for the three lines of defence — built by auditors, engineered for assurance.","founder":{"@type":"Person","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect"}},
+  {"@type":"SoftwareApplication","@id":"https://ctrmsl.com/#product","name":"VIGILO","applicationCategory":"BusinessApplication","operatingSystem":"Web / Private VPC / On-premise","offers":{"@type":"Offer","category":"Standard, Pro, Pro+"},"description":"1,050+ automated checks across 10 process cycles for statutory and internal audit teams.","publisher":{"@id":"https://ctrmsl.com/#org"}},
+  {"@type":"WebSite","@id":"https://ctrmsl.com/#site","url":"https://ctrmsl.com/","name":"VIGILO by CTR","publisher":{"@id":"https://ctrmsl.com/#org"}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="image" href="assets/dashboard_1.png" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet" />
 <style>
-  html,body{margin:0;padding:0;height:100%;background:#060a1c;color:#9aa6c8;font-family:system-ui,sans-serif;display:grid;place-items:center;text-align:center}
-  a{color:#7fc2ff;text-decoration:none;font-weight:600}
-  a:hover{text-decoration:underline}
-  p{margin:8px 0;font-size:14px}
+/* ─────────────────────────────────────────────────────────────
+   VIGILO · Premium Dark Enterprise theme (Version A)
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --bg:#060a1c; --bg-2:#0a1230; --bg-3:#101a40;
+  --surface:#0e1638; --surface-2:rgba(255,255,255,.035); --surface-hi:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.08); --border-hi:rgba(122,176,255,.24);
+  --text:#eef2ff; --text-mute:#9aa6c8; --text-faint:#6b76a0;
+  --electric:#4ea8ff; --electric-bright:#7fc2ff;
+  --cyan:#2fe0c8; --emerald:#2ed47a; --amber:#ffb547; --red:#ff6b7a;
+  --gold:#d6a849; --gold-bright:#f0c574;
+  --navy:#0a1640;
+  --display:'Sora','Inter',system-ui,sans-serif;
+  --sans:'Inter','SF Pro Text',system-ui,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,monospace;
+  --max:1280px;
+  --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:28px;
+  --shadow-sm:0 4px 16px -8px rgba(0,0,0,.4);
+  --shadow:0 24px 64px -28px rgba(0,0,0,.55);
+  --shadow-glow:0 0 0 1px rgba(78,168,255,.18), 0 40px 100px -40px rgba(78,168,255,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,h5,p,li,blockquote{overflow-wrap:break-word;word-wrap:break-word;hyphens:manual}
+@media (max-width:560px){
+  .hero-title{font-size:30px !important;letter-spacing:-.005em !important;line-height:1.18 !important;max-width:100% !important}
+  .hero-title em,.section-h2 em,.about-slide-left h1,.about-slide-left h2 em{background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;color:var(--electric-bright) !important;-webkit-text-fill-color:var(--electric-bright) !important}
+  .section-h2{font-size:24px !important;line-height:1.2 !important}
+  .hero-lede,.section-sub{font-size:15px !important}
+  .container{padding:0 16px}
+  .brand-pill{font-size:9.5px !important;padding:5px 10px !important}
+  .eyebrow{font-size:10px !important}
+}
+@media (max-width:380px){.hero-title{font-size:24px !important;line-height:1.2 !important} .section-h2{font-size:21px !important}}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+:focus-visible{outline:2px solid var(--electric);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;background:var(--electric);color:#001628;padding:10px 18px;border-radius:0 0 10px 0;font-weight:700;z-index:200}
+.skip:focus{left:0}
+
+/* Ambient page glow */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(900px 600px at 12% -8%, rgba(78,168,255,.10), transparent 55%),
+    radial-gradient(1100px 700px at 92% 6%, rgba(47,224,200,.07), transparent 60%),
+    radial-gradient(700px 500px at 50% 110%, rgba(122,176,255,.05), transparent 60%);
+}
+
+.container{max-width:var(--max);margin:0 auto;padding:0 32px;position:relative;z-index:1}
+@media (max-width:640px){.container{padding:0 20px}}
+
+/* ── Navigation ────────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:80;background:rgba(6,10,28,.78);backdrop-filter:saturate(140%) blur(14px);-webkit-backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand img{height:42px;width:auto}
+.brand-mark{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.02em;color:#fff}
+.brand-mark span{color:var(--gold)}
+/* New horizontal logo (shield + wordmark in one image) — taller, no separate text */
+.brand--logo img{height:54px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+@media (max-width:640px){.brand--logo img{height:44px}}
+@media (max-width:380px){.brand--logo img{height:38px}}
+.nav-links{display:flex;gap:4px;margin-left:18px;flex:1}
+.nav-links a{padding:9px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text-mute);transition:color .15s,background .15s}
+.nav-links a:hover{color:#fff;background:var(--surface-2)}
+.nav-links a.active{color:#fff;background:var(--surface-2);position:relative}
+.nav-links a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--electric),var(--cyan));box-shadow:0 0 8px rgba(78,168,255,.45)}
+@media (max-width:1100px){.nav-links a.active::after{display:none}}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-family:var(--sans);font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer;transition:transform .12s,filter .15s,background .15s,border-color .15s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;border-color:rgba(255,255,255,.2);box-shadow:0 8px 22px -10px rgba(78,168,255,.6)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;border-color:var(--border-hi);color:#fff}
+.btn-ghost:hover{border-color:var(--electric);color:var(--electric-bright);background:rgba(78,168,255,.08)}
+.btn-lg{padding:14px 24px;font-size:15px}
+.nav-toggle{display:none;padding:8px;border-radius:8px;color:#fff}
+.nav-toggle svg{display:block}
+.nav-toggle .icn-close{display:none}
+.nav-toggle.open .icn-open{display:none}
+.nav-toggle.open .icn-close{display:block}
+
+@media (max-width:980px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg-2);border-bottom:1px solid var(--border);padding:14px 20px;flex-direction:column;gap:2px;margin-left:0}
+  .nav-links.open{display:flex}
+  .nav-cta .btn-ghost{display:none}
+}
+
+/* ─────────────────────────────────────────────────────────
+   HERO CAROUSEL — 3 auto-rotating slides
+   ───────────────────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#060a1c 0%,#070d24 100%);border-bottom:1px solid var(--border)}
+.hero-grid-bg{position:absolute;inset:0;pointer-events:none;opacity:.45;
+  background-image:
+    linear-gradient(rgba(122,176,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(122,176,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 30%,transparent 80%);
+}
+.hero-glow-1,.hero-glow-2{position:absolute;border-radius:50%;filter:blur(80px);opacity:.6;pointer-events:none}
+.hero-glow-1{width:520px;height:520px;background:radial-gradient(circle,rgba(78,168,255,.5),transparent 70%);top:-100px;left:-120px}
+.hero-glow-2{width:600px;height:600px;background:radial-gradient(circle,rgba(47,224,200,.35),transparent 70%);bottom:-200px;right:-160px}
+
+.carousel{position:relative;min-height:min(820px,86vh)}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease;display:flex;align-items:center;padding:48px 0 64px}
+.slide.is-active{opacity:1;visibility:visible}
+.slide .container{display:grid;grid-template-columns:1.05fr 1.1fr;gap:56px;align-items:center;width:100%}
+@media (max-width:980px){.slide{padding:32px 0 56px} .slide .container{grid-template-columns:1fr;gap:36px}}
+.brand-pill{display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--border-hi);border-radius:999px;background:rgba(78,168,255,.08);color:var(--electric-bright);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.brand-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:10px;box-shadow:0 0 8px var(--gold)}
+.brand-pill em{font-style:normal;color:#fff;margin-right:6px;font-weight:700}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--electric-bright);margin-bottom:22px}
+.eyebrow::before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--electric),transparent)}
+.dot-indic{width:6px;height:6px;border-radius:50%;background:var(--electric-bright);box-shadow:0 0 12px var(--electric)}
+.hero-title{font-family:var(--display);font-weight:700;font-size:clamp(36px,5.4vw,68px);line-height:1.05;letter-spacing:-0.025em;margin-bottom:18px;color:#fff}
+.hero-title em{font-style:normal;background:linear-gradient(120deg,var(--electric-bright) 0%,var(--cyan) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-lede{color:var(--text-mute);font-size:18px;line-height:1.6;max-width:560px;margin-bottom:28px}
+.hero-lede b{color:#fff;font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px 32px;color:var(--text-mute);font-size:13px}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.hero-meta b{color:#fff;font-weight:600}
+.dot-bullet{width:5px;height:5px;border-radius:50%;background:var(--cyan)}
+
+/* Visual side: device/browser frame containing product UI */
+.device{position:relative;border-radius:18px;background:linear-gradient(180deg,#16204a 0%,#0c1330 100%);border:1px solid var(--border-hi);box-shadow:var(--shadow-glow);overflow:hidden;transform:perspective(1600px) rotateY(-2deg) rotateX(.5deg)}
+.device::before{content:"";display:block;height:34px;background:linear-gradient(180deg,#16204a,#10173a);border-bottom:1px solid var(--border)}
+.device-dots{position:absolute;top:11px;left:14px;display:flex;gap:7px}
+.device-dots i{width:11px;height:11px;border-radius:50%;background:#3a4576}
+.device-dots i:nth-child(1){background:#ff5f57}
+.device-dots i:nth-child(2){background:#ffbd2e}
+.device-dots i:nth-child(3){background:#28c840}
+.device-url{position:absolute;top:7px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:4px 14px;font-family:var(--mono);font-size:10.5px;color:var(--text-mute);letter-spacing:.04em}
+.device img{display:block;width:100%;height:auto}
+
+/* Floating accent: a small KPI/chart card hovering near the device */
+.float-card{position:absolute;background:rgba(13,23,55,.92);backdrop-filter:blur(10px);border:1px solid var(--border-hi);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);color:#fff}
+.float-card .lbl{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px}
+.float-card .val{font-family:var(--display);font-weight:700;font-size:22px;line-height:1;color:var(--electric-bright)}
+.float-card .delta{font-size:11px;color:var(--emerald);margin-top:3px;display:flex;align-items:center;gap:4px}
+.float-card.tl{top:-22px;left:-22px}
+.float-card.br{bottom:-22px;right:-22px;border-color:rgba(47,212,122,.4)}
+.float-card.br .val{color:var(--emerald)}
+@media (max-width:980px){.float-card{display:none}}
+
+/* Carousel controls */
+/* Modern carousel controls — sleek glass pill containing arrows + dots + play/pause */
+.car-controls{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  display:inline-flex;align-items:center;gap:6px;z-index:8;
+  padding:7px 12px;border:1px solid rgba(255,255,255,.10);border-radius:999px;
+  background:rgba(8,12,32,.62);backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+.car-controls > * + *{margin-left:0}
+.car-arrow{width:28px;height:28px;border-radius:50%;border:0;background:transparent;
+  color:rgba(255,255,255,.65);display:grid;place-items:center;cursor:pointer;
+  transition:color .18s,background .18s;padding:0}
+.car-arrow:hover{color:#fff;background:rgba(255,255,255,.08)}
+.car-arrow:focus-visible{outline:2px solid var(--electric);outline-offset:2px}
+.car-arrow svg{width:13px;height:13px}
+.car-dot{width:22px;height:3px;border-radius:3px;background:rgba(255,255,255,.18);
+  transition:background .25s,width .25s;border:0;padding:0;cursor:pointer;
+  flex:none}
+.car-dot:hover{background:rgba(255,255,255,.32)}
+.car-dot.is-active{background:linear-gradient(90deg,var(--electric),var(--cyan));width:32px}
+.car-dot + .car-dot{margin-left:4px}
+#carPlayPause{width:28px;height:28px;border-radius:50%;border:0;background:transparent;
+  color:rgba(255,255,255,.65);display:grid;place-items:center;cursor:pointer;
+  transition:color .18s,background .18s;padding:0;margin-left:4px;
+  border-left:1px solid rgba(255,255,255,.10);border-radius:0 999px 999px 0;padding-left:8px;width:36px}
+#carPlayPause:hover{color:#fff;background:rgba(255,255,255,.06)}
+#carPlayPause svg{width:11px;height:11px}
+.car-arrow + .car-dot{margin-left:6px}
+.car-dot + .car-arrow{margin-left:6px}
+@media (max-width:640px){
+  .car-controls{bottom:14px;padding:5px 9px;gap:4px}
+  .car-arrow{width:24px;height:24px}
+  .car-arrow svg{width:11px;height:11px}
+  .car-dot{width:16px}
+  .car-dot.is-active{width:24px}
+  #carPlayPause{display:none} /* save space on mobile — pause-on-touch via JS still works */
+}
+
+/* Slide-5 mission strip — clear the carousel controls on desktop */
+@media (min-width:921px){
+  .slide[data-slide="5"] .about-mission{margin-bottom:64px}
+}
+
+/* Mini visual for slide 2 — transaction network */
+.net{position:relative;aspect-ratio:1.4/1;display:grid;place-items:center}
+.net svg{width:100%;height:auto;filter:drop-shadow(0 20px 50px rgba(78,168,255,.3))}
+/* Mini visual for slide 3 — workflow chain */
+.wf{display:grid;gap:12px}
+.wf-step{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:var(--surface-2);transition:border-color .2s,transform .2s}
+.wf-step:hover{border-color:var(--border-hi);transform:translateX(4px)}
+.wf-step .n{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:13px;background:linear-gradient(135deg,rgba(78,168,255,.18),rgba(47,224,200,.12));border:1px solid var(--border-hi);color:var(--electric-bright)}
+.wf-step h4{font-family:var(--display);font-size:14px;font-weight:600;color:#fff}
+.wf-step p{font-size:12px;color:var(--text-mute);margin-top:2px}
+
+/* ─────────────────────────────────────────────────────────
+   Trust strip — small proof items just below the hero
+   ───────────────────────────────────────────────────────── */
+.trust-strip{border-bottom:1px solid var(--border);background:rgba(255,255,255,.012)}
+.trust-row{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:18px 0;align-items:center}
+.trust-item{display:flex;align-items:center;gap:10px;color:var(--text-mute);font-size:12.5px;line-height:1.25;padding:0 8px;border-right:1px solid var(--border)}
+.trust-item:last-child{border-right:none}
+.trust-item b{color:#fff;font-weight:700}
+.trust-item svg{flex:none;width:18px;height:18px;color:var(--electric-bright)}
+@media (max-width:1100px){.trust-row{grid-template-columns:repeat(3,1fr)} .trust-item:nth-child(3n){border-right:none}}
+@media (max-width:640px){.trust-row{grid-template-columns:1fr 1fr;gap:14px 8px} .trust-item:nth-child(2n){border-right:none}}
+
+/* ─────────────────────────────────────────────────────────
+   Section foundations
+   ───────────────────────────────────────────────────────── */
+section{padding:96px 0;position:relative;z-index:1}
+@media (max-width:760px){section{padding:64px 0}}
+.section-eye{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--electric-bright);margin-bottom:14px}
+.section-eye::before{content:"";width:28px;height:1px;background:var(--electric)}
+.section-h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.8vw,46px);line-height:1.12;letter-spacing:-.02em;margin-bottom:16px;color:#fff;max-width:760px}
+.section-h2 em{font-style:normal;background:linear-gradient(120deg,var(--electric-bright),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-sub{color:var(--text-mute);font-size:17px;max-width:640px;margin-bottom:48px}
+.section-head.center{text-align:center}
+.section-head.center .section-eye{display:inline-flex}
+.section-head.center .section-h2{margin-left:auto;margin-right:auto}
+.section-head.center .section-sub{margin-left:auto;margin-right:auto}
+
+/* Reveal-on-scroll */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+
+/* ─────────────────────────────────────────────────────────
+   Key Metrics stat band
+   ───────────────────────────────────────────────────────── */
+.metrics{padding-top:72px}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.metric{position:relative;padding:30px 26px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.005));overflow:hidden}
+.metric::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--electric),transparent);opacity:.6}
+.metric .ico{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:rgba(78,168,255,.12);color:var(--electric-bright);margin-bottom:18px;border:1px solid var(--border-hi)}
+.metric .ico svg{width:22px;height:22px}
+.metric .val{font-family:var(--display);font-weight:700;font-size:42px;line-height:1;color:#fff;letter-spacing:-.02em;margin-bottom:6px}
+.metric .lbl{font-size:13.5px;color:var(--text-mute);font-weight:500}
+.metric .sub{font-size:12px;color:var(--text-faint);margin-top:4px}
+.metric:nth-child(2) .ico{background:rgba(47,224,200,.12);color:var(--cyan);border-color:rgba(47,224,200,.3)}
+.metric:nth-child(3) .ico{background:rgba(47,212,122,.12);color:var(--emerald);border-color:rgba(47,212,122,.3)}
+.metric:nth-child(4) .ico{background:rgba(255,181,71,.12);color:var(--amber);border-color:rgba(255,181,71,.3)}
+@media (max-width:980px){.metrics-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.metrics-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   Product showcase carousel
+   ───────────────────────────────────────────────────────── */
+.shot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+@media (max-width:960px){.shot-grid{grid-template-columns:1fr}}
+.shot-main,.shot-thumb{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.shot-main{position:relative}
+.shot-main img{width:100%;height:auto;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shot-main figcaption{padding:18px 22px;background:linear-gradient(180deg,var(--surface),#0b1230);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.shot-main b{font-family:var(--display);color:#fff;font-size:15px}
+.shot-main span{font-size:12px;color:var(--text-mute);font-family:var(--mono);letter-spacing:.04em}
+.shot-thumb-stack{display:grid;gap:14px}
+.thumb{display:grid;grid-template-columns:130px 1fr;gap:14px;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);cursor:pointer;transition:border-color .2s,transform .2s}
+.thumb:hover,.thumb.is-active{border-color:var(--border-hi);transform:translateX(3px)}
+.thumb.is-active{box-shadow:inset 0 0 0 1px var(--electric)}
+.thumb img{width:130px;height:80px;object-fit:cover;object-position:top}
+.thumb .meta{padding:12px 14px 12px 0}
+.thumb h4{font-family:var(--display);font-size:13.5px;color:#fff;margin-bottom:3px}
+.thumb p{font-size:11.5px;color:var(--text-mute);line-height:1.4}
+
+/* ─────────────────────────────────────────────────────────
+   Analytics Packs preview grid
+   ───────────────────────────────────────────────────────── */
+.packs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.pack{position:relative;padding:22px 20px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.005));transition:transform .2s,border-color .2s}
+.pack:hover{transform:translateY(-4px);border-color:var(--border-hi);box-shadow:var(--shadow)}
+.pack .pico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(78,168,255,.12);color:var(--electric-bright);margin-bottom:14px}
+.pack h3{font-family:var(--display);font-size:14px;color:#fff;font-weight:600;margin-bottom:4px}
+.pack .cnt{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.06em}
+.pack p{font-size:11.5px;color:var(--text-mute);line-height:1.45;margin-top:8px}
+@media (max-width:1080px){.packs-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.packs-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:380px){.packs-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   Outputs / Visualisations — chart-screenshot gallery
+   ───────────────────────────────────────────────────────── */
+.viz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.viz-card{border:1px solid var(--border);border-radius:18px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s ease,border-color .2s ease}
+.viz-card:hover{transform:translateY(-3px);border-color:var(--border-hi)}
+.viz-card .img-wrap{position:relative;overflow:hidden}
+.viz-card .img-wrap::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--electric),var(--cyan),transparent);z-index:2;opacity:.7}
+.viz-card img{width:100%;height:auto;display:block;aspect-ratio:16/10;object-fit:cover;object-position:center}
+.viz-card .meta{padding:18px 22px;border-top:1px solid var(--border);background:linear-gradient(180deg,var(--surface),#0b1230)}
+.viz-card .meta .tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--electric-bright);font-weight:600;margin-bottom:6px}
+.viz-card .meta h4{font-family:var(--display);font-size:16px;color:#fff;font-weight:600;margin-bottom:4px}
+.viz-card .meta p{font-size:12.5px;color:var(--text-mute);line-height:1.5}
+@media (max-width:760px){.viz-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   How VIGILO works — 4-step flow
+   ───────────────────────────────────────────────────────── */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.flow-step{padding:24px 22px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.005));position:relative}
+.flow-step::after{content:"→";position:absolute;right:-16px;top:30px;color:var(--electric);font-size:22px;font-weight:300}
+.flow-step:last-child::after{display:none}
+.flow-step .n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--electric-bright);margin-bottom:14px}
+.flow-step h4{font-family:var(--display);font-size:17px;color:#fff;font-weight:600;margin-bottom:6px}
+.flow-step p{font-size:13px;color:var(--text-mute);line-height:1.5}
+@media (max-width:960px){.flow{grid-template-columns:repeat(2,1fr)} .flow-step:nth-child(2)::after{display:none}}
+@media (max-width:560px){.flow{grid-template-columns:1fr} .flow-step::after{display:none}}
+
+/* ─────────────────────────────────────────────────────────
+   Three Lines of Defence band
+   ───────────────────────────────────────────────────────── */
+.tld-band{padding:88px 0;background:linear-gradient(180deg,#080d23,#0c1438)}
+.tld-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tld-card{padding:30px 28px;border:1px solid var(--border);border-radius:20px;background:rgba(255,255,255,.025);position:relative;overflow:hidden}
+.tld-card::before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(180deg,var(--electric),transparent)}
+.tld-card .role{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--electric-bright);margin-bottom:10px}
+.tld-card h3{font-family:var(--display);font-size:22px;color:#fff;font-weight:700;margin-bottom:14px;letter-spacing:-.01em}
+.tld-card ul{list-style:none;display:grid;gap:10px}
+.tld-card li{padding-left:22px;position:relative;color:var(--text-mute);font-size:14px;line-height:1.5}
+.tld-card li::before{content:"";position:absolute;left:0;top:8px;width:10px;height:10px;border:2px solid var(--cyan);border-radius:50%}
+.tld-card:nth-child(2)::before{background:linear-gradient(180deg,var(--cyan),transparent)}
+.tld-card:nth-child(2) li::before{border-color:var(--electric)}
+.tld-card:nth-child(3)::before{background:linear-gradient(180deg,var(--emerald),transparent)}
+.tld-card:nth-child(3) li::before{border-color:var(--emerald)}
+@media (max-width:900px){.tld-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   Industry use cases tiles (BFSI to general enterprise)
+   ───────────────────────────────────────────────────────── */
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.uc{padding:26px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(160deg,rgba(78,168,255,.06),rgba(47,224,200,.025));transition:transform .2s,border-color .2s}
+.uc:hover{transform:translateY(-4px);border-color:var(--border-hi)}
+.uc .icb{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--cyan);margin-bottom:14px}
+.uc h3{font-family:var(--display);font-size:18px;color:#fff;margin-bottom:8px}
+.uc p{font-size:13px;color:var(--text-mute);line-height:1.55}
+@media (max-width:900px){.uc-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.uc-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   Security & deployment
+   ───────────────────────────────────────────────────────── */
+.sec-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
+.sec-list{display:grid;gap:14px}
+.sec-item{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:18px 20px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.025)}
+.sec-item .sico{width:42px;height:42px;border-radius:11px;background:rgba(47,212,122,.12);color:var(--emerald);display:grid;place-items:center;border:1px solid rgba(47,212,122,.3)}
+.sec-item h4{font-family:var(--display);font-size:14.5px;color:#fff;margin-bottom:3px}
+.sec-item p{font-size:12.5px;color:var(--text-mute);line-height:1.5}
+.sec-visual{border:1px solid var(--border-hi);border-radius:20px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);padding:24px;display:grid;gap:18px}
+.sec-stamp{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.sec-chip{padding:14px;border:1px dashed var(--border-hi);border-radius:12px;text-align:center}
+.sec-chip b{font-family:var(--mono);display:block;color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.sec-chip span{font-size:11.5px;color:var(--text-mute)}
+.conf-note{padding:18px 22px;border:1px solid var(--border);border-radius:14px;background:rgba(255,181,71,.05);color:var(--text-mute);font-size:13px;line-height:1.5}
+.conf-note b{color:var(--amber)}
+@media (max-width:960px){.sec-grid{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   Final CTA & Footer
+   ───────────────────────────────────────────────────────── */
+.cta-final{position:relative;padding:88px 0;overflow:hidden;background:linear-gradient(135deg,#0a1640 0%,#1c2b75 50%,#0a1640 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 30% 50%,rgba(78,168,255,.25),transparent 60%),radial-gradient(700px 350px at 80% 50%,rgba(47,224,200,.18),transparent 65%);pointer-events:none}
+.cta-final .inner{position:relative;display:grid;grid-template-columns:1.4fr auto;gap:36px;align-items:center}
+.cta-final h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.15;color:#fff;letter-spacing:-.02em}
+.cta-final p{color:var(--text-mute);margin-top:10px;font-size:15px;max-width:640px}
+@media (max-width:780px){.cta-final .inner{grid-template-columns:1fr}}
+
+footer{padding:48px 0 32px;background:#04081a;border-top:1px solid var(--border);color:var(--text-faint);font-size:13px}
+.ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;text-align:center}
+.ft img{height:56px}
+.ft a{color:var(--text-mute)}
+.ft a:hover{color:var(--electric-bright)}
+
+/* ─────────────────────────────────────────────────────────
+   Modal: simple, accessible
+   ───────────────────────────────────────────────────────── */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:200;padding:24px}
+.modal[open]{display:flex}
+.modal::backdrop,.modal .bd{position:absolute;inset:0;background:rgba(2,6,18,.7);backdrop-filter:blur(8px)}
+.modal .card{position:relative;background:var(--surface);border:1px solid var(--border-hi);border-radius:18px;max-width:520px;width:100%;padding:28px}
+.modal h3{font-family:var(--display);color:#fff;margin-bottom:8px}
+.modal p{color:var(--text-mute);font-size:14px;margin-bottom:18px}
+.modal .close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center}
+
+/* ─────────────────────────────────────────────────────────
+   Testimonial slide (hero slide 4)
+   ───────────────────────────────────────────────────────── */
+.t-slide{display:grid;grid-template-columns:1fr;gap:18px;text-align:center;max-width:980px;margin:0 auto;width:100%}
+.t-slide .quote-mark{font-family:var(--display);font-size:96px;color:var(--electric-bright);opacity:.4;line-height:1;margin-bottom:-30px}
+.t-slide blockquote{font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(26px,3.6vw,42px);line-height:1.3;color:#fff;letter-spacing:-.015em}
+.t-slide blockquote span{background:linear-gradient(120deg,var(--electric-bright),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.t-slide .att{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);flex-wrap:wrap}
+.t-slide .att .av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#13225f,#0a1640);border:1px solid var(--border-hi);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:18px;color:var(--gold-bright)}
+.t-slide .att b{color:#fff;font-weight:700;font-size:14px}
+.t-slide .att .role-org{font-size:12px;color:var(--text-faint)}
+.t-slide .att .role-org b{color:var(--gold-bright)}
+.t-slide .dots-mini{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.t-slide .dots-mini i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);transition:background .25s,transform .25s}
+.t-slide .dots-mini i.on{background:var(--electric-bright);transform:scale(1.3)}
+.t-slide .pillar-mini{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:4px;display:inline-flex;align-items:center;gap:10px}
+.t-slide .pillar-mini::before{content:"";width:24px;height:1px;background:var(--gold)}
+
+/* ─────────────────────────────────────────────────────────
+   About-gist slide (hero slide 5)
+   ───────────────────────────────────────────────────────── */
+.about-slide{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;width:100%;max-width:1180px;margin:0 auto}
+.about-slide-left h1,.about-slide-left h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.06;letter-spacing:-.025em;color:#fff;margin-bottom:18px}
+.about-slide-left h1,.about-slide-left h2 em{font-style:normal;background:linear-gradient(120deg,var(--electric-bright),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-slide-left p{color:var(--text-mute);font-size:17px;line-height:1.65;max-width:540px;margin-bottom:22px}
+.about-slide-left p b{color:#fff;font-weight:600}
+.about-slide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.about-slide-grid div{padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025)}
+.about-slide-grid b{display:block;font-family:var(--display);font-size:22px;color:var(--electric-bright);font-weight:700;line-height:1;margin-bottom:6px}
+.about-slide-grid span{font-size:12px;color:var(--text-mute);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.about-portrait{position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,rgba(78,168,255,.10),rgba(214,168,73,.05));border:1px solid var(--border-hi);box-shadow:var(--shadow-glow);padding:32px;text-align:center;min-height:380px;display:flex;flex-direction:column;justify-content:center}
+.about-portrait .sil{width:140px;height:140px;border-radius:50%;background:linear-gradient(160deg,#13225f,#0a1640);border:2px solid var(--border-hi);overflow:hidden;margin:0 auto 18px;box-shadow:0 12px 32px -14px rgba(78,168,255,.55)}
+.about-portrait .sil img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.about-portrait .name{font-family:var(--display);font-weight:700;font-size:22px;color:#fff;letter-spacing:-.01em}
+.about-portrait .role{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);margin-top:6px;font-weight:600}
+.about-portrait .qual{font-family:var(--mono);font-size:11px;color:var(--text-mute);margin-top:16px;letter-spacing:.04em;line-height:1.6}
+.about-portrait .vision{margin-top:18px;padding-top:18px;border-top:1px solid var(--border);font-size:13px;color:var(--text-mute);line-height:1.55;font-style:italic}
+.about-portrait .vision b{color:var(--electric-bright);font-style:normal;font-weight:600}
+@media (max-width:900px){.about-slide{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   Body testimonial band — auto-scrolling marquee
+   ───────────────────────────────────────────────────────── */
+.testi-band{padding:88px 0;background:linear-gradient(180deg,#080d23,#0b1330);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.testi-track-wrap{position:relative;overflow:hidden;margin-top:36px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.testi-track{display:flex;gap:22px;animation:scroll-x 50s linear infinite;width:max-content;will-change:transform}
+.testi-track-wrap:hover .testi-track{animation-play-state:paused}
+@keyframes scroll-x{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.testi-track{animation:none;transform:none}}
+.testi-card{flex:0 0 auto;width:420px;padding:26px 28px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,var(--surface),#0b1230);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.testi-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--electric),var(--cyan),transparent);opacity:.7}
+.testi-card .mark{font-family:var(--display);color:var(--electric-bright);font-size:38px;line-height:1;opacity:.45;margin-bottom:6px}
+.testi-card .quote{font-size:14.5px;line-height:1.6;color:var(--text);margin-bottom:18px;min-height:120px}
+.testi-card .att{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--border)}
+.testi-card .att .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#13225f,#0a1640);border:1px solid var(--border-hi);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px;color:var(--gold-bright);flex:none}
+.testi-card .att b{display:block;font-size:13.5px;color:#fff;font-weight:600;font-family:var(--display)}
+.testi-card .att span{display:block;font-size:11.5px;color:var(--text-mute);margin-top:2px}
+.testi-card .att span em{font-style:normal;color:var(--gold-bright)}
+.testi-foot{text-align:center;margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--text-faint);text-transform:uppercase}
+
+/* ─────────────────────────────────────────────────────────
+   Trust strip — "Built for institutions like these" — industry-category pills
+   (Replaces the earlier placeholder-logo layout. When real client logos are
+    available with permission, swap back to grayscale <img> tiles.)
+   ───────────────────────────────────────────────────────── */
+.logo-strip{padding:56px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,.012)}
+.logo-strip .lbl{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute);margin-bottom:28px}
+.logo-strip .lbl b{color:#fff}
+.segments-row{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;align-items:stretch;max-width:1180px;margin:0 auto}
+.seg{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025);transition:transform .25s,border-color .25s,background .25s;min-height:96px;text-align:center}
+.seg::before{content:"";position:absolute;top:0;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.45;transition:opacity .25s}
+.seg:hover{transform:translateY(-2px);border-color:var(--border-hi);background:rgba(255,255,255,.04)}
+.seg:hover::before{opacity:.85}
+.seg .ic{width:30px;height:30px;border-radius:7px;background:rgba(214,168,73,.10);border:1px solid rgba(214,168,73,.32);display:grid;place-items:center;color:var(--gold-bright);flex:none}
+.seg .ic svg{width:15px;height:15px}
+.seg b{font-family:var(--display);font-weight:700;font-size:13.5px;color:#fff;letter-spacing:-.005em;line-height:1.2}
+.seg span{font-family:var(--mono);font-size:9.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-faint);line-height:1.4}
+.segments-foot{text-align:center;margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)}
+.segments-foot em{font-style:normal;color:var(--gold-bright)}
+@media (max-width:980px){.segments-row{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.segments-row{grid-template-columns:repeat(2,1fr);gap:10px}.seg{padding:14px 10px;min-height:88px}.seg b{font-size:12.5px}}
+@media (max-width:520px){.logo-row{grid-template-columns:repeat(2,1fr)}}
+
+/* ─────────────────────────────────────────────────────────
+   Signature: Full-population visualisation (the differentiator)
+   ───────────────────────────────────────────────────────── */
+.popviz{padding:96px 0;background:linear-gradient(180deg,#060a1c,#080d24)}
+.popviz-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:40px}
+@media (max-width:920px){.popviz-grid{grid-template-columns:1fr}}
+.popviz-side h3{font-family:var(--display);font-size:24px;color:#fff;font-weight:600;margin-bottom:8px}
+.popviz-side p{color:var(--text-mute);font-size:15px;line-height:1.6;margin-bottom:22px}
+.popviz-toggles{display:flex;gap:10px}
+.popviz-toggle{padding:11px 18px;border:1px solid var(--border);background:rgba(255,255,255,.025);color:var(--text-mute);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-radius:10px;cursor:pointer;transition:all .2s ease}
+.popviz-toggle:hover{border-color:var(--border-hi);color:#fff}
+.popviz-toggle.is-on{background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;border-color:rgba(255,255,255,.2);box-shadow:0 6px 18px -8px rgba(78,168,255,.6)}
+.popviz-toggle[data-mode="sample"].is-on{background:rgba(255,107,122,.15);color:var(--red);border-color:rgba(255,107,122,.5);box-shadow:none}
+.popviz-stage{position:relative;aspect-ratio:1.2/1;border:1px solid var(--border-hi);border-radius:20px;background:radial-gradient(ellipse at center,rgba(78,168,255,.06),rgba(0,0,0,.4));box-shadow:var(--shadow-glow);padding:24px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.popviz-stage::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:2px;background:linear-gradient(90deg,transparent,var(--electric),var(--cyan),transparent)}
+.dots-grid{display:grid;grid-template-columns:repeat(30,1fr);gap:6px;flex:1;align-content:center}
+.dot{aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.06);transition:background .35s ease,box-shadow .35s ease,transform .3s ease}
+.dot.lit{background:var(--electric-bright);box-shadow:0 0 8px rgba(78,168,255,.6);transform:scale(1.05)}
+.dot.lit-red{background:#ff8895;box-shadow:0 0 8px rgba(255,107,122,.5)}
+.popviz-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+.popviz-stats div{text-align:center}
+.popviz-stats b{display:block;font-family:var(--display);font-size:22px;color:#fff;font-weight:700;line-height:1}
+.popviz-stats span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);margin-top:4px;display:block}
+.popviz-stats div.accent b{color:var(--electric-bright)}
+.popviz-stats div.warn b{color:var(--red)}
+
+/* ─────────────────────────────────────────────────────────
+   Expanded footer (replaces the existing tiny footer)
+   ───────────────────────────────────────────────────────── */
+footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border);color:var(--text-mute);font-size:13.5px}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:38px;margin-bottom:36px}
+.ft-grid .col h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--electric-bright);margin-bottom:14px;font-weight:600}
+.ft-grid .col a,.ft-grid .col li{color:var(--text-mute);font-size:13.5px;line-height:1.9;display:block}
+.ft-grid .col a:hover{color:#fff}
+.ft-grid ul{list-style:none}
+.ft-grid .col.brand-col img{height:60px;margin-bottom:14px}
+.ft-grid .col.brand-col p{font-size:13px;line-height:1.6;max-width:320px;color:var(--text-faint)}
+.ft-grid .col.brand-col p b{color:var(--text);font-weight:600}
+.ft-bottom{padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--text-faint)}
+.ft-bottom .social{display:flex;gap:10px}
+.ft-bottom .social a{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--text-mute);transition:color .15s,border-color .15s,background .15s}
+.ft-bottom .social a:hover{color:var(--electric-bright);border-color:var(--electric);background:rgba(78,168,255,.08)}
+.ft .built{display:none}
+@media (max-width:780px){.ft-grid{grid-template-columns:1fr 1fr;gap:28px} .ft-grid .col.brand-col{grid-column:span 2}}
+@media (max-width:480px){.ft-grid{grid-template-columns:1fr} .ft-grid .col.brand-col{grid-column:1}}
+
+/* ─────────────────────────────────────────────────────────
+   Sign In popover (SAS-style anchor popover)
+   ───────────────────────────────────────────────────────── */
+.signin-wrap{position:relative;display:inline-flex}
+.signin-pop{position:absolute;top:calc(100% + 12px);right:0;min-width:280px;background:var(--surface);border:1px solid var(--border-hi);border-radius:14px;padding:24px;box-shadow:var(--shadow-glow);display:none;z-index:90}
+.signin-pop[data-open="true"]{display:block;animation:popin .2s ease}
+@keyframes popin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.signin-pop::before{content:"";position:absolute;top:-7px;right:18px;width:12px;height:12px;background:var(--surface);border-left:1px solid var(--border-hi);border-top:1px solid var(--border-hi);transform:rotate(45deg)}
+.signin-pop .pop-cta{display:block;width:100%;text-align:center;padding:13px 18px;background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;font-weight:700;font-size:15px;border-radius:999px;border:1px solid rgba(255,255,255,.2);box-shadow:0 8px 20px -10px rgba(78,168,255,.55);transition:filter .15s}
+.signin-pop .pop-cta:hover{filter:brightness(1.07)}
+.signin-pop .pop-link{display:block;text-align:center;padding:10px;color:var(--electric-bright);font-weight:600;font-size:14px;transition:color .15s}
+.signin-pop .pop-link:hover{color:#fff}
+.signin-pop .pop-sub{padding-top:14px;margin-top:6px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text-mute);text-align:center;line-height:1.5}
+.signin-pop .pop-close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.06);color:var(--text-mute);font-size:18px;line-height:1;display:grid;place-items:center;cursor:pointer}
+.signin-pop .pop-close:hover{color:#fff;background:rgba(255,255,255,.12)}
+
+/* ─────────────────────────────────────────────────────────
+   FAQ section (accordion)
+   ───────────────────────────────────────────────────────── */
+.faqs-band{padding:96px 0;background:linear-gradient(180deg,#080d23,#0b1330);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faqs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+@media (max-width:840px){.faqs-grid{grid-template-columns:1fr}}
+.faq{border:1px solid var(--border);border-radius:14px;background:var(--surface-2);overflow:hidden;transition:border-color .2s ease,background .2s ease}
+.faq[open]{border-color:var(--border-hi);background:rgba(78,168,255,.05)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;font-family:var(--display);font-size:16px;color:#fff;font-weight:600;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ico{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-hi);color:var(--electric-bright);display:grid;place-items:center;font-size:18px;line-height:1;font-weight:400;transition:transform .25s ease,background .15s,color .15s}
+.faq[open] summary .ico{transform:rotate(45deg);background:var(--electric);color:#02121f;border-color:var(--electric)}
+.faq-body{padding:0 24px 22px;color:var(--text-mute);font-size:14px;line-height:1.65}
+.faq-body b{color:#fff;font-weight:600}
+.faq-foot{text-align:center;margin-top:30px;color:var(--text-mute);font-size:14px}
+.faq-foot a{color:var(--electric-bright);font-weight:600}
+.faq-foot a:hover{color:#fff}
+
+/* ─────────────────────────────────────────────────────────
+   Contact section — rich directory (replaces the old single-CTA band)
+   ───────────────────────────────────────────────────────── */
+.contact-band{padding:0;background:linear-gradient(180deg,#0a1640,#060a1c)}
+.contact-hero{padding:80px 0 60px;background:linear-gradient(135deg,#0a1640 0%,#1c2b75 50%,#0a1640 100%);border-top:1px solid var(--border);position:relative;overflow:hidden}
+.contact-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 30% 50%,rgba(78,168,255,.20),transparent 60%),radial-gradient(700px 350px at 80% 50%,rgba(47,224,200,.15),transparent 65%);pointer-events:none}
+.contact-hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:center;position:relative;z-index:1}
+.contact-hero h2{font-family:var(--display);font-weight:700;font-size:clamp(32px,4.4vw,52px);line-height:1.08;color:#fff;letter-spacing:-.02em;margin-bottom:16px}
+.contact-hero h2 em{font-style:normal;background:linear-gradient(120deg,var(--electric-bright),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact-hero p{color:var(--text-mute);font-size:17px;line-height:1.65;max-width:560px;margin-bottom:24px}
+.contact-hero p b{color:#fff;font-weight:600}
+.contact-hero .pill{display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--border-hi);border-radius:999px;background:rgba(78,168,255,.1);color:var(--electric-bright);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.contact-hero .ring{justify-self:center;position:relative;width:280px;height:280px;border-radius:50%;background:linear-gradient(160deg,rgba(78,168,255,.18),rgba(47,224,200,.06));border:1px solid var(--border-hi);display:grid;place-items:center;box-shadow:0 30px 80px -28px rgba(78,168,255,.45);overflow:hidden}
+.contact-hero .ring::before{content:"";position:absolute;inset:-30px;border-radius:50%;border:1.5px dashed rgba(78,168,255,.35);animation:spin 30s linear infinite}
+@media (prefers-reduced-motion:reduce){.contact-hero .ring::before{animation:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.contact-hero .ring svg{width:46%;height:auto;color:var(--electric-bright);opacity:.7}
+@media (max-width:880px){.contact-hero-grid{grid-template-columns:1fr;gap:24px} .contact-hero .ring{width:200px;height:200px}}
+
+.contact-directory{padding:64px 0 84px}
+.dir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:42px}
+@media (max-width:1080px){.dir-grid{grid-template-columns:repeat(2,1fr);gap:22px}}
+.dir-col{padding:30px;border:1px solid var(--border);border-radius:18px;background:var(--surface-2)}
+.dir-col h4{font-family:var(--display);font-size:18px;color:#fff;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.dir-col h4 svg{width:20px;height:20px;color:var(--electric-bright)}
+.dir-col ul{list-style:none;display:grid;gap:8px}
+.dir-col li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text-mute);line-height:1.55}
+.dir-col li::before{content:"▸";color:var(--electric);font-size:11px;margin-top:4px;flex:none}
+.dir-col li a{color:var(--text);font-weight:500}
+.dir-col li a:hover{color:var(--electric-bright)}
+.dir-col li b{color:#fff;font-weight:600}
+.dir-col li span{color:var(--text-faint);font-size:11.5px;display:block;margin-top:2px}
+@media (max-width:860px){.dir-grid{grid-template-columns:1fr}}
+
+.dir-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dir-card{padding:26px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(160deg,rgba(78,168,255,.06),rgba(47,224,200,.025));text-align:center;transition:transform .2s,border-color .2s}
+.dir-card:hover{transform:translateY(-3px);border-color:var(--border-hi)}
+.dir-card h5{font-family:var(--display);font-size:16px;color:#fff;font-weight:600;margin-bottom:6px}
+.dir-card p{font-size:13px;color:var(--text-mute);line-height:1.55;margin-bottom:14px}
+.dir-card a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border-hi);border-radius:999px;color:var(--electric-bright);font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:background .15s,color .15s,border-color .15s}
+.dir-card a:hover{background:var(--electric);color:#02121f;border-color:var(--electric)}
+@media (max-width:780px){.dir-cards{grid-template-columns:1fr}}
+
+/* Old cta-final / legacy class — hide so we don't render twice when re-themed */
+.cta-final{display:none}
+
+/* ─────────────────────────────────────────────────────────
+   Request-demo form modal (posts to Google Forms hidden iframe)
+   ───────────────────────────────────────────────────────── */
+.access-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:320;padding:24px;overflow-y:auto}
+.access-modal:not([hidden]){display:flex}
+.access-modal .bd{position:absolute;inset:0;background:rgba(2,6,18,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.access-card{position:relative;max-width:540px;width:100%;background:linear-gradient(180deg,var(--surface),#0a1230);border:1.5px solid rgba(214,168,73,.55);border-radius:20px;padding:34px 32px 32px;box-shadow:0 0 0 1px rgba(214,168,73,.18),0 30px 80px -30px rgba(214,168,73,.5),0 0 60px -20px rgba(214,168,73,.35);max-height:96vh;overflow-y:auto}
+.access-card::before{content:"";position:absolute;top:-1.5px;left:-1.5px;right:-1.5px;height:3px;border-top-left-radius:20px;border-top-right-radius:20px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-bright),var(--gold),transparent);animation:gold-shift 4s linear infinite;background-size:200% 100%}
+.access-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font-size:22px;line-height:1;cursor:pointer;transition:background .15s,border-color .15s}
+.access-close:hover{background:rgba(78,168,255,.25);border-color:var(--electric)}
+.access-head{margin-bottom:22px}
+.access-head .pill{display:inline-flex;align-items:center;padding:5px 12px;border:1px solid var(--border-hi);border-radius:999px;background:rgba(78,168,255,.1);color:var(--electric-bright);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.access-head h3{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.012em;margin-bottom:6px;background:linear-gradient(90deg,#b88c3a 0%,#d6a849 22%,#f0c574 42%,#fde3a7 55%,#f0c574 68%,#d6a849 82%,#b88c3a 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gold-shift 6s linear infinite;display:inline-block;filter:drop-shadow(0 0 .4px rgba(214,168,73,.85)) drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+@media (prefers-reduced-motion:reduce){.access-head h3{animation:none}}
+.access-head p{color:var(--text-mute);font-size:14px;line-height:1.55}
+.access-form{display:grid;gap:14px}
+.af-field{display:grid;gap:6px}
+.af-field label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute);font-weight:600}
+.af-field .af-req{color:var(--amber);margin-left:3px}
+.af-field input,.af-field select{font-family:var(--sans);font-size:14.5px;padding:11px 14px;border:1px solid var(--border-hi);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;transition:border-color .15s,background .15s}
+.af-field input::placeholder{color:var(--text-faint)}
+.af-field input:focus,.af-field select:focus{outline:none;border-color:var(--electric);background:rgba(78,168,255,.08)}
+.af-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%239aa6c8' d='M0 0l5 6 5-6z'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+.af-field select option{background:#0e1638;color:#fff}
+.af-submit{margin-top:6px;padding:13px 22px;background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;font-family:var(--sans);font-weight:700;font-size:15px;border-radius:10px;border:1px solid rgba(255,255,255,.2);cursor:pointer;box-shadow:0 8px 22px -10px rgba(78,168,255,.6);transition:filter .15s}
+.af-submit:hover:not(:disabled){filter:brightness(1.08)}
+.af-submit:disabled{opacity:.7;cursor:wait}
+.af-submit--ghost{background:transparent;color:#fff;border-color:var(--border-hi);box-shadow:none}
+.af-note{font-family:var(--mono);font-size:10.5px;color:var(--text-faint);text-align:center;letter-spacing:.04em;line-height:1.5}
+.access-thanks{text-align:center;padding:20px 0}
+.access-thanks .af-thanks-icon{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),#1a8a4a);color:#fff;display:grid;place-items:center;font-size:36px;font-weight:700;margin:0 auto 18px;box-shadow:0 12px 32px -10px rgba(47,212,122,.5)}
+.access-thanks h3{font-family:var(--display);font-size:22px;color:#fff;margin-bottom:8px;font-weight:700}
+.access-thanks p{color:var(--text-mute);font-size:14.5px;line-height:1.55;margin-bottom:20px}
+@media (max-width:560px){.access-modal{padding:12px} .access-card{padding:26px 22px 22px} .access-head h3{font-size:20px}}
+
+/* ─────────────────────────────────────────────────────────
+   Demo video modal
+   ───────────────────────────────────────────────────────── */
+.demo-modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:24px}
+.demo-modal:not([hidden]){display:flex}
+.demo-modal .bd{position:absolute;inset:0;background:rgba(2,6,18,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.demo-card{position:relative;max-width:1100px;width:100%;background:#000;border:1px solid var(--border-hi);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-glow)}
+.demo-card video{width:100%;height:auto;display:block;background:#000}
+.demo-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;font-size:22px;line-height:1;cursor:pointer;z-index:5;font-family:var(--sans)}
+.demo-close:hover{background:rgba(78,168,255,.5);border-color:var(--electric)}
+.demo-cap{padding:14px 22px;border-top:1px solid var(--border);background:linear-gradient(180deg,#0b1230,#060a1c);color:var(--text-mute);font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.demo-cap b{color:var(--electric-bright);font-weight:600}
+
+/* ─────────────────────────────────────────────────────────
+   Tiny accent: animated pulse for the live "indicator" dot
+   ───────────────────────────────────────────────────────── */
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(47,224,200,.55)}50%{box-shadow:0 0 0 8px rgba(47,224,200,0)}}
+.live{animation:pulse 2s infinite}
+@media (prefers-reduced-motion:reduce){.live{animation:none}}
+
+/* ─────────────────────────────────────────────────────────
+   Gold-rotate animated text — cycles light→bright gold tones
+   Used in footer tagline + logo-strip "Trusted across..." label
+   ───────────────────────────────────────────────────────── */
+.gold-rotate{
+  background:linear-gradient(90deg,
+    #b88c3a 0%,
+    #d6a849 18%,
+    #f0c574 36%,
+    #fde3a7 50%,
+    #f0c574 64%,
+    #d6a849 82%,
+    #b88c3a 100%
+  );
+  background-size:220% 100%;
+  background-position:0% 50%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  animation:gold-shift 6s linear infinite;
+  font-weight:800;
+  letter-spacing:.005em;
+  /* Subtle gold under-shadow restores perceived weight despite transparent fill */
+  filter:drop-shadow(0 0 .4px rgba(214,168,73,.85)) drop-shadow(0 1px 1px rgba(0,0,0,.15));
+}
+@keyframes gold-shift{
+  0%{background-position:0% 50%}
+  100%{background-position:220% 50%}
+}
+@media (prefers-reduced-motion:reduce){
+  .gold-rotate{animation:none;background-position:50% 50%}
+}
+/* Footer tagline — size & spacing override */
+.brand-col .gold-rotate{
+  display:inline-block;
+  font-family:var(--display);
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:.012em;
+  margin-bottom:6px;
+  text-transform:none;
+}
+@media (max-width:680px){.brand-col .gold-rotate{font-size:16px}}
+/* Logo-strip label override — uppercase, full bold gold */
+.logo-strip .lbl.gold-rotate-wrap{margin-bottom:24px}
+.logo-strip .gold-rotate-trust{
+  font-family:var(--mono);
+  font-size:13px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:800;
+}
+.logo-strip .gold-rotate-trust em{font-style:normal}
+/* Eyebrow / section-eye in rotating gold — slightly larger size, heavier weight */
+.eyebrow.is-gold,.section-eye.is-gold{font-size:12.5px;letter-spacing:.18em;font-weight:800}
+.eyebrow.is-gold::before,.section-eye.is-gold::before{background:linear-gradient(90deg,var(--gold),transparent)}
+.eyebrow.is-gold .dot-indic{background:var(--gold-bright);box-shadow:0 0 12px var(--gold)}
+.eyebrow.is-gold .gold-rotate,.section-eye.is-gold .gold-rotate{font-family:var(--mono);font-weight:800;letter-spacing:inherit;text-transform:uppercase}
+@media (max-width:680px){.eyebrow.is-gold,.section-eye.is-gold{font-size:11px}}
+
+/* ─────────────────────────────────────────────────────────
+   Slide-5 (About gist) — full-width layout (no blank right void)
+   ───────────────────────────────────────────────────────── */
+.slide[data-slide="5"] .container{display:block !important;padding-left:32px;padding-right:32px}
+@media (max-width:640px){.slide[data-slide="5"] .container{padding-left:20px;padding-right:20px}}
+.about-slide{display:grid !important;grid-template-columns:1.25fr .95fr !important;gap:56px !important;max-width:1240px;margin:0 auto;align-items:start;width:100%}
+.about-slide-left h1,.about-slide-left h2{font-size:clamp(28px,3.8vw,46px) !important;line-height:1.08 !important;margin-bottom:14px !important;letter-spacing:-.022em !important}
+.about-slide-left p{font-size:15.5px;line-height:1.6;margin-bottom:20px;color:var(--text-mute);max-width:560px}
+.about-slide-left .pillar-mini{margin-bottom:14px !important}
+/* Stats: 4 columns in one line on desktop, 2x2 on small */
+.about-slide-grid{grid-template-columns:repeat(4,1fr) !important;gap:10px !important;max-width:560px}
+.about-slide-grid div{padding:12px 12px !important;border-radius:10px !important;text-align:center;background:rgba(255,255,255,.03) !important;border-color:rgba(255,255,255,.08) !important}
+.about-slide-grid b{font-size:17px !important;color:var(--gold-bright) !important;font-weight:800 !important;margin-bottom:3px !important;font-family:var(--display)}
+.about-slide-grid span{font-size:9.5px !important;letter-spacing:.08em !important;font-weight:700}
+@media (max-width:680px){
+  .about-slide-grid{grid-template-columns:repeat(2,1fr) !important;max-width:none}
+  .about-slide-grid b{font-size:20px !important}
+}
+/* Right column wrapper — portrait card + sub-bands */
+.about-right-stack{display:flex;flex-direction:column;gap:14px;width:100%;min-width:0}
+/* Portrait card — flex column (robust, no grid auto-placement quirks) */
+.about-portrait{padding:24px !important;min-height:auto !important;border-radius:18px !important;width:100%;text-align:left !important;display:flex !important;flex-direction:column !important;align-items:stretch !important;justify-content:flex-start !important;gap:14px}
+.about-portrait .ap-row{display:flex;align-items:center;gap:16px;width:100%}
+.about-portrait .sil{width:78px !important;height:78px !important;margin:0 !important;border-width:1px !important;flex:none}
+.about-portrait .sil svg{width:62%;height:auto;margin:19%;display:block}
+.about-portrait .name-block{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.about-portrait .name{font-size:21px !important;font-family:var(--display);font-weight:800;letter-spacing:-.012em;line-height:1.15;color:#fff;margin:0}
+.about-portrait .name b{font-weight:800;color:#fff;margin-right:4px}
+.about-portrait .role{margin-top:5px !important;font-size:10px !important;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);font-weight:700}
+.about-portrait .qual{margin-top:0 !important;font-size:10.5px !important;padding:8px 14px;border:1px solid var(--border);border-radius:999px;display:inline-block;background:rgba(255,255,255,.02);letter-spacing:.04em;font-family:var(--mono);color:var(--text-mute);align-self:flex-start}
+.about-portrait .vision{margin-top:0 !important;padding-top:14px !important;border-top:1px solid var(--border);font-size:13px !important;line-height:1.55 !important;font-style:italic;color:var(--text-mute);width:100%}
+.about-portrait .vision b{font-style:normal;color:var(--electric-bright);font-weight:700}
+
+/* Sub-cards in right column — fills the vertical blank space */
+.about-aux{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-aux-card{padding:18px 18px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,rgba(78,168,255,.04),rgba(255,255,255,.018));position:relative;overflow:hidden}
+.about-aux-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--electric),transparent);opacity:.5}
+.about-aux-card .ic{width:30px;height:30px;border-radius:8px;background:rgba(214,168,73,.12);border:1px solid rgba(214,168,73,.35);display:grid;place-items:center;color:var(--gold-bright);margin-bottom:10px}
+.about-aux-card .ic svg{width:16px;height:16px}
+.about-aux-card h4{font-family:var(--display);font-size:13.5px;color:#fff;font-weight:700;margin-bottom:4px;letter-spacing:-.005em;line-height:1.25}
+.about-aux-card p{font-size:12px !important;color:var(--text-mute);line-height:1.5;margin:0 !important}
+
+/* Mission strip — sits below both columns to fill horizontal blank space */
+.about-mission{margin-top:36px;padding:24px 28px;border:1px solid rgba(214,168,73,.25);border-radius:16px;background:linear-gradient(135deg,rgba(214,168,73,.06),rgba(78,168,255,.04));display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+.about-mission .mark{font-family:var(--display);font-size:48px;color:var(--gold-bright);line-height:.7;opacity:.55;flex:none}
+.about-mission .text{font-family:var(--display);font-style:italic;font-size:16px;color:#fff;line-height:1.45;font-weight:500}
+.about-mission .text b{color:var(--gold-bright);font-style:normal;font-weight:700}
+.about-mission .att{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);font-weight:700;text-align:right;line-height:1.5;flex:none}
+.about-mission .att b{display:block;color:var(--gold-bright);font-weight:700}
+@media (max-width:920px){
+  .about-slide{grid-template-columns:1fr !important;gap:32px !important}
+  .about-aux{grid-template-columns:1fr 1fr}
+  .about-mission{grid-template-columns:auto 1fr;gap:18px;margin-top:24px;padding:18px 20px}
+  .about-mission .att{display:none}
+  .about-mission .text{font-size:14px}
+}
+@media (max-width:680px){
+  /* Hide the four aux cards + mission strip on mobile to keep slide-5 within
+     the carousel viewport — preventing carousel-control overlap. The same
+     content is available on the About page. */
+  .slide[data-slide="5"] .about-aux,
+  .slide[data-slide="5"] .about-mission{display:none !important}
+  .about-portrait{padding:20px !important}
+}
+@media (max-width:520px){.about-aux{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────
+   "Financial Intelligence Platform" — gold treatment (non-distracting)
+   Applied in:
+     · brand-pill (gold trailing tag)
+     · product section h2 (gold gradient on em)
+     · footer copyright accent line
+   Skipped in flow text where bold/em already carry emphasis.
+   ───────────────────────────────────────────────────────── */
+.brand-pill .fip{
+  background:linear-gradient(90deg,#d6a849,#f0c574,#fde3a7,#f0c574,#d6a849);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+  animation:gold-shift 7s linear infinite;
+  font-weight:800;
+  filter:drop-shadow(0 0 .3px rgba(214,168,73,.85));
+}
+@media (prefers-reduced-motion:reduce){.brand-pill .fip{animation:none}}
+.section-h2 em.fip-gold{
+  background:none !important;
+  -webkit-background-clip:initial !important;background-clip:initial !important;
+  color:var(--gold-bright) !important;
+  -webkit-text-fill-color:var(--gold-bright) !important;
+  filter:none;
+  font-weight:700;
+}
+.ft-bottom .fip{color:var(--gold-bright);font-weight:700}
+
+/* Slide-3 workflow step numerals 01-04 — gold + bolder */
+.wf-step .n{
+  background:linear-gradient(135deg,rgba(214,168,73,.20),rgba(240,197,116,.10)) !important;
+  border-color:rgba(214,168,73,.45) !important;
+  color:var(--gold-bright) !important;
+  font-weight:800 !important;
+  font-size:14px !important;
+  letter-spacing:.02em;
+  text-shadow:0 1px 8px rgba(214,168,73,.35);
+}
+.wf-step:hover .n{
+  background:linear-gradient(135deg,rgba(214,168,73,.28),rgba(240,197,116,.16)) !important;
+  border-color:rgba(240,197,116,.6) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Plans / Tiers section (Standard · Pro · Pro+)
+   ───────────────────────────────────────────────────────── */
+.plans-section{padding:96px 0;background:linear-gradient(180deg,#070b1f,#0a1230);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.plans-section::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 50% 0%,rgba(78,168,255,.07),transparent 65%);pointer-events:none}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;align-items:stretch;position:relative;z-index:1}
+.tier{position:relative;padding:34px 30px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,var(--surface),#0b1230);display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease,box-shadow .3s ease}
+.tier:hover{transform:translateY(-4px);border-color:var(--border-hi);box-shadow:0 28px 60px -32px rgba(78,168,255,.4)}
+.tier.featured{border-color:rgba(214,168,73,.45);background:linear-gradient(180deg,rgba(214,168,73,.06),#0b1230 60%);box-shadow:0 0 0 1px rgba(214,168,73,.18),0 30px 70px -30px rgba(214,168,73,.35)}
+.tier.featured:hover{transform:translateY(-6px)}
+.tier-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#1a1408;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:5px 14px;border-radius:999px;box-shadow:0 6px 16px -6px rgba(214,168,73,.6);white-space:nowrap}
+.tier-name{font-family:var(--display);font-weight:700;font-size:28px;color:#fff;letter-spacing:-.012em;margin-bottom:6px}
+.tier-name .plus{color:var(--gold-bright);font-weight:700;margin-left:2px}
+.tier-tagline{font-size:13.5px;color:var(--text-mute);line-height:1.55;margin-bottom:22px;min-height:42px}
+.tier-features{list-style:none;padding:0;margin:0 0 26px;flex:1}
+.tier-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text);padding:8px 0;border-top:1px solid rgba(255,255,255,.04);line-height:1.55}
+.tier-features li:first-child{border-top:none}
+.tier-features li::before{content:"";flex:none;margin-top:6px;width:14px;height:14px;border-radius:50%;background:rgba(78,168,255,.16);border:1px solid rgba(127,194,255,.4);position:relative}
+.tier-features li{position:relative}
+.tier-features li::after{content:"";position:absolute;left:3.5px;top:13px;width:5px;height:8px;border-right:1.5px solid var(--electric-bright);border-bottom:1.5px solid var(--electric-bright);transform:rotate(45deg)}
+.tier.featured .tier-features li::before{background:rgba(214,168,73,.18);border-color:rgba(214,168,73,.5)}
+.tier.featured .tier-features li::after{border-color:var(--gold-bright)}
+.tier-features li b{font-weight:600;color:#fff}
+.tier-features .fine{display:block;margin-top:3px;font-family:var(--mono);font-size:10.5px;color:var(--text-faint);letter-spacing:.04em;padding-left:0}
+.tier .tier-cta{margin-top:auto;width:100%;justify-content:center;font-size:14px}
+.plans-note{text-align:center;margin-top:28px;color:var(--text-faint);font-size:13px;font-style:italic;position:relative;z-index:1}
+.plans-note b{color:var(--text-mute);font-style:normal}
+@media (max-width:960px){.plans-grid{grid-template-columns:1fr;gap:18px}.tier{padding:30px 26px}.tier.featured{order:-1}}
 </style>
 </head>
-<body>
-<noscript><meta http-equiv="refresh" content="0; url=v/a/" /></noscript>
-<main>
-  <p>Redirecting to <a href="v/a/">VIGILO by CTR</a>&hellip;</p>
-  <p style="font-size:12px;color:#6b76a0">If you are not redirected, <a href="v/a/">click here</a>.</p>
+<body data-theme="dark-enterprise">
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ═════════════════════════ NAV ═════════════════════════ -->
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="brand brand--logo" href="#main" aria-label="VIGILO by CTR home">
+      <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR — Analytics & Visualization" />
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#product" data-spy="product">Product</a>
+      <a href="#packs" data-spy="packs">Analytics Packs</a>
+      <a href="#plans" data-spy="plans">Plans</a>
+      <a href="#workflow" data-spy="workflow">Workflow</a>
+      <a href="#three-lines" data-spy="three-lines">3 Lines of Defence</a>
+      <a href="#security" data-spy="security">Security</a>
+      <a href="about/">About</a>
+      <a href="#faqs" data-spy="faqs">FAQs</a>
+      <a href="#contact" data-spy="contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <!-- Sign In dropdown hidden until app.ctrmsl.com subdomain is live (audit P0 fix) -->
+      <a href="#" class="btn btn-primary" onclick="openAccessForm(event)">Request a Demo →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg class="icn-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icn-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ═══════════════════════ HERO CAROUSEL ═══════════════════════ -->
+<header class="hero" aria-label="VIGILO product introduction">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow-2" aria-hidden="true"></div>
+
+  <div class="carousel" id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="VIGILO hero slides">
+
+    <!-- ── Slide 1: Audit Analytics Positioning ── -->
+    <section class="slide is-active" data-slide="1" aria-roledescription="slide" aria-label="Slide 1 of 5 —Created by Auditors. Engineered for Assurance.">
+      <div class="container">
+        <div>
+          <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
+          <div class="eyebrow is-gold"><span class="dot-indic live"></span><span class="gold-rotate">Created by Auditors · Engineered for Assurance</span></div>
+          <h1 class="hero-title">Automated analytics<br/>built for the <em>modern assurance</em> team.</h1>
+          <p class="hero-lede">
+            <b>1,050+ automated checks</b> turn 100% of your population into exception reports,
+            early-warning signals and review-ready evidence — for confident decisions and timely action.
+          </p>
+          <div class="hero-cta">
+            <a href="#product" class="btn btn-primary btn-lg">View Product →</a>
+            <a href="#contact" class="btn btn-ghost btn-lg">Request a Demo</a>
+          </div>
+          <div class="hero-meta">
+            <span><span class="dot-bullet"></span><b>100%</b> Population coverage</span>
+            <span><span class="dot-bullet"></span>Datasets up to <b>10M+</b> records</span>
+            <span><span class="dot-bullet"></span>Exception reports in <b>&lt;24h</b></span>
+          </div>
+        </div>
+        <div>
+          <div class="device" role="img" aria-label="VIGILO dashboard screenshot">
+            <span class="device-dots"><i></i><i></i><i></i></span>
+            <span class="device-url">app.vigilo.ctrmsl.com / dashboard</span>
+            <img src="assets/dashboard_1.png" alt="VIGILO analytics dashboard showing engagement KPIs, active analytics and exception summaries" loading="eager" width="1600" />
+            <div class="float-card tl">
+              <div class="lbl">Exceptions today</div>
+              <div class="val">3,182</div>
+              <div class="delta">▲ 142 vs. yesterday</div>
+            </div>
+            <div class="float-card br">
+              <div class="lbl">Coverage</div>
+              <div class="val">100%</div>
+              <div class="delta">Full population</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Slide 2: Three Lines of Defence · Across Industries ── -->
+    <section class="slide" data-slide="2" aria-roledescription="slide" aria-label="Slide 2 of 5 —Built for the three lines of defence" hidden>
+      <div class="container">
+        <div>
+          <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
+          <div class="eyebrow is-gold"><span class="dot-indic"></span><span class="gold-rotate">Three Lines of Defence · Across Industries</span></div>
+          <h2 class="hero-title">Empowering the<br/><em>Three Lines</em> of Defence.</h2>
+          <p class="hero-lede">
+            One platform for <b>Statutory &amp; Internal Auditors</b>, <b>CROs &amp; Risk Management</b>,
+            and <b>CFOs &amp; Executives</b> — across industries — converting full-population data into
+            exceptions, early-warning indicators and review-ready evidence.
+          </p>
+          <div class="hero-cta">
+            <a href="#packs" class="btn btn-primary btn-lg">Explore Analytics Packs →</a>
+            <a href="#three-lines" class="btn btn-ghost btn-lg">See Three Lines</a>
+          </div>
+          <div class="hero-meta">
+            <span><span class="dot-bullet"></span><b>10</b> process areas</span>
+            <span><span class="dot-bullet"></span>Industry-deep — <b>BFSI to general enterprise</b></span>
+            <span><span class="dot-bullet"></span>On-prem &amp; private-VPC ready</span>
+          </div>
+        </div>
+        <div>
+          <div class="device" role="img" aria-label="VIGILO executive dashboard">
+            <span class="device-dots"><i></i><i></i><i></i></span>
+            <span class="device-url">app.vigilo.ctrmsl.com / executive-reports</span>
+            <img src="assets/executive_reports_1.png" alt="VIGILO executive dashboard with portfolio KPIs, exception trends and assurance checkpoints" loading="lazy" width="1600" />
+            <div class="float-card tl">
+              <div class="lbl">Exceptions surfaced</div>
+              <div class="val">2.74%</div>
+              <div class="delta" style="color:var(--amber)">▼ of population</div>
+            </div>
+            <div class="float-card br">
+              <div class="lbl">Checks live</div>
+              <div class="val">1,050+</div>
+              <div class="delta">Across 10 cycles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Slide 3: Product Screenshots / VIGILO in action ── -->
+    <section class="slide" data-slide="3" aria-roledescription="slide" aria-label="Slide 3 of 5 —From raw data to informed action" hidden>
+      <div class="container">
+        <div>
+          <div class="brand-pill"><em>VIGILO</em> · <span class="fip">Financial Intelligence Platform</span></div>
+          <div class="eyebrow"><span class="dot-indic"></span>VIGILO in Action</div>
+          <h2 class="hero-title">From raw data to<br/><em>informed action</em>.</h2>
+          <p class="hero-lede">
+            <b>Detect</b> exceptions early. <b>Prevent</b> control breakdowns and non-compliances.
+            <b>Decide</b> with full-population evidence. <b>Document</b> a defensible trail — one disciplined
+            path for assurance, risk and finance.
+          </p>
+          <div class="hero-cta">
+            <a href="#" class="btn btn-primary btn-lg" onclick="openDemo(event)">▶ Watch Demo</a>
+            <a href="#workflow" class="btn btn-ghost btn-lg">Download Overview</a>
+          </div>
+          <div class="hero-meta">
+            <span><span class="dot-bullet"></span><b>Defensible</b> evidence trail</span>
+            <span><span class="dot-bullet"></span><b>PostgreSQL</b> backed</span>
+            <span><span class="dot-bullet"></span><b>Rule</b> versioning &amp; lineage</span>
+          </div>
+        </div>
+        <div>
+          <div class="wf" aria-label="VIGILO workflow steps">
+            <div class="wf-step"><div class="n">01</div><div><h4>Connect &amp; Register Data</h4><p>Import tables — core banking, ERP, LMS, GSTN, files.</p></div></div>
+            <div class="wf-step"><div class="n">02</div><div><h4>Map Columns &amp; Approve Logic</h4><p>Risk-driven normalization with versioned, governed rules.</p></div></div>
+            <div class="wf-step"><div class="n">03</div><div><h4>Run Analytics on 100% Population</h4><p>1,050+ checks across LMS, P2P, O2C, GL and more.</p></div></div>
+            <div class="wf-step"><div class="n">04</div><div><h4>Review, Decide &amp; Act</h4><p>Triage exceptions, drive timely action, generate evidence packs and management/working-paper exports.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Slide 4: Voices from the field (testimonial — auto-rotates inside) ── -->
+    <section class="slide" data-slide="4" aria-roledescription="slide" aria-label="Slide 4 of 5 — Voices from the field" hidden>
+      <div class="container">
+        <div class="t-slide" id="tSlide">
+          <span class="pillar-mini">Voices from the field</span>
+          <div class="quote-mark" aria-hidden="true">"</div>
+          <blockquote id="tQuote">VIGILO turned a five-week audit cycle into something we could review in a single sitting — <span>and every exception traced back to source</span>.</blockquote>
+          <div class="att">
+            <div class="av" id="tAv">SP</div>
+            <div style="text-align:left">
+              <b id="tName">Senior Partner</b>
+              <span class="role-org"><span id="tRole">Audit &amp; Assurance</span> · <b id="tOrg">Top-tier CA firm</b></span>
+            </div>
+          </div>
+          <div class="dots-mini" aria-hidden="true">
+            <i class="on"></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Slide 5: About gist — links to /about/ ── -->
+    <section class="slide" data-slide="5" aria-roledescription="slide" aria-label="Slide 5 of 5 — About VIGILO" hidden>
+      <div class="container">
+        <div class="about-slide">
+          <div class="about-slide-left">
+            <span class="pillar-mini">About VIGILO · 15-year vision</span>
+            <h2>Built by auditors.<br/><em>Engineered for assurance.</em></h2>
+            <p><b>VIGILO</b> is the work of a Chartered-Accountant-led team — <b>20+ years of practice across 150+ entities</b>, codified into a Financial Intelligence Platform that saves 40–50% of audit time and lifts the constant retraining burden of high attrition in professional firms.</p>
+            <div class="about-slide-grid">
+              <div><b>20+ yrs</b><span>Audit practice</span></div>
+              <div><b>150+</b><span>Entities</span></div>
+              <div><b>40-50%</b><span>Time saved</span></div>
+              <div><b>15-yr</b><span>Vision</span></div>
+            </div>
+            <div class="hero-cta" style="margin-top:24px">
+              <a href="about/" class="btn btn-primary btn-lg">Read our story →</a>
+              <a href="#contact" class="btn btn-ghost btn-lg">Request a Demo</a>
+            </div>
+          </div>
+
+          <div class="about-right-stack">
+            <aside class="about-portrait" aria-label="VIGILO founder">
+              <div class="ap-row">
+                <div class="sil" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" fill="none" stroke="rgba(127,194,255,0.6)" stroke-width="1.6"><circle cx="40" cy="30" r="13"/><path d="M16 72c0-12 10-21 24-21s24 9 24 21"/></svg>
+                </div>
+                <div class="name-block">
+                  <div class="name"><b>CA.</b>Chandra Mohan</div>
+                  <div class="role">Founder · Architect</div>
+                </div>
+              </div>
+              <div class="qual">B.Com · FCA · CISA · CIA · CFE · FAFD</div>
+              <div class="vision"><b>Vision</b> · A world-class Financial Intelligence Platform — supported by a 10+ year engineering bench.</div>
+            </aside>
+
+            <!-- Two-up aux cards: what the team is + what the product covers -->
+            <div class="about-aux">
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M3 20v-1.5a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4V20"/><path d="M14 20v-1.5a4 4 0 0 1 4-4h.5a3.5 3.5 0 0 1 3.5 3.5V20"/></svg></div>
+                <h4>CA-led · Engineering-strong</h4>
+                <p>Founder + audit-led review board, plus a 10+ year engineering bench building defensible pipelines.</p>
+              </div>
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
+                <h4>10 cycles · 1,050+ checks</h4>
+                <p>P2P · LMS · O2C · GL · Inventory · HR · Exec Reporting · PPE · TPR · Retail Deposits.</p>
+              </div>
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 14h6"/></svg></div>
+                <h4>BFSI specialisation</h4>
+                <p>Two decades of statutory, internal and forensic audits — deep coverage of banking, NBFC and FinServ data.</p>
+              </div>
+              <div class="about-aux-card">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z"/></svg></div>
+                <h4>Defensible by design</h4>
+                <p>Every flag traceable to source, rule version and reviewer — EQCR &amp; TCWG-ready evidence packs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission strip — fills the horizontal blank space below the two columns -->
+        <div class="about-mission" role="note" aria-label="VIGILO mission">
+          <div class="mark" aria-hidden="true">"</div>
+          <p class="text">To deliver a <b>world-class, state-of-the-art Financial Intelligence Platform</b> that returns 40–50% of an auditor's time to the work that actually requires judgement.</p>
+          <div class="att">Founder's Vision<b>VIGILO by CTR · 2026</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Controls ── -->
+    <div class="car-controls" role="group" aria-label="Carousel controls">
+      <button class="car-arrow" id="carPrev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="car-dot is-active" data-go="0" aria-label="Go to slide 1"></button>
+      <button class="car-dot" data-go="1" aria-label="Go to slide 2"></button>
+      <button class="car-dot" data-go="2" aria-label="Go to slide 3"></button>
+      <button class="car-dot" data-go="3" aria-label="Go to slide 4"></button>
+      <button class="car-dot" data-go="4" aria-label="Go to slide 5"></button>
+      <button class="car-arrow" id="carNext" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <button class="car-arrow" id="carPlayPause" aria-label="Pause auto-rotate" aria-pressed="false" title="Pause auto-rotate">
+        <svg id="carPauseIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        <svg id="carPlayIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════ LOGO STRIP (placeholder until real client logos approved) ═══════════════════ -->
+<section class="logo-strip" aria-label="Built for institutions across the assurance ecosystem">
+  <div class="container">
+    <p class="lbl gold-rotate-wrap"><span class="gold-rotate gold-rotate-trust">Built for institutions like these</span></p>
+    <!-- Industry segments — used until real client logos are approved for public display.
+         When ready, swap to a grid of grayscale <img src="assets/logo-clientname.svg" alt="Client Name" /> tiles. -->
+    <div class="segments-row" role="list">
+      <!-- 1 · Tier-1 Audit Firms -->
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l9-1 9 1v8c0 5-4 9-9 11-5-2-9-6-9-11V3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <b>Tier-1<br/>Audit Firms</b>
+        <span>Statutory · EQCR · Working Papers</span>
+      </div>
+      <!-- 2 · Internal Audit Practice -->
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/><rect x="5" y="6" width="14" height="15" rx="2"/><path d="M9 12l2 2 4-4M9 17h6"/></svg></div>
+        <b>Internal Audit<br/>Practice</b>
+        <span>Risk-Based · IFC · IFCoR</span>
+      </div>
+      <!-- 3 · CRO, CFO & Finance Teams -->
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><rect x="5" y="8" width="3" height="12"/><rect x="11" y="4" width="3" height="16"/><rect x="17" y="12" width="3" height="8"/></svg></div>
+        <b>CRO, CFO &amp;<br/>Finance Teams</b>
+        <span>Data Validation · Risk · MIS · GL · Closing</span>
+      </div>
+      <!-- 4 · Private Banks & NBFCs -->
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><circle cx="8" cy="15" r="1.5"/></svg></div>
+        <b>Private Banks<br/>&amp; NBFCs</b>
+        <span>LMS · GL/Granular · Retail Deposits</span>
+      </div>
+      <!-- 5 · Public-Sector Banks -->
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10M19 21V10M3 10l9-6 9 6"/><path d="M9 21v-7M15 21v-7"/></svg></div>
+        <b>Public-Sector<br/>Banks</b>
+        <span>Statutory · ECL · IRAC</span>
+      </div>
+      <!-- 6 · Forensic & Investigation -->
+      <div class="seg" role="listitem">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M21 21l-5-5"/><path d="M8 11l2 2 4-4"/></svg></div>
+        <b>Forensic<br/>&amp; Investigation</b>
+        <span>Fraud · TPR · Tracing</span>
+      </div>
+    </div>
+    <p class="segments-foot">Real client attributions available <em>under NDA</em> · 150+ entities served</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ TRUST STRIP ═══════════════════ -->
+<section class="trust-strip" aria-label="Quick proof points">
+  <div class="container">
+    <div class="trust-row">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <span><b>100%</b> Population — no sampling</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg>
+        <span><b>1,050+</b> Automated checks</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+        <span><b>&lt;24h</b> Reports on 10M+ rows</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        <span><b>&gt;90%</b> Fewer man-hours</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5.5L12 2.5 4 5.5V12c0 6 8 10 8 10z"/></svg>
+        <span><b>On-prem</b> / private VPC</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        <span><b>PostgreSQL</b>-backed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRODUCT SHOWCASE ═══════════════════ -->
+<section id="product" aria-label="Product screenshots showcase">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">The Product</div>
+      <h2 class="section-h2">A <em class="fip-gold">Financial Intelligence Platform</em> — built by auditors.</h2>
+      <p class="section-sub">Engagement dashboards, full-population analytics, exception registers and defensible evidence packs — one disciplined workspace for assurance, risk and finance, from raw data to informed action.</p>
+    </div>
+
+    <div class="shot-grid">
+      <figure class="shot-main reveal" id="shotMain">
+        <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard with KPIs, active analytics and exception summaries" loading="lazy" id="shotMainImg" />
+        <figcaption>
+          <b id="shotTitle">Engagement Dashboard</b>
+          <span id="shotTag">01 / 06 · Overview</span>
+        </figcaption>
+      </figure>
+      <div class="shot-thumb-stack" role="tablist" aria-label="Screenshots">
+        <button class="thumb is-active reveal" role="tab" aria-selected="true" data-shot="assets/dashboard_1.png" data-title="Engagement Dashboard" data-desc="Active analytics, KPIs and exception summaries at a glance." data-tag="01 / 06 · Overview">
+          <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard thumbnail — active analytics, KPIs, exception summaries" loading="lazy" />
+          <div class="meta"><h4>Engagement Dashboard</h4><p>Active analytics, KPIs and exception summaries.</p></div>
+        </button>
+        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/analytics_window.png" data-title="Analytics Catalogue" data-desc="Browse, configure and execute the analytics library." data-tag="02 / 06 · Library">
+          <img src="assets/analytics_window.png" alt="Analytics catalogue window — browse and execute the analytics library" loading="lazy" />
+          <div class="meta"><h4>Analytics Catalogue</h4><p>Browse, configure and execute the library.</p></div>
+        </button>
+        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/executive_reports_1.png" data-title="Executive Reports" data-desc="Portfolio-wide risk lens for CROs, CFOs and partners." data-tag="03 / 06 · Executive">
+          <img src="assets/executive_reports_1.png" alt="Executive reports — portfolio risk lens for CROs, CFOs and partners" loading="lazy" />
+          <div class="meta"><h4>Executive Reports</h4><p>Portfolio risk lens for CROs, CFOs and partners.</p></div>
+        </button>
+        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/ecl_summary.png" data-title="ECL Summary" data-desc="Ind AS 109 / IFRS 9 staging, PD/LGD/EAD movement." data-tag="04 / 06 · ECL">
+          <img src="assets/ecl_summary.png" alt="ECL summary report — Ind AS 109 / IFRS 9 staging movement view" loading="lazy" />
+          <div class="meta"><h4>ECL Summary</h4><p>Ind AS 109 staging &amp; PD/LGD/EAD movement.</p></div>
+        </button>
+        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/gl_granular_review.png" data-title="GL Granular Review" data-desc="JV scrutiny, postings and control-account anomalies." data-tag="05 / 06 · GL">
+          <img src="assets/gl_granular_review.png" alt="GL granular review interface — JV scrutiny and control-account anomaly detection" loading="lazy" />
+          <div class="meta"><h4>GL Granular Review</h4><p>JV scrutiny &amp; control-account anomalies.</p></div>
+        </button>
+        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/variance_analytics.png" data-title="Variance Analytics" data-desc="Period-over-period bridges, outlier detection." data-tag="06 / 06 · Variance">
+          <img src="assets/variance_analytics.png" alt="Variance analytics — period-over-period bridges and outlier detection" loading="lazy" />
+          <div class="meta"><h4>Variance Analytics</h4><p>Period-over-period bridges &amp; outliers.</p></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ KEY METRICS ═══════════════════ -->
+<section class="metrics" aria-label="Key metrics">
+  <div class="container">
+    <div class="metrics-grid">
+      <div class="metric reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="val" data-count="100" data-suf="%">0%</div>
+        <div class="lbl">Population coverage</div>
+        <div class="sub">Every transaction tested — no sampling</div>
+      </div>
+      <div class="metric reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
+        <div class="val" data-count="1050" data-suf="+">0+</div>
+        <div class="lbl">Automated checks</div>
+        <div class="sub">A proprietary audit analytics library</div>
+      </div>
+      <div class="metric reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <div class="val" data-count="90" data-pre="&gt;" data-suf="%">&gt;0%</div>
+        <div class="lbl">Fewer man-hours</div>
+        <div class="sub">vs. IDEA / ACL / Excel testing</div>
+      </div>
+      <div class="metric reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+        <div class="val" data-count="24" data-pre="&lt;" data-suf="h">&lt;0h</div>
+        <div class="lbl">Exception reports</div>
+        <div class="sub">Datasets up to 10M records</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SIGNATURE — Full-population vs sampling animation ═══════════════════ -->
+<section class="popviz" aria-label="Full-population vs sampling visualisation">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">The Difference, Visualised</div>
+      <h2 class="section-h2"><em>100% of your population.</em> Every transaction. Every cycle.</h2>
+      <p class="section-sub">Toggle between traditional sampling and VIGILO's full-population testing — see, in dots, exactly what gets tested and what doesn't.</p>
+    </div>
+
+    <div class="popviz-grid">
+      <div class="popviz-side reveal">
+        <h3>Sampling vs Full-Population</h3>
+        <p>A typical statutory sample tests ~5% of records. <b style="color:var(--text)">95% of the population is never examined.</b> VIGILO runs <b style="color:var(--electric-bright)">1,050+ automated checks across every record</b> — visualised here as 900 dots representing your data.</p>
+        <div class="popviz-toggles" role="tablist" aria-label="Coverage mode">
+          <button class="popviz-toggle" data-mode="sample" role="tab" aria-selected="false">Sampling (~5%)</button>
+          <button class="popviz-toggle is-on" data-mode="full" role="tab" aria-selected="true">VIGILO · 100%</button>
+        </div>
+      </div>
+
+      <div class="popviz-stage" id="popvizStage">
+        <div class="dots-grid" id="popvizDots" aria-hidden="true"></div>
+        <div class="popviz-stats">
+          <div class="warn" id="psUntested"><b>0</b><span>Untested</span></div>
+          <div class="accent" id="psTested"><b>900</b><span>Tested by VIGILO</span></div>
+          <div><b>900</b><span>Total records</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ANALYTICS PACKS PREVIEW ═══════════════════ -->
+<section id="packs" aria-label="Analytics packs preview">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">Analytics Packs</div>
+      <h2 class="section-h2"><em>10 process cycles.</em> 1,050+ ready-to-run checks.</h2>
+      <p class="section-sub">A proprietary library refined over two decades — covering the cycles that drive audit findings across industries, with deep BFSI coverage.</p>
+    </div>
+
+    <div class="packs-grid">
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
+        <h3>Procure-to-Pay</h3>
+        <div class="cnt">200+ checks</div>
+        <p>Vendor masters · invoices · 3-way match · duplicate payments.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 14h5"/></svg></div>
+        <h3>Loan Management</h3>
+        <div class="cnt">180+ checks</div>
+        <p>IRAC · ECL · DPD · KYC · staging migration.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Order-to-Cash</h3>
+        <div class="cnt">100+ checks</div>
+        <p>AR ageing · credit limits · write-offs · collection efficiency.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></div>
+        <h3>General Ledger</h3>
+        <div class="cnt">100+ checks</div>
+        <p>JV scrutiny · postings · control accounts · period-end anomalies.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <h3>Inventory</h3>
+        <div class="cnt">90+ checks</div>
+        <p>Valuation (Ind AS 2) · movement · ageing · obsolescence.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 21v-1.5a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4V21"/></svg></div>
+        <h3>Hire-to-Retire</h3>
+        <div class="cnt">75+ checks</div>
+        <p>Payroll · attendance · statutory deductions · master integrity.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><rect x="5" y="8" width="3" height="12"/><rect x="11" y="4" width="3" height="16"/><rect x="17" y="12" width="3" height="8"/></svg></div>
+        <h3>Executive Reporting</h3>
+        <div class="cnt">70+ checks</div>
+        <p>MIS · KPIs · summary reports for partners and leadership.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>PPE</h3>
+        <div class="cnt">70+ checks</div>
+        <p>Capex · depreciation · asset master integrity · disposals.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12c2-4 6-7 9-7s7 3 9 7"/><path d="M3 12c2 4 6 7 9 7s7-3 9-7"/></svg></div>
+        <h3>Third-Party / Related Party</h3>
+        <div class="cnt">60+ checks</div>
+        <p>Connected-party detection · exact + fuzzy matching.</p>
+      </a>
+      <a class="pack reveal" href="#contact">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>Retail Deposits</h3>
+        <div class="cnt">60+ checks</div>
+        <p>KYC · dormancy · concentration · interest application.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PLANS · TIERS ═══════════════════ -->
+<section id="plans" class="plans-section" aria-label="Plans and tiers">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">Plans · Engagement Tiers</div>
+      <h2 class="section-h2">Choose the right tier <em>for your engagement</em>.</h2>
+      <p class="section-sub">From single-domain reviews to enterprise-wide assurance — pick the tier that fits your scale. Every tier ships with the same exception-led methodology and defensible audit trail.</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- Standard -->
+      <article class="tier reveal">
+        <div class="tier-name">Standard</div>
+        <div class="tier-tagline">Foundational analytics for focused, single-domain audits.</div>
+        <ul class="tier-features">
+          <li><span><b>5 core analytics packs</b><span class="fine">LMS · GL · P2P · HR · O2C</span></span></li>
+          <li>Up to <b>1M&nbsp;records</b> per engagement</li>
+          <li>Monthly data refresh</li>
+          <li>Standard exception reports and downloadable review packs</li>
+          <li>Audit-ready documentation trail</li>
+          <li>Implementation support · <b>2 BD SLA</b></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost btn-lg tier-cta">Get Started →</a>
+      </article>
+
+      <!-- Pro · featured -->
+      <article class="tier featured reveal">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-name">Pro</div>
+        <div class="tier-tagline">Comprehensive coverage for mid &amp; large BFSI portfolios.</div>
+        <ul class="tier-features">
+          <li><span><b>All 10 analytics packs</b><span class="fine">Adds Inventory · PPE · Executive Reporting · TPR · Retail Deposits</span></span></li>
+          <li>Up to <b>10M&nbsp;records</b> per engagement</li>
+          <li>Weekly data refresh</li>
+          <li>Custom checks &amp; threshold tuning</li>
+          <li>Reconciliations: <b>GSTR-2B vs PR · 26AS vs Books</b></li>
+          <li>Priority email support · <b>1 BD SLA</b></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-lg tier-cta" onclick="openAccessForm(event)">Choose Pro →</a>
+      </article>
+
+      <!-- Pro+ -->
+      <article class="tier reveal">
+        <div class="tier-name">Pro<span class="plus">+</span></div>
+        <div class="tier-tagline">Enterprise scale with dedicated deployment and 24/7 SLA.</div>
+        <ul class="tier-features">
+          <li>Everything in <b>Pro</b>, plus:</li>
+          <li><b>Unlimited records</b> · multi-entity rollups</li>
+          <li>Real-time / on-demand refresh</li>
+          <li>Bespoke logic &amp; engagement workflows</li>
+          <li>On-premise / private-VPC deployment option</li>
+          <li>Dedicated success manager · <b>24/7 SLA</b></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost btn-lg tier-cta">Contact Sales →</a>
+      </article>
+    </div>
+
+    <p class="plans-note">Every tier includes the same exception-led methodology and audit-ready evidence trail. <b>Contact us for engagement-specific scoping.</b></p>
+  </div>
+</section>
+
+<!-- ═══════════════════ OUTPUTS · VISUALISATIONS ═══════════════════ -->
+<section aria-label="Outputs and visualisations">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">Outputs · Visualisations</div>
+      <h2 class="section-h2">From signals to <em>visualisation</em>.</h2>
+      <p class="section-sub">Bar, multi-line, pie, doughnut, split table-plus-chart — every exception comes with the picture that makes it actionable.</p>
+    </div>
+    <div class="viz-grid">
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_monthly_bars.png" alt="Bar chart of monthly transaction volumes showing outliers" loading="lazy" /></div><figcaption class="meta"><div class="tag">Monthly Trend</div><h4>Volumes &amp; outliers at a glance</h4><p>Period-over-period bars surface spikes, dips and seasonality that drive sampling decisions.</p></figcaption></figure>
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_state_bars.png" alt="Vertical bar chart by state code showing exception concentration" loading="lazy" /></div><figcaption class="meta"><div class="tag">Distribution</div><h4>Where exceptions concentrate</h4><p>State / branch / vendor / product distribution — find the hot spots before fieldwork.</p></figcaption></figure>
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_lms_npa_bars.png" alt="LMS NPA timing bar chart by product" loading="lazy" /></div><figcaption class="meta"><div class="tag">LMS · NPA Stage Ageing</div><h4>DPD ageing &amp; staging migration</h4><p>Visualise the Stage 1 → 2 → 3 movement and the products driving NPA build-up.</p></figcaption></figure>
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_table_plus_bar.png" alt="Split view showing exception transactions table next to bar chart" loading="lazy" /></div><figcaption class="meta"><div class="tag">Drill-Through</div><h4>Chart ↔ underlying transactions</h4><p>Click a bar to drop straight into the exception register — chart and evidence in one view.</p></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<section id="workflow" aria-label="How VIGILO works">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">How VIGILO Works</div>
+      <h2 class="section-h2">From raw data to <em>informed decisions</em> and timely action.</h2>
+      <p class="section-sub">A disciplined four-step path — for detection, prevention, decision and defensible evidence across the three lines of defence.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step reveal"><div class="n">STEP 01</div><h4>Connect data</h4><p>Register sources, extracts and tables — core banking, ERP, LMS, GSTN, files.</p></div>
+      <div class="flow-step reveal"><div class="n">STEP 02</div><h4>Map &amp; approve</h4><p>Risk-driven normalization with reviewed, versioned rule logic.</p></div>
+      <div class="flow-step reveal"><div class="n">STEP 03</div><h4>Run on 100% population</h4><p>1,050+ checks executed on the full dataset — exceptions surfaced.</p></div>
+      <div class="flow-step reveal"><div class="n">STEP 04</div><h4>Review, decide &amp; act</h4><p>Triage, decide and drive timely action — defensible evidence for management review and audit defence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ THREE LINES OF DEFENSE ═══════════════════ -->
+<section class="tld-band" id="three-lines" aria-label="Three Lines of Defence">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-eye is-gold"><span class="gold-rotate">Three Lines of Defence · Across Industries</span></div>
+      <h2 class="section-h2">Empowering the<br/><em>Three Lines</em> of Defence.</h2>
+      <p class="section-sub">Built for Statutory &amp; Internal Auditors, CRO and Risk Management Functions, and CFOs &amp; Executives — strengthening audit, risk and financial oversight across the organisation, in BFSI and across general enterprise.</p>
+    </div>
+
+    <div class="tld-grid">
+      <article class="tld-card reveal">
+        <div class="role">Line 3 · Independent Assurance</div>
+        <h3>Statutory &amp; Internal Auditors</h3>
+        <ul>
+          <li>Full-population coverage and faster audit cycles</li>
+          <li>Sharper risk assessment and audit planning</li>
+          <li>Defensible evidence pack — EQCR, TCWG and regulator ready</li>
+        </ul>
+      </article>
+      <article class="tld-card reveal">
+        <div class="role">Line 2 · Risk &amp; Compliance</div>
+        <h3>CRO &amp; Risk Management</h3>
+        <ul>
+          <li>Early <b>detection</b> of risks, outliers and non-compliances</li>
+          <li><b>Prevention</b> through standardised, continuous monitoring</li>
+          <li>Portfolio-wide view of risk and control exceptions</li>
+        </ul>
+      </article>
+      <article class="tld-card reveal">
+        <div class="role">Line 1 · Management &amp; Operations</div>
+        <h3>CFOs &amp; Executives</h3>
+        <ul>
+          <li><b>Informed decision-making</b> on full-population insight</li>
+          <li><b>Timely action</b> on early-warning signals</li>
+          <li>Continuous oversight without dependence on sampling cycles</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ USE CASES — ACROSS INDUSTRIES ═══════════════════ -->
+<section aria-label="Industry use cases">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">Industry Use Cases</div>
+      <h2 class="section-h2">Where <em>audit risk</em> lives — across industries.</h2>
+      <p class="section-sub">Pre-built analytics aligned to the cycles, regulations and risks that drive audit findings, risk decisions and management action — with deep BFSI coverage and broad enterprise-cycle support.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc reveal"><div class="icb">▣ P2P · Enterprise</div><h3>Vendor &amp; Invoice Anomalies</h3><p>Duplicate payments, broken 3-way match, vendor master integrity, kickback &amp; circular-payment patterns.</p></div>
+      <div class="uc reveal"><div class="icb">▣ GL · Cross-industry</div><h3>JV &amp; Override Scrutiny</h3><p>Unusual journals, backdating, reversals, maker-checker violations and period-end spikes across the GL.</p></div>
+      <div class="uc reveal"><div class="icb">▣ Tax · Indian enterprise</div><h3>GST &amp; TDS Reconciliation</h3><p>GSTR-2B vs Purchase Register, 26AS vs books, section-wise short-deduction analysis.</p></div>
+      <div class="uc reveal"><div class="icb">▣ LMS · BFSI</div><h3>IRAC · ECL · Stage Migration</h3><p>DPD ageing, staging movement (Stage 1 → 2 → 3), PD/LGD/EAD changes, overrides &amp; overlays.</p></div>
+      <div class="uc reveal"><div class="icb">▣ AML · Regulated</div><h3>AML / Sanctions / Watchlist</h3><p>Connected-party detection — exact + fuzzy matching across CIFs, employees, vendors and counterparties.</p></div>
+      <div class="uc reveal"><div class="icb">▣ Audit Trail · All companies</div><h3>Rule 11(g) &amp; Audit Trail</h3><p>End-to-end trail across data edits, rule changes, project events and exports — Companies Act ready.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIAL BAND — auto-scrolling marquee ═══════════════════ -->
+<section class="testi-band" aria-label="Voices from the field">
+  <div class="container">
+    <div class="section-head center reveal" style="text-align:center">
+      <div class="section-eye" style="display:inline-flex">Voices from the Field</div>
+      <h2 class="section-h2">What audit, risk and finance leaders <em>tell us</em>.</h2>
+      <p class="section-sub">A rolling read of practitioner notes from senior partners, risk officers and finance leaders. Hover to pause.</p>
+    </div>
+  </div>
+  <div class="testi-track-wrap">
+    <!-- Track is duplicated inline so the infinite-scroll loop is seamless. Replace name / role / org when real attributions are approved. -->
+    <div class="testi-track" id="testiTrack">
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"VIGILO turned a five-week audit cycle into something we could review in a single sitting — and every exception traces back to source."</p><figcaption class="att"><div class="av">SP</div><div><b>Senior Partner</b><span>Audit &amp; Assurance · <em>Top-tier CA firm</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"For the first time, our audit team had full-population assurance evidence in under 24 hours. The conversation with management shifted entirely."</p><figcaption class="att"><div class="av">CR</div><div><b>Chief Risk Officer</b><span>Risk Management · <em>Mid-cap NBFC</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"We used to lose two weeks every cycle just re-training new joiners. The codified library means standard checks run identically every engagement."</p><figcaption class="att"><div class="av">EM</div><div><b>Engagement Manager</b><span>Statutory Audit · <em>Big-4 alumni firm</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"The connected-party detection alone changed how we approach related-party transactions. Fuzzy matching finds links we used to miss entirely."</p><figcaption class="att"><div class="av">HA</div><div><b>Head of Audit</b><span>Internal Audit · <em>Pan-India NBFC</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"Exception-led reporting moved us from 'finding things after the fact' to 'flagging things at the desk that owns the process'. That's the real shift."</p><figcaption class="att"><div class="av">CF</div><div><b>Chief Financial Officer</b><span>Finance Leadership · <em>Listed enterprise</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"For EQCR and TCWG reporting, the evidence pack is genuinely defensible. Every flag is traceable. That alone is worth the engagement."</p><figcaption class="att"><div class="av">EP</div><div><b>EQCR Partner</b><span>Engagement Quality Review · <em>Tier-1 audit firm</em></span></div></figcaption></figure>
+
+      <!-- Duplicate set for seamless loop -->
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"VIGILO turned a five-week audit cycle into something we could review in a single sitting — and every exception traces back to source."</p><figcaption class="att"><div class="av">SP</div><div><b>Senior Partner</b><span>Audit &amp; Assurance · <em>Top-tier CA firm</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"For the first time, our audit team had full-population assurance evidence in under 24 hours. The conversation with management shifted entirely."</p><figcaption class="att"><div class="av">CR</div><div><b>Chief Risk Officer</b><span>Risk Management · <em>Mid-cap NBFC</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"We used to lose two weeks every cycle just re-training new joiners. The codified library means standard checks run identically every engagement."</p><figcaption class="att"><div class="av">EM</div><div><b>Engagement Manager</b><span>Statutory Audit · <em>Big-4 alumni firm</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"The connected-party detection alone changed how we approach related-party transactions. Fuzzy matching finds links we used to miss entirely."</p><figcaption class="att"><div class="av">HA</div><div><b>Head of Audit</b><span>Internal Audit · <em>Pan-India NBFC</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"Exception-led reporting moved us from 'finding things after the fact' to 'flagging things at the desk that owns the process'. That's the real shift."</p><figcaption class="att"><div class="av">CF</div><div><b>Chief Financial Officer</b><span>Finance Leadership · <em>Listed enterprise</em></span></div></figcaption></figure>
+      <figure class="testi-card"><div class="mark">"</div><p class="quote">"For EQCR and TCWG reporting, the evidence pack is genuinely defensible. Every flag is traceable. That alone is worth the engagement."</p><figcaption class="att"><div class="av">EP</div><div><b>EQCR Partner</b><span>Engagement Quality Review · <em>Tier-1 audit firm</em></span></div></figcaption></figure>
+    </div>
+  </div>
+  <div class="container"><p class="testi-foot">Composite quotes · individual attributions added as client approvals come in</p></div>
+</section>
+
+<!-- ═══════════════════ SECURITY & DEPLOYMENT ═══════════════════ -->
+<section id="security" aria-label="Security and deployment">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eye">Security &amp; Deployment</div>
+      <h2 class="section-h2">Your data never has to <em>leave your environment</em>.</h2>
+      <p class="section-sub">VIGILO runs inside your infrastructure, under your information-security policy, with a defensible trail of every action.</p>
+    </div>
+
+    <div class="sec-grid">
+      <div class="sec-list">
+        <div class="sec-item reveal">
+          <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5.5L12 2.5 4 5.5V12c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><h4>On-prem / Private-VPC</h4><p>Deploy inside your own data centre or private cloud — controlled, auditable data movement.</p></div>
+        </div>
+        <div class="sec-item reveal">
+          <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div><h4>Role-Based Access &amp; SoD</h4><p>Segregation of duties for preparers, reviewers, EQCR and admins.</p></div>
+        </div>
+        <div class="sec-item reveal">
+          <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16h16"/><path d="M8 16l3-4 3 2 4-6"/></svg></div>
+          <div><h4>Source-to-Output Lineage</h4><p>Every output traces back to source tables, extraction dates, record counts and logic.</p></div>
+        </div>
+        <div class="sec-item reveal">
+          <div class="sico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div><h4>Rule Versioning &amp; Retention</h4><p>Approved logic, thresholds and evidence retained and versioned for future review.</p></div>
+        </div>
+      </div>
+      <aside class="sec-visual reveal">
+        <div class="sec-stamp">
+          <div class="sec-chip"><b>Deployment</b><span>On-prem · Private cloud</span></div>
+          <div class="sec-chip"><b>Backed by</b><span>PostgreSQL</span></div>
+          <div class="sec-chip"><b>Data residency</b><span>Your environment</span></div>
+          <div class="sec-chip"><b>Audit trail</b><span>Edits · sign-ins · runs</span></div>
+        </div>
+        <div class="conf-note">
+          <b>Confidentiality by design</b> — client-identifiable information is excluded; logic is generalized and configured per engagement.
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQs ═══════════════════ -->
+<section class="faqs-band" id="faqs" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-eye" style="display:inline-flex">FAQs · Common Questions</div>
+      <h2 class="section-h2">Have specific questions? <em>Browse our FAQs.</em></h2>
+      <p class="section-sub">Short, practical answers to the questions audit, risk and finance leaders ask us most often. Click a question to expand.</p>
+    </div>
+
+    <div class="faqs-grid">
+      <details class="faq reveal">
+        <summary>Is VIGILO sampling or full-population testing? <span class="ico">+</span></summary>
+        <div class="faq-body">Full-population. <b>100% of records in scope</b> — every transaction, not a statistical sample — run through 1,050+ automated checks. Only the exceptions are surfaced for review.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Does our data have to leave our environment? <span class="ico">+</span></summary>
+        <div class="faq-body">No. VIGILO supports <b>on-premise</b> and <b>private-cloud (private-VPC)</b> deployment. Analytics run inside your own information-security boundary; no client-identifiable data needs to leave.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Which systems can VIGILO read data from? <span class="ico">+</span></summary>
+        <div class="faq-body">Data exported from the systems you already run — core banking (Finacle, FLEXCUBE, BaNCS), ERP/finance (SAP, Oracle, Tally, Dynamics), lending and LMS platforms, the GSTN and TRACES portals, and flat files (Excel, CSV, database extracts).</div>
+      </details>
+      <details class="faq reveal">
+        <summary>How quickly do we see value? <span class="ico">+</span></summary>
+        <div class="faq-body">Engagements start with a <b>bounded pilot</b> on a defined scope of your own data. Once data is ingested, exception reports are typically available within <b>24 hours</b> — no disruption to existing systems.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>How is VIGILO different from ACL / IDEA / Excel? <span class="ico">+</span></summary>
+        <div class="faq-body">Full-population testing on 10M+ records, Python-integrated pipelines, <b>over 90% fewer man-hours</b>, exception-led outputs (not just data dumps), and versioned rule logic with a defensible audit trail.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Which regulatory frameworks does VIGILO map to? <span class="ico">+</span></summary>
+        <div class="faq-body">RBI Master Directions, IRAC norms, Ind AS 109 / IFRS 9, Basel III, KYC / AML / FATCA, IBC 2016, GST / TDS reconciliation, and Rule 11(g) audit-trail requirements under the Companies Act.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Is the output defensible for EQCR and regulator review? <span class="ico">+</span></summary>
+        <div class="faq-body">Yes. Every exception is traceable to <b>source data, rule version, reviewer and supporting evidence</b> — engineered for partner review, EQCR, TCWG reporting and regulator queries.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Is my data secure? <span class="ico">+</span></summary>
+        <div class="faq-body">On-prem / private-VPC deployment, role-based access and segregation of duties, full audit trail of every action, encryption in transit and at rest, source-to-output lineage, and rule versioning. <b>Client-identifiable data does not leave your boundary.</b></div>
+      </details>
+      <details class="faq reveal">
+        <summary>Can we get a trial / pilot? <span class="ico">+</span></summary>
+        <div class="faq-body">Yes — a <b>bounded pilot on a defined scope of your own data</b> with a clear deliverable. Request a demo and we respond within one business day with a scoped pilot proposal.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>What support do we get? <span class="ico">+</span></summary>
+        <div class="faq-body">Implementation support, methodology validation by a Chartered-Accountant review board, ongoing analytics support, and full documentation of rule libraries, thresholds and evidence packs.</div>
+      </details>
+    </div>
+
+    <p class="faq-foot reveal">Still have a question? <a href="#contact">Contact our team →</a></p>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT — rich directory ═══════════════════ -->
+<section class="contact-band" id="contact" aria-label="Contact VIGILO">
+  <div class="contact-hero">
+    <div class="container">
+      <div class="contact-hero-grid reveal">
+        <div>
+          <div class="pill">Contact VIGILO · Pilot Programme</div>
+          <h2>Contact <em>VIGILO</em>.</h2>
+          <p>We're <b>always eager</b> to answer questions about VIGILO and the analytics that power assurance, risk and finance teams. Or anything else you may need.</p>
+          <p style="margin-top:-8px">Reach us by email or phone, or request a demo and we'll respond within <b>one business day</b>.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px">
+            <a href="#" class="btn btn-primary btn-lg" onclick="openAccessForm(event)">Request a demo →</a>
+            <a href="#" class="btn btn-ghost btn-lg" onclick="openDemo(event)">▶ Watch walkthrough</a>
+          </div>
+        </div>
+        <div class="ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <path d="M22 6l-10 7L2 6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-directory">
+    <div class="container">
+      <div class="dir-grid">
+
+        <div class="dir-col">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h7M7 16h5"/></svg>Form (preferred)</h4>
+          <ul>
+            <li><b>Request a demo &amp; pilot</b><span>The fastest path — share organisation, role &amp; email; we respond within one business day.</span></li>
+          </ul>
+          <a href="#" onclick="openAccessForm(event)" style="display:inline-flex;margin-top:14px;padding:11px 18px;border-radius:999px;background:linear-gradient(180deg,var(--electric-bright),var(--electric));color:#02121f;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 8px 20px -10px rgba(78,168,255,.55);transition:filter .15s">Open the form →</a>
+        </div>
+
+        <div class="dir-col">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>Email</h4>
+          <ul>
+            <li><b>Demo &amp; pilots</b><span><a href="mailto:info@ctrmsl.com?subject=VIGILO%20Demo%20Request">info@ctrmsl.com</a></span></li>
+          </ul>
+        </div>
+
+        <div class="dir-col">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Phone &amp; Office</h4>
+          <ul>
+            <li><b>General enquiries</b><span>India — please request a callback via the form below</span></li>
+            <li><b>Office</b><span>CTRMSL · India</span></li>
+            <li><b>Response time</b><span>One business day for all enquiries</span></li>
+            <li><b>Demo windows</b><span>Weekdays · 10:00 – 18:00 IST</span></li>
+          </ul>
+        </div>
+
+        <div class="dir-col">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Who is it for</h4>
+          <ul>
+            <li><b>Statutory &amp; Internal Auditors</b><span>Full-population testing, evidence packs, EQCR-ready trail</span></li>
+            <li><b>CRO &amp; Risk Management</b><span>Early detection, prevention, portfolio views</span></li>
+            <li><b>CFOs &amp; Executives</b><span>Informed decisions, continuous monitoring</span></li>
+            <li><b>Forensic specialists</b><span>Connected-party detection, journal-entry scrutiny</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="dir-cards">
+        <div class="dir-card">
+          <h5>Demos &amp; pilots</h5>
+          <p>Walk a slice of your real data through VIGILO — bounded scope, no disruption.</p>
+          <a href="#" onclick="openAccessForm(event)">Open the form →</a>
+        </div>
+        <div class="dir-card">
+          <h5>FAQs</h5>
+          <p>Quick answers to security, deployment, time-to-value and methodology questions.</p>
+          <a href="#faqs">Browse FAQs →</a>
+        </div>
+        <div class="dir-card">
+          <h5>LinkedIn</h5>
+          <p>Updates, methodology notes and pilot stories from the VIGILO team.</p>
+          <a href="https://www.linkedin.com/company/vigilo-by-ctr" target="_blank" rel="noopener noreferrer">Follow us →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Legacy CTA stub — hidden via CSS; kept here so anchors that pointed at it still resolve. -->
+<section class="cta-final" id="demo-form" aria-hidden="true">
+  <div class="container">
+    <div class="inner">
+      <div>
+        <div class="eyebrow" style="color:var(--gold-bright)"><span class="dot-indic" style="background:var(--gold-bright);box-shadow:0 0 12px var(--gold)"></span>Request Access · Pilot Programme</div>
+        <h2>Transform assurance, risk and finance with <em>exception-led analytics</em>.</h2>
+        <p>Evaluate VIGILO on a defined scope of your own data — no disruption, no sampling. We respond within one business day.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="mailto:info@ctrmsl.com" class="btn btn-primary btn-lg">Request a Demo →</a>
+        <a href="#" class="btn btn-ghost btn-lg" onclick="openDemo(event)">▶ Watch Walkthrough</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
-<script>location.replace('v/a/');</script>
+
+<!-- ═══════════════════ REQUEST-DEMO FORM MODAL (Google Form integration) ═══════════════════ -->
+<div id="accessModal" class="access-modal" hidden role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+  <div class="bd" onclick="closeAccessForm()"></div>
+  <div class="access-card">
+    <button class="access-close" type="button" onclick="closeAccessForm()" aria-label="Close form">×</button>
+
+    <div class="access-head">
+      <div class="pill"><em>VIGILO</em> · Request a demo</div>
+      <h3 id="accessTitle">Tell us a little about you</h3>
+      <p>Share your details — our team will respond within <b>one business day</b> with a tailored walkthrough and a bounded pilot scope.</p>
+    </div>
+
+    <!-- Posts to the existing Google Form formResponse endpoint so submissions
+         land in the same linked Google Sheet automatically. Field names are
+         Google Form entry IDs — preserved verbatim from the original site. -->
+    <form id="accessForm" class="access-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfbaRfiHGGX8s1S9WhJS9Xyhf-TWS99csLy3nxtRY2SIvimQg/formResponse"
+          method="POST"
+          target="accessFormTarget"
+          onsubmit="return onAccessSubmit(this)">
+
+      <div class="af-field">
+        <label for="af-org">Organisation name<span class="af-req">*</span></label>
+        <input type="text" id="af-org" name="entry.1826202423" required autocomplete="organization" placeholder="e.g. State Bank of India" />
+      </div>
+
+      <div class="af-field">
+        <label for="af-nature">Nature of organisation<span class="af-req">*</span></label>
+        <select id="af-nature" name="entry.NATURE_PENDING" required>
+          <option value="" disabled selected>Select one…</option>
+          <option>Bank — Public / Private / Foreign</option>
+          <option>NBFC</option>
+          <option>Insurance</option>
+          <option>Asset Management / Mutual Fund</option>
+          <option>Stock Broker / Securities</option>
+          <option>Co-operative Bank</option>
+          <option>Audit Firm</option>
+          <option>Consulting / Advisory</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="af-field">
+        <label for="af-name">Your name<span class="af-req">*</span></label>
+        <input type="text" id="af-name" name="entry.374353224" required autocomplete="name" placeholder="Full name" />
+      </div>
+
+      <div class="af-field">
+        <label for="af-email">Work email<span class="af-req">*</span></label>
+        <input type="email" id="af-email" name="entry.1036546383" required autocomplete="email" placeholder="you@organisation.com" />
+      </div>
+
+      <!-- Anti-spam honeypot — bots fill this; humans don't see it. -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true" />
+
+      <button type="submit" class="af-submit">Submit request →</button>
+      <p class="af-note">By submitting, you agree to be contacted about VIGILO by CTR.</p>
+    </form>
+
+    <!-- Success state — swapped in after submission -->
+    <div id="accessThanks" class="access-thanks" hidden>
+      <div class="af-thanks-icon">✓</div>
+      <h3>Thanks — request received!</h3>
+      <p>We'll get back to you within <b>one business day</b> at the email you provided.</p>
+      <button type="button" class="af-submit af-submit--ghost" onclick="closeAccessForm()">Close</button>
+    </div>
+
+    <!-- Hidden iframe — form posts here so the page doesn't navigate. -->
+    <iframe name="accessFormTarget" id="accessFormTarget" style="display:none" tabindex="-1" aria-hidden="true"></iframe>
+  </div>
+</div>
+
+<!-- ═══════════════════ DEMO VIDEO MODAL ═══════════════════ -->
+<div id="demoModal" class="demo-modal" hidden role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+  <div class="bd" onclick="closeDemo()"></div>
+  <div class="demo-card">
+    <button class="demo-close" type="button" onclick="closeDemo()" aria-label="Close demo">×</button>
+    <h3 id="demoTitle" class="sr">VIGILO product demo</h3>
+    <video class="demo-vid" controls playsinline preload="none" poster="assets/dashboard_1.png">
+      <source src="vigilo-professional-demo.mp4" type="video/mp4" />
+      <track kind="captions" src="vigilo-professional-demo.vtt" srclang="en" label="English" default />
+      Your browser does not support HTML5 video. <a href="vigilo-professional-demo.mp4">Download the demo</a>.
+    </video>
+    <div class="demo-cap">
+      <span><b>30-sec walkthrough</b> · From data to informed action</span>
+      <span>Press Esc or click outside to close</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER (expanded) ═══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div class="col brand-col">
+        <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR" />
+        <p><span class="gold-rotate">Created by Auditors · Engineered for Assurance.</span><br/>A Financial Intelligence Platform for the three lines of defence, across industries.</p>
+      </div>
+      <div class="col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#product">Overview</a></li>
+          <li><a href="#packs">Analytics Packs</a></li>
+          <li><a href="#plans">Plans · Tiers</a></li>
+          <li><a href="#workflow">How it Works</a></li>
+          <li><a href="#three-lines">Three Lines</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about/">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://ctrmsl.com/" target="_blank" rel="noopener noreferrer">CTR website</a></li>
+          <li><a href="https://www.linkedin.com/company/vigilo-by-ctr" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy/">Privacy Policy</a></li>
+          <li><a href="terms/">Terms of Use</a></li>
+          <li><span style="color:var(--text-faint)">No cookies · No tracking</span></li>
+          <li><span style="color:var(--text-faint)">On-prem · Private-VPC ready</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 CTR Management Services (Pvt) Ltd · VIGILO by CTR · <a href="https://ctrmsl.com/" style="color:var(--text-mute)">ctrmsl.com</a> · ★ <span class="fip">Financial Intelligence Platform</span></span>
+      <div class="social" aria-label="Social links">
+        <a href="https://www.linkedin.com/company/vigilo-by-ctr" target="_blank" rel="noopener noreferrer" aria-label="VIGILO on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-11 14H6V10h2zm-1-8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 8h-2v-3.5c0-.83-.67-1.5-1.5-1.5S11 12.67 11 13.5V17H9v-7h2v1.07c.42-.65 1.17-1.07 2-1.07 1.66 0 3 1.34 3 3z"/></svg></a>
+        <a href="mailto:info@ctrmsl.com" aria-label="Email VIGILO"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ Scripts ═══════════════════ -->
+<script>
+// ── Request-demo form modal (Google Forms-backed) ──
+(function(){
+  function open(e){
+    if(e&&e.preventDefault)e.preventDefault();
+    var form=document.getElementById('accessForm'),thanks=document.getElementById('accessThanks'),modal=document.getElementById('accessModal');
+    if(!modal)return;
+    if(form)form.hidden=false;
+    if(thanks)thanks.hidden=true;
+    modal.hidden=false;document.body.style.overflow='hidden';
+    var first=modal.querySelector('input,select,button');if(first)setTimeout(function(){first.focus();},120);
+  }
+  function close(){var m=document.getElementById('accessModal');if(!m)return;m.hidden=true;document.body.style.overflow='';}
+  function submit(form){
+    if(form.website&&form.website.value)return false; // honeypot
+    var btn=form.querySelector('.af-submit');
+    if(btn){btn.disabled=true;btn.dataset.label=btn.innerHTML;btn.innerHTML='Submitting…';}
+    setTimeout(function(){
+      document.getElementById('accessForm').hidden=true;
+      document.getElementById('accessThanks').hidden=false;
+      if(btn){btn.disabled=false;if(btn.dataset.label)btn.innerHTML=btn.dataset.label;}
+      form.reset();
+    },900);
+    return true; // let the form submit into the hidden iframe
+  }
+  window.openAccessForm=open;window.closeAccessForm=close;window.onAccessSubmit=submit;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+
+// ── Sign In popover ──
+(function(){
+  var btn=document.getElementById('signinBtn'),pop=document.getElementById('signinPop');
+  if(!btn||!pop)return;
+  function open(){pop.dataset.open='true';btn.setAttribute('aria-expanded','true');}
+  function close(){pop.dataset.open='false';btn.setAttribute('aria-expanded','false');}
+  window.closeSignin=close;
+  btn.addEventListener('click',function(e){e.stopPropagation();pop.dataset.open==='true'?close():open();});
+  document.addEventListener('click',function(e){if(pop.dataset.open==='true'&&!pop.contains(e.target)&&e.target!==btn)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+
+// ── Demo video modal — exposed globally for inline onclick ──
+window.openDemo=function(e){if(e&&e.preventDefault)e.preventDefault();var m=document.getElementById('demoModal');if(!m)return;m.hidden=false;document.body.style.overflow='hidden';var v=m.querySelector('video');if(v){try{v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(_){}}};
+window.closeDemo=function(){var m=document.getElementById('demoModal');if(!m)return;m.hidden=true;document.body.style.overflow='';var v=m.querySelector('video');if(v){try{v.pause();}catch(_){}}};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')window.closeDemo();});
+
+(function(){
+  // ── Mobile nav toggle ──
+  const nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  if(nt&&nl){nt.addEventListener('click',()=>{const o=nl.classList.toggle('open');nt.classList.toggle('open',o);nt.setAttribute('aria-expanded',o);});
+    nl.addEventListener('click',e=>{if(e.target.tagName==='A'){nl.classList.remove('open');nt.classList.remove('open');nt.setAttribute('aria-expanded','false');}});}
+
+  // ── Hero carousel ──
+  const car=document.getElementById('heroCarousel');
+  const slides=car?Array.from(car.querySelectorAll('.slide')):[];
+  const dots=car?Array.from(car.querySelectorAll('.car-dot')):[];
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let idx=0, timer=null, paused=false;
+  const AUTOPLAY=6500;
+  function show(i){
+    idx=(i+slides.length)%slides.length;
+    slides.forEach((s,k)=>{const a=k===idx;s.classList.toggle('is-active',a);s.hidden=!a;});
+    dots.forEach((d,k)=>d.classList.toggle('is-active',k===idx));
+    document.dispatchEvent(new CustomEvent('vigilo-slide-change',{detail:{idx:idx}}));
+  }
+  function next(){show(idx+1)} function prev(){show(idx-1)}
+  function start(){if(reduce)return;stop();timer=setInterval(()=>{if(!paused)next();},AUTOPLAY)}
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  if(car&&slides.length){
+    document.getElementById('carPrev').addEventListener('click',()=>{prev();start();});
+    document.getElementById('carNext').addEventListener('click',()=>{next();start();});
+    dots.forEach(d=>d.addEventListener('click',()=>{show(+d.dataset.go);start();}));
+    car.addEventListener('mouseenter',()=>paused=true);
+    car.addEventListener('mouseleave',()=>paused=false);
+    car.addEventListener('focusin',()=>paused=true);
+    car.addEventListener('focusout',()=>paused=false);
+    // Touch swipe
+    let sx=0; car.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;paused=true},{passive:true});
+    car.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}paused=false;start();},{passive:true});
+    // Keyboard arrows when carousel focused
+    document.addEventListener('keydown',e=>{if(!document.activeElement||!car.contains(document.activeElement))return;if(e.key==='ArrowLeft')prev();else if(e.key==='ArrowRight')next();});
+    // Explicit play/pause (WCAG 2.2.2)
+    var pp=document.getElementById('carPlayPause'),pIcon=document.getElementById('carPlayIcon'),pPause=document.getElementById('carPauseIcon');
+    var stopped=false;
+    if(pp){
+      pp.addEventListener('click',function(){
+        stopped=!stopped;
+        if(stopped){stop();pp.setAttribute('aria-pressed','true');pp.setAttribute('aria-label','Resume auto-rotate');pp.setAttribute('title','Resume auto-rotate');pIcon.style.display='block';pPause.style.display='none';}
+        else{pp.setAttribute('aria-pressed','false');pp.setAttribute('aria-label','Pause auto-rotate');pp.setAttribute('title','Pause auto-rotate');pIcon.style.display='none';pPause.style.display='block';start();}
+      });
+    }
+    var _origStart=start;
+    start=function(){if(stopped)return;_origStart();};
+    start();
+    // Pause when tab hidden
+    document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
+  }
+
+  // ── Product showcase thumbnail switcher ──
+  const main=document.getElementById('shotMainImg'),title=document.getElementById('shotTitle'),tag=document.getElementById('shotTag');
+  document.querySelectorAll('.thumb').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('.thumb').forEach(x=>{x.classList.remove('is-active');x.setAttribute('aria-selected','false');});
+      t.classList.add('is-active');t.setAttribute('aria-selected','true');
+      main.src=t.dataset.shot;title.textContent=t.dataset.title;tag.textContent=t.dataset.tag;
+      main.alt=t.dataset.title+' — '+t.dataset.desc;
+    });
+  });
+
+  // ── Reveal on scroll ──
+  if(!reduce&&'IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
+
+  // ── Animated floating KPIs on the hero device cards ──
+  (function(){
+    var exNode = document.querySelector('.slide.is-active .float-card.tl .val') || document.querySelector('.float-card.tl .val');
+    var coNode = document.querySelector('.float-card.br .val');
+    if (!exNode) return;
+    // Parse the initial value to maintain format
+    function fmt(n){ try { return Number(n).toLocaleString('en-IN'); } catch(_) { return String(n); } }
+    // Live "Exceptions today" tick — small random +1..+3 every ~2.2s, only when not reduced motion
+    if (reduce) return;
+    var base = parseInt((exNode.textContent || '0').replace(/,/g,''), 10);
+    if (isNaN(base)) base = 3182;
+    function tick(){
+      base += Math.floor(Math.random()*3) + 1;
+      exNode.textContent = fmt(base);
+      // Subtle highlight pulse
+      exNode.style.transition = 'color .35s';
+      exNode.style.color = '#a3d8ff';
+      setTimeout(function(){ exNode.style.color = ''; }, 350);
+    }
+    setInterval(tick, 2400);
+    // Coverage value gentle pulse (stays at 100%)
+    if (coNode){
+      setInterval(function(){
+        coNode.style.transition = 'transform .35s ease, text-shadow .35s ease';
+        coNode.style.transform = 'scale(1.05)';
+        coNode.style.textShadow = '0 0 18px rgba(47,212,122,.55)';
+        setTimeout(function(){ coNode.style.transform=''; coNode.style.textShadow=''; }, 350);
+      }, 3200);
+    }
+  })();
+
+  // ── Testimonial slide internal rotation (slide 4) ──
+  (function(){
+    var data = [
+      { q: "VIGILO turned a five-week audit cycle into something we could review in a single sitting — <span>and every exception traces back to source</span>.", initials:"SP", name:"Senior Partner", role:"Audit & Assurance", org:"Top-tier CA firm" },
+      { q: "For the first time, our audit team had full-population assurance evidence <span>in under 24 hours</span>. The conversation with management shifted entirely.", initials:"CR", name:"Chief Risk Officer", role:"Risk Management", org:"Mid-cap NBFC" },
+      { q: "We used to lose two weeks every cycle just re-training new joiners. <span>The codified library runs identically</span> every engagement.", initials:"EM", name:"Engagement Manager", role:"Statutory Audit", org:"Big-4 alumni firm" },
+      { q: "Connected-party detection alone changed how we approach related-party transactions. <span>Fuzzy matching finds links</span> we used to miss entirely.", initials:"HA", name:"Head of Audit", role:"Internal Audit", org:"Pan-India NBFC" },
+      { q: "Exception-led reporting moved us from <span>finding things after the fact</span> to flagging them at the desk that owns the process.", initials:"CF", name:"Chief Financial Officer", role:"Finance Leadership", org:"Listed enterprise" }
+    ];
+    var qNode = document.getElementById('tQuote'), avNode = document.getElementById('tAv'),
+        nNode = document.getElementById('tName'), rNode = document.getElementById('tRole'), oNode = document.getElementById('tOrg');
+    if (!qNode) return;
+    var dots = document.querySelectorAll('#tSlide .dots-mini i');
+    var i = 0, t = null;
+    function render(idx){
+      var d = data[idx];
+      if (qNode.parentNode) {
+        qNode.style.opacity = '0';
+        setTimeout(function(){
+          qNode.innerHTML = d.q;
+          avNode.textContent = d.initials;
+          nNode.textContent = d.name;
+          rNode.textContent = d.role;
+          oNode.textContent = d.org;
+          qNode.style.transition = 'opacity .35s ease';
+          qNode.style.opacity = '1';
+        }, 260);
+      }
+      dots.forEach(function(dot, k){ dot.classList.toggle('on', k===idx); });
+    }
+    function nextT(){ i = (i+1) % data.length; render(i); }
+    function startT(){ stopT(); if (reduce) return; t = setInterval(nextT, 4800); }
+    function stopT(){ if (t){ clearInterval(t); t=null; } }
+    render(0);
+    startT();
+    // Pause when not on slide 4
+    document.addEventListener('vigilo-slide-change', function(e){
+      if (e.detail.idx === 3) { i = -1; nextT(); startT(); } else { stopT(); }
+    });
+  })();
+
+  // ── Signature full-population visualisation ──
+  (function(){
+    var stage = document.getElementById('popvizStage');
+    var dotsHost = document.getElementById('popvizDots');
+    if (!stage || !dotsHost) return;
+    var TOTAL = 900;  // dots
+    var SAMPLE_PCT = 0.05;
+    var dots = [];
+    for (var i = 0; i < TOTAL; i++){
+      var d = document.createElement('div'); d.className = 'dot'; dotsHost.appendChild(d); dots.push(d);
+    }
+    var psU = document.getElementById('psUntested').querySelector('b');
+    var psT = document.getElementById('psTested').querySelector('b');
+
+    function light(count, cls){
+      // reset
+      dots.forEach(function(d){ d.classList.remove('lit','lit-red'); });
+      // shuffle indices for visual randomness
+      var idx = dots.map(function(_,k){ return k; });
+      // simple Fisher-Yates partial shuffle (no Math.random concerns — runtime decoration only)
+      for (var j = idx.length-1; j > 0; j--){
+        var swap = Math.floor((j*0.6180339887 + 0.2 + j) % (j+1));
+        var tmp = idx[j]; idx[j] = idx[swap]; idx[swap] = tmp;
+      }
+      var animDelay = 0;
+      for (var k = 0; k < count; k++){
+        (function(node, delay){
+          setTimeout(function(){ node.classList.add(cls); }, delay);
+        })(dots[idx[k]], animDelay);
+        animDelay += Math.max(2, 800/count);
+      }
+    }
+
+    function showMode(mode){
+      var tested, untested, cls;
+      if (mode === 'sample'){
+        tested = Math.round(TOTAL * SAMPLE_PCT);
+        untested = TOTAL - tested;
+        cls = 'lit-red';
+      } else {
+        tested = TOTAL;
+        untested = 0;
+        cls = 'lit';
+      }
+      light(tested, cls);
+      psU.textContent = untested.toLocaleString('en-IN');
+      psT.textContent = tested.toLocaleString('en-IN');
+      // Toggle visual state
+      document.querySelectorAll('.popviz-toggle').forEach(function(b){
+        var on = b.dataset.mode === mode;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-selected', on);
+      });
+    }
+    document.querySelectorAll('.popviz-toggle').forEach(function(b){
+      b.addEventListener('click', function(){ showMode(b.dataset.mode); });
+    });
+    // Auto-loop on entry
+    if (!reduce && 'IntersectionObserver' in window){
+      var seen = false;
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if (e.isIntersecting && !seen){
+            seen = true;
+            // Show sampling first, then transition to full
+            showMode('sample');
+            setTimeout(function(){ showMode('full'); }, 2600);
+            io.unobserve(stage);
+          }
+        });
+      }, { threshold: 0.35 });
+      io.observe(stage);
+    } else {
+      showMode('full');
+    }
+  })();
+
+  // ── Count-up metrics ──
+  function fmt(n){return n.toLocaleString('en-IN')}
+  function animate(el){
+    const target=parseInt(el.dataset.count,10),pre=el.dataset.pre||'',suf=el.dataset.suf||'',dur=1400;
+    let s=null;function step(t){if(!s)s=t;const p=Math.min((t-s)/dur,1),e=1-Math.pow(1-p,3);el.textContent=pre+fmt(Math.round(target*e))+suf;if(p<1)requestAnimationFrame(step);else el.textContent=pre+fmt(target)+suf;}
+    requestAnimationFrame(step);
+  }
+  if(!reduce&&'IntersectionObserver' in window){
+    const mio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animate(e.target);mio.unobserve(e.target);}}),{threshold:.5});
+    document.querySelectorAll('.metric .val[data-count]').forEach(el=>mio.observe(el));
+  }else{document.querySelectorAll('.metric .val[data-count]').forEach(el=>{el.textContent=(el.dataset.pre||'')+el.dataset.count+(el.dataset.suf||'');});}
+})();
+
+// ── Scroll-spy: highlight current section in the nav as the user scrolls ──
+// Uses position-based detection (not IntersectionObserver ratios) so that the
+// sequence is guaranteed to follow DOM order regardless of section heights.
+(function(){
+  var spyLinks=Array.from(document.querySelectorAll('.nav-links a[data-spy]'));
+  if(!spyLinks.length)return;
+  var sectionMap={};
+  spyLinks.forEach(function(a){
+    var id=a.getAttribute('data-spy');
+    (sectionMap[id]=sectionMap[id]||[]).push(a);
+  });
+  // Sections in DOM order
+  var sections=spyLinks
+    .map(function(a){return document.getElementById(a.getAttribute('data-spy'));})
+    .filter(Boolean)
+    .filter(function(el,i,arr){return arr.indexOf(el)===i;})  // dedupe
+    .sort(function(a,b){
+      var pa=a.getBoundingClientRect().top+window.pageYOffset;
+      var pb=b.getBoundingClientRect().top+window.pageYOffset;
+      return pa-pb;
+    });
+  if(!sections.length)return;
+
+  function setActive(id){
+    spyLinks.forEach(function(a){
+      var isCurr=a.getAttribute('data-spy')===id;
+      a.classList.toggle('active',isCurr);
+      if(isCurr){a.setAttribute('aria-current','location');}
+      else{a.removeAttribute('aria-current');}
+    });
+  }
+
+  function update(){
+    var navH=(document.querySelector('.nav')||{}).offsetHeight||80;
+    // Activation line = a little below the sticky nav (let the user feel
+    // they're "into" the section before it activates)
+    var threshold=window.pageYOffset+navH+80;
+    var current=sections[0].id; // default: first section (above-all-sections fallback)
+    for(var i=0;i<sections.length;i++){
+      var top=sections[i].getBoundingClientRect().top+window.pageYOffset;
+      if(top<=threshold)current=sections[i].id;
+      else break; // sections are in DOM order — stop once we pass the threshold
+    }
+    // Near page bottom — force activate the last section so Contact lights up
+    // when the user is at the footer
+    if(window.innerHeight+window.pageYOffset>=document.documentElement.scrollHeight-80){
+      current=sections[sections.length-1].id;
+    }
+    setActive(current);
+  }
+
+  // Throttle scroll updates with rAF
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      requestAnimationFrame(function(){update();ticking=false;});
+      ticking=true;
+    }
+  },{passive:true});
+  window.addEventListener('resize',function(){requestAnimationFrame(update);});
+
+  // Initial state
+  update();
+
+  // Click a nav link → set active immediately so the user sees the change
+  // before the smooth-scroll has finished animating
+  spyLinks.forEach(function(a){
+    a.addEventListener('click',function(){setActive(a.getAttribute('data-spy'));});
+  });
+
+  // Deep-link with hash → activate matching link immediately
+  if(location.hash){
+    var hid=location.hash.slice(1);
+    if(sectionMap[hid])setActive(hid);
+  }
+})();
+</script>
 </body>
 </html>
