@@ -700,16 +700,18 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   .about-slide-grid b{font-size:20px !important}
 }
 /* Right column wrapper — portrait card + sub-bands */
-.about-right-stack{display:flex;flex-direction:column;gap:14px;width:100%}
-/* Portrait card — fills column width fully */
-.about-portrait{padding:26px 24px !important;min-height:auto !important;border-radius:18px !important;width:100%;text-align:left !important;display:grid !important;grid-template-columns:96px 1fr;gap:18px;align-items:center;justify-content:start !important}
-.about-portrait .sil{width:96px !important;height:96px !important;margin:0 !important;border-width:1px !important;flex:none;grid-row:span 2}
-.about-portrait .sil svg{width:60%;height:auto;margin:25%}
-.about-portrait .name{font-size:20px !important;font-family:var(--display);font-weight:800;letter-spacing:-.012em;line-height:1.1}
-.about-portrait .role{margin-top:4px !important;font-size:10px !important;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);font-weight:700}
-.about-portrait .name-block{grid-column:2}
-.about-portrait .qual{margin-top:14px !important;font-size:10.5px !important;padding:8px 12px;border:1px solid var(--border);border-radius:999px;display:inline-block;background:rgba(255,255,255,.02);letter-spacing:.04em;font-family:var(--mono);color:var(--text-mute);grid-column:1 / -1}
-.about-portrait .vision{margin-top:0 !important;padding-top:14px !important;font-size:13px !important;line-height:1.55 !important;grid-column:1 / -1;font-style:italic;color:var(--text-mute)}
+.about-right-stack{display:flex;flex-direction:column;gap:14px;width:100%;min-width:0}
+/* Portrait card — flex column (robust, no grid auto-placement quirks) */
+.about-portrait{padding:24px !important;min-height:auto !important;border-radius:18px !important;width:100%;text-align:left !important;display:flex !important;flex-direction:column !important;align-items:stretch !important;justify-content:flex-start !important;gap:14px}
+.about-portrait .ap-row{display:flex;align-items:center;gap:16px;width:100%}
+.about-portrait .sil{width:78px !important;height:78px !important;margin:0 !important;border-width:1px !important;flex:none}
+.about-portrait .sil svg{width:62%;height:auto;margin:19%;display:block}
+.about-portrait .name-block{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.about-portrait .name{font-size:21px !important;font-family:var(--display);font-weight:800;letter-spacing:-.012em;line-height:1.15;color:#fff;margin:0}
+.about-portrait .name b{font-weight:800;color:var(--gold-bright);margin-right:4px}
+.about-portrait .role{margin-top:5px !important;font-size:10px !important;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);font-weight:700}
+.about-portrait .qual{margin-top:0 !important;font-size:10.5px !important;padding:8px 14px;border:1px solid var(--border);border-radius:999px;display:inline-block;background:rgba(255,255,255,.02);letter-spacing:.04em;font-family:var(--mono);color:var(--text-mute);align-self:flex-start}
+.about-portrait .vision{margin-top:0 !important;padding-top:14px !important;border-top:1px solid var(--border);font-size:13px !important;line-height:1.55 !important;font-style:italic;color:var(--text-mute);width:100%}
 .about-portrait .vision b{font-style:normal;color:var(--electric-bright);font-weight:700}
 
 /* Sub-cards in right column — fills the vertical blank space */
@@ -731,8 +733,17 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 @media (max-width:920px){
   .about-slide{grid-template-columns:1fr !important;gap:32px !important}
   .about-aux{grid-template-columns:1fr 1fr}
-  .about-mission{grid-template-columns:auto 1fr;gap:18px}
+  .about-mission{grid-template-columns:auto 1fr;gap:18px;margin-top:24px;padding:18px 20px}
   .about-mission .att{display:none}
+  .about-mission .text{font-size:14px}
+}
+@media (max-width:680px){
+  /* Hide the four aux cards + mission strip on mobile to keep slide-5 within
+     the carousel viewport — preventing carousel-control overlap. The same
+     content is available on the About page. */
+  .slide[data-slide="5"] .about-aux,
+  .slide[data-slide="5"] .about-mission{display:none !important}
+  .about-portrait{padding:20px !important}
 }
 @media (max-width:520px){.about-aux{grid-template-columns:1fr}}
 
@@ -1019,12 +1030,14 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 
           <div class="about-right-stack">
             <aside class="about-portrait" aria-label="VIGILO founder">
-              <div class="sil" aria-hidden="true">
-                <svg viewBox="0 0 80 80" fill="none" stroke="rgba(127,194,255,0.6)" stroke-width="1.6"><circle cx="40" cy="30" r="13"/><path d="M16 72c0-12 10-21 24-21s24 9 24 21"/></svg>
-              </div>
-              <div class="name-block">
-                <div class="name">Chandra Mohan</div>
-                <div class="role">Founder · Architect</div>
+              <div class="ap-row">
+                <div class="sil" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" fill="none" stroke="rgba(127,194,255,0.6)" stroke-width="1.6"><circle cx="40" cy="30" r="13"/><path d="M16 72c0-12 10-21 24-21s24 9 24 21"/></svg>
+                </div>
+                <div class="name-block">
+                  <div class="name"><b>CA.</b>Chandra Mohan</div>
+                  <div class="role">Founder · Architect</div>
+                </div>
               </div>
               <div class="qual">B.Com · FCA · CISA · CIA · CFE · FAFD</div>
               <div class="vision"><b>Vision</b> · A world-class Financial Intelligence Platform — supported by a 10+ year engineering bench.</div>
