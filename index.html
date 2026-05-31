@@ -52,6 +52,7 @@
   --electric:#4ea8ff; --electric-bright:#7fc2ff;
   --cyan:#2fe0c8; --emerald:#2ed47a; --amber:#ffb547; --red:#ff6b7a;
   --gold:#d6a849; --gold-bright:#f0c574;
+  --gold-line:rgba(214,168,73,.4); --gold-line-bright:rgba(240,197,116,.6);
   --navy:#0a1640;
   --display:'Sora','Inter',system-ui,sans-serif;
   --sans:'Inter','SF Pro Text',system-ui,sans-serif;
@@ -171,18 +172,19 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .dot-bullet{width:5px;height:5px;border-radius:50%;background:var(--cyan)}
 
 /* Visual side: device/browser frame containing product UI */
-.device{position:relative;border-radius:18px;background:linear-gradient(180deg,#16204a 0%,#0c1330 100%);border:1px solid var(--border-hi);box-shadow:var(--shadow-glow);overflow:hidden;transform:perspective(1600px) rotateY(-2deg) rotateX(.5deg)}
-.device::before{content:"";display:block;height:34px;background:linear-gradient(180deg,#16204a,#10173a);border-bottom:1px solid var(--border)}
+.device{position:relative;border-radius:18px;background:linear-gradient(180deg,#16204a 0%,#0c1330 100%);border:1px solid var(--gold-line);box-shadow:var(--shadow-glow),0 0 0 1px rgba(214,168,73,.10);transform:perspective(1600px) rotateY(-2deg) rotateX(.5deg)}
+.device-screen{position:relative;border-radius:18px;overflow:hidden}
+.device-screen::before{content:"";display:block;height:34px;background:linear-gradient(180deg,#16204a,#10173a);border-bottom:1px solid rgba(214,168,73,.22)}
 .device-dots{position:absolute;top:11px;left:14px;display:flex;gap:7px}
 .device-dots i{width:11px;height:11px;border-radius:50%;background:#3a4576}
 .device-dots i:nth-child(1){background:#ff5f57}
 .device-dots i:nth-child(2){background:#ffbd2e}
 .device-dots i:nth-child(3){background:#28c840}
 .device-url{position:absolute;top:7px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:4px 14px;font-family:var(--mono);font-size:10.5px;color:var(--text-mute);letter-spacing:.04em}
-.device img{display:block;width:100%;height:auto}
+.device-screen img{display:block;width:100%;height:auto}
 
 /* Floating accent: a small KPI/chart card hovering near the device */
-.float-card{position:absolute;background:rgba(13,23,55,.92);backdrop-filter:blur(10px);border:1px solid var(--border-hi);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);color:#fff}
+.float-card{position:absolute;z-index:2;background:rgba(13,23,55,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--border-hi);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);color:#fff}
 .float-card .lbl{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px}
 .float-card .val{font-family:var(--display);font-weight:700;font-size:22px;line-height:1;color:var(--electric-bright)}
 .float-card .delta{font-size:11px;color:var(--emerald);margin-top:3px;display:flex;align-items:center;gap:4px}
@@ -301,15 +303,15 @@ section{padding:96px 0;position:relative;z-index:1}
    ───────────────────────────────────────────────────────── */
 .shot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
 @media (max-width:960px){.shot-grid{grid-template-columns:1fr}}
-.shot-main,.shot-thumb{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.shot-main,.shot-thumb{border:1px solid var(--gold-line);border-radius:18px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
 .shot-main{position:relative}
 .shot-main img{width:100%;height:auto;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top}
 .shot-main figcaption{padding:18px 22px;background:linear-gradient(180deg,var(--surface),#0b1230);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px}
 .shot-main b{font-family:var(--display);color:#fff;font-size:15px}
 .shot-main span{font-size:12px;color:var(--text-mute);font-family:var(--mono);letter-spacing:.04em}
 .shot-thumb-stack{display:grid;gap:14px}
-.thumb{display:grid;grid-template-columns:130px 1fr;gap:14px;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);cursor:pointer;transition:border-color .2s,transform .2s}
-.thumb:hover,.thumb.is-active{border-color:var(--border-hi);transform:translateX(3px)}
+.thumb{display:grid;grid-template-columns:130px 1fr;gap:14px;border:1px solid var(--gold-line);border-radius:14px;overflow:hidden;background:var(--surface);cursor:pointer;transition:border-color .2s,transform .2s}
+.thumb:hover,.thumb.is-active{border-color:var(--gold-line-bright);transform:translateX(3px)}
 .thumb.is-active{box-shadow:inset 0 0 0 1px var(--electric)}
 .thumb img{width:130px;height:80px;object-fit:cover;object-position:top}
 .thumb .meta{padding:12px 14px 12px 0}
@@ -960,9 +962,11 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         </div>
         <div>
           <div class="device" role="img" aria-label="VIGILO dashboard screenshot">
-            <span class="device-dots"><i></i><i></i><i></i></span>
-            <span class="device-url">app.vigilo.ctrmsl.com / dashboard</span>
-            <img src="assets/dashboard_1.png" alt="VIGILO analytics dashboard showing engagement KPIs, active analytics and exception summaries" loading="eager" width="1200" height="639" />
+            <div class="device-screen">
+              <span class="device-dots"><i></i><i></i><i></i></span>
+              <span class="device-url">app.vigilo.ctrmsl.com / dashboard</span>
+              <img src="assets/dashboard_1.png" alt="VIGILO analytics dashboard showing engagement KPIs, active analytics and exception summaries" loading="eager" width="1200" height="639" />
+            </div>
             <div class="float-card tl">
               <div class="lbl">Exceptions today</div>
               <div class="val">3,182</div>
@@ -1002,9 +1006,11 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         </div>
         <div>
           <div class="device" role="img" aria-label="VIGILO executive dashboard">
-            <span class="device-dots"><i></i><i></i><i></i></span>
-            <span class="device-url">app.vigilo.ctrmsl.com / executive-reports</span>
-            <img src="assets/executive_reports_1.png" alt="VIGILO executive dashboard with portfolio KPIs, exception trends and assurance checkpoints" loading="lazy" width="1600" />
+            <div class="device-screen">
+              <span class="device-dots"><i></i><i></i><i></i></span>
+              <span class="device-url">app.vigilo.ctrmsl.com / executive-reports</span>
+              <img src="assets/executive_reports_1.png" alt="VIGILO executive dashboard with portfolio KPIs, exception trends and assurance checkpoints" loading="lazy" width="1600" />
+            </div>
             <div class="float-card tl">
               <div class="lbl">Exceptions surfaced</div>
               <div class="val">2.74%</div>
