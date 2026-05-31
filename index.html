@@ -150,9 +150,10 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .hero-glow-1{width:520px;height:520px;background:radial-gradient(circle,rgba(78,168,255,.5),transparent 70%);top:-100px;left:-120px}
 .hero-glow-2{width:600px;height:600px;background:radial-gradient(circle,rgba(47,224,200,.35),transparent 70%);bottom:-200px;right:-160px}
 
-.carousel{position:relative;min-height:min(820px,86vh);display:grid;touch-action:pan-y}
-.slide{grid-area:1/1;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .9s ease;display:flex;align-items:center;padding:48px 0 64px}
+.carousel{position:relative;min-height:480px;touch-action:pan-y;transition:height .5s cubic-bezier(.4,0,.2,1)}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .9s ease;display:flex;align-items:center;padding:48px 0 64px}
 .slide.is-active{opacity:1;visibility:visible;pointer-events:auto}
+@media (prefers-reduced-motion:reduce){.carousel{transition:none}}
 .slide .container{display:grid;grid-template-columns:1.05fr 1.1fr;gap:56px;align-items:center;width:100%}
 @media (max-width:980px){.slide{padding:32px 0 56px} .slide .container{grid-template-columns:1fr;gap:36px}}
 .brand-pill{display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--border-hi);border-radius:999px;background:rgba(78,168,255,.08);color:var(--electric-bright);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
@@ -2025,16 +2026,22 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
   const slides=car?Array.from(car.querySelectorAll('.slide')):[];
   const dots=car?Array.from(car.querySelectorAll('.car-dot')):[];
   const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let idx=0, timer=null, paused=false;
+  let idx=0, timer=null, paused=false, heroVisible=true, rt=null;
   const AUTOPLAY=6500;
   function show(i){
     idx=(i+slides.length)%slides.length;
     slides.forEach((s,k)=>{const a=k===idx;s.classList.toggle('is-active',a);s.removeAttribute('hidden');s.setAttribute('aria-hidden',a?'false':'true');});
     dots.forEach((d,k)=>d.classList.toggle('is-active',k===idx));
+    fit();
     document.dispatchEvent(new CustomEvent('vigilo-slide-change',{detail:{idx:idx}}));
   }
+  function fit(){
+    const s=slides[idx], c=s&&s.querySelector('.container'); if(!c)return;
+    const cs=getComputedStyle(s);
+    car.style.height=(c.offsetHeight+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom))+'px';
+  }
   function next(){show(idx+1)} function prev(){show(idx-1)}
-  function start(){if(reduce)return;stop();timer=setInterval(()=>{if(!paused)next();},AUTOPLAY)}
+  function start(){if(reduce)return;stop();timer=setInterval(()=>{if(!paused&&heroVisible)next();},AUTOPLAY)}
   function stop(){if(timer){clearInterval(timer);timer=null}}
   if(car&&slides.length){
     document.getElementById('carPrev').addEventListener('click',()=>{prev();start();});
@@ -2082,6 +2089,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
     start=function(){if(stopped)return;_origStart();};
     show(idx);
     start();
+    // Re-fit carousel height to active slide on resize + after assets load
+    window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(fit,150);});
+    window.addEventListener('load',fit);
+    // Pause auto-rotate (and its height changes) when the hero is scrolled out of view
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(es=>{heroVisible=es[0].isIntersecting;},{threshold:.2}).observe(car);
+    }
     // Pause when tab hidden
     document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
   }
