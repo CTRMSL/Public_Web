@@ -25,5 +25,5 @@
 /privacy.html /privacy/ 301
 /terms.html  /terms/  301
 
-# 404 fallback (do NOT use 200 status — keeps the "Not Found" semantics)
-/*  /404.html  404
+# 404 fallback handled by host not_found_handling (Workers Assets: "404-page").
+# Cloudflare _redirects does not allow a 404 status code.
