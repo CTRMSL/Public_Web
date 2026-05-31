@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
 <!-- Open Graph -->
 <meta property="og:title" content="VIGILO by CTR — Financial Intelligence Platform for Assurance, Risk & Finance" />
-<meta property="og:description" content="A Financial Intelligence Platform for the three lines of defence. 1,050+ checks across 10 process cycles — built by auditors, engineered for assurance." />
+<meta property="og:description" content="A Financial Intelligence Platform for the three lines of defence. 1,050+ checks across 10 process cycles — created by auditors, engineered for assurance." />
 <meta property="og:image" content="https://ctrmsl.com/assets/og-cover.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -31,7 +31,7 @@
 <!-- JSON-LD structured data -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-  {"@type":"Organization","@id":"https://ctrmsl.com/#org","name":"VIGILO by CTR","legalName":"CTR Management Services (Pvt) Ltd","url":"https://ctrmsl.com/","logo":"https://ctrmsl.com/assets/vigilo_logo_new.png","sameAs":["https://www.linkedin.com/company/vigilo-by-ctr"],"description":"Financial Intelligence Platform for the three lines of defence — built by auditors, engineered for assurance.","founder":{"@type":"Person","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect"}},
+  {"@type":"Organization","@id":"https://ctrmsl.com/#org","name":"VIGILO by CTR","legalName":"CTR Management Services (Pvt) Ltd","url":"https://ctrmsl.com/","logo":"https://ctrmsl.com/assets/vigilo_logo_new.png","sameAs":["https://www.linkedin.com/company/vigilo-by-ctr"],"description":"Financial Intelligence Platform for the three lines of defence — created by auditors, engineered for assurance.","founder":{"@type":"Person","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect"}},
   {"@type":"SoftwareApplication","@id":"https://ctrmsl.com/#product","name":"VIGILO","applicationCategory":"BusinessApplication","operatingSystem":"Web / Private VPC / On-premise","offers":{"@type":"Offer","category":"Standard, Pro, Pro+"},"description":"1,050+ automated checks across 10 process cycles for statutory and internal audit teams.","publisher":{"@id":"https://ctrmsl.com/#org"}},
   {"@type":"WebSite","@id":"https://ctrmsl.com/#site","url":"https://ctrmsl.com/","name":"VIGILO by CTR","publisher":{"@id":"https://ctrmsl.com/#org"}}
 ]}
@@ -150,9 +150,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .hero-glow-1{width:520px;height:520px;background:radial-gradient(circle,rgba(78,168,255,.5),transparent 70%);top:-100px;left:-120px}
 .hero-glow-2{width:600px;height:600px;background:radial-gradient(circle,rgba(47,224,200,.35),transparent 70%);bottom:-200px;right:-160px}
 
-.carousel{position:relative;min-height:min(820px,86vh)}
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease;display:flex;align-items:center;padding:48px 0 64px}
-.slide.is-active{opacity:1;visibility:visible}
+.carousel{position:relative;min-height:min(820px,86vh);display:grid;touch-action:pan-y}
+.slide{grid-area:1/1;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .9s ease;display:flex;align-items:center;padding:48px 0 64px}
+.slide.is-active{opacity:1;visibility:visible;pointer-events:auto}
 .slide .container{display:grid;grid-template-columns:1.05fr 1.1fr;gap:56px;align-items:center;width:100%}
 @media (max-width:980px){.slide{padding:32px 0 56px} .slide .container{grid-template-columns:1fr;gap:36px}}
 .brand-pill{display:inline-flex;align-items:center;padding:6px 14px;border:1px solid var(--border-hi);border-radius:999px;background:rgba(78,168,255,.08);color:var(--electric-bright);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
@@ -196,37 +196,38 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 /* Carousel controls */
 /* Modern carousel controls — sleek glass pill containing arrows + dots + play/pause */
 .car-controls{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
-  display:inline-flex;align-items:center;gap:6px;z-index:8;
-  padding:7px 12px;border:1px solid rgba(255,255,255,.10);border-radius:999px;
+  display:inline-flex;align-items:center;gap:9px;z-index:8;
+  padding:8px 14px;border:1px solid rgba(255,255,255,.10);border-radius:999px;
   background:rgba(8,12,32,.62);backdrop-filter:saturate(160%) blur(14px);
   -webkit-backdrop-filter:saturate(160%) blur(14px);
   box-shadow:0 10px 28px -14px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
 .car-controls > * + *{margin-left:0}
-.car-arrow{width:28px;height:28px;border-radius:50%;border:0;background:transparent;
-  color:rgba(255,255,255,.65);display:grid;place-items:center;cursor:pointer;
-  transition:color .18s,background .18s;padding:0}
-.car-arrow:hover{color:#fff;background:rgba(255,255,255,.08)}
+.car-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);
+  color:rgba(255,255,255,.85);display:grid;place-items:center;cursor:pointer;
+  transition:color .18s,background .18s,border-color .18s,transform .12s;padding:0}
+.car-arrow:hover{color:#fff;background:rgba(255,255,255,.14);border-color:var(--gold-line-bright);transform:scale(1.06)}
+.car-arrow:active{transform:scale(.94)}
 .car-arrow:focus-visible{outline:2px solid var(--electric);outline-offset:2px}
-.car-arrow svg{width:13px;height:13px}
-.car-dot{width:22px;height:3px;border-radius:3px;background:rgba(255,255,255,.18);
-  transition:background .25s,width .25s;border:0;padding:0;cursor:pointer;
+.car-arrow svg{width:20px;height:20px}
+.car-dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.24);
+  transition:background .25s,width .25s,border-radius .25s,transform .12s;border:0;padding:0;cursor:pointer;
   flex:none}
-.car-dot:hover{background:rgba(255,255,255,.32)}
-.car-dot.is-active{background:linear-gradient(90deg,var(--electric),var(--cyan));width:32px}
+.car-dot:hover{background:rgba(255,255,255,.45);transform:scale(1.15)}
+.car-dot.is-active{background:linear-gradient(90deg,var(--electric),var(--cyan));width:30px;border-radius:7px}
 .car-dot + .car-dot{margin-left:4px}
-#carPlayPause{width:28px;height:28px;border-radius:50%;border:0;background:transparent;
-  color:rgba(255,255,255,.65);display:grid;place-items:center;cursor:pointer;
-  transition:color .18s,background .18s;padding:0;margin-left:4px;
-  border-left:1px solid rgba(255,255,255,.10);border-radius:0 999px 999px 0;padding-left:8px;width:36px}
+#carPlayPause{width:40px;height:44px;border:0;background:transparent;
+  color:rgba(255,255,255,.8);display:grid;place-items:center;cursor:pointer;
+  transition:color .18s,background .18s;padding:0 0 0 12px;margin-left:6px;
+  border-left:1px solid rgba(255,255,255,.10)}
 #carPlayPause:hover{color:#fff;background:rgba(255,255,255,.06)}
-#carPlayPause svg{width:11px;height:11px}
+#carPlayPause svg{width:15px;height:15px}
 .car-arrow + .car-dot{margin-left:6px}
 .car-dot + .car-arrow{margin-left:6px}
 @media (max-width:640px){
-  .car-controls{bottom:14px;padding:5px 9px;gap:4px}
-  .car-arrow{width:24px;height:24px}
-  .car-arrow svg{width:11px;height:11px}
-  .car-dot{width:16px}
+  .car-controls{bottom:14px;padding:6px 10px;gap:7px}
+  .car-arrow{width:38px;height:38px}
+  .car-arrow svg{width:17px;height:17px}
+  .car-dot{width:10px;height:10px}
   .car-dot.is-active{width:24px}
   #carPlayPause{display:none} /* save space on mobile — pause-on-touch via JS still works */
 }
@@ -1087,7 +1088,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         <div class="about-slide">
           <div class="about-slide-left">
             <span class="pillar-mini">About VIGILO · 15-year vision</span>
-            <h2>Built by auditors.<br/><em>Engineered for assurance.</em></h2>
+            <h2>Two decades of audit practice,<br/><em>codified.</em></h2>
             <p><b>VIGILO</b> is the work of a Chartered-Accountant-led team — <b>20+ years of practice across 150+ entities</b>, codified into a Financial Intelligence Platform that cuts audit man-hours by over 90% and lifts the constant retraining burden of high attrition in professional firms.</p>
             <div class="about-slide-grid">
               <div><b>20+ yrs</b><span>Audit practice</span></div>
@@ -1257,7 +1258,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   <div class="container">
     <div class="section-head reveal">
       <div class="section-eye">The Product</div>
-      <h2 class="section-h2">A <em class="fip-gold">Financial Intelligence Platform</em> — built by auditors.</h2>
+      <h2 class="section-h2">A <em class="fip-gold">Financial Intelligence Platform</em> for the three lines of defence.</h2>
       <p class="section-sub">Engagement dashboards, full-population analytics, exception registers and defensible evidence packs — one disciplined workspace for assurance, risk and finance, from raw data to informed action.</p>
     </div>
 
@@ -2028,7 +2029,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
   const AUTOPLAY=6500;
   function show(i){
     idx=(i+slides.length)%slides.length;
-    slides.forEach((s,k)=>{const a=k===idx;s.classList.toggle('is-active',a);s.hidden=!a;});
+    slides.forEach((s,k)=>{const a=k===idx;s.classList.toggle('is-active',a);s.removeAttribute('hidden');s.setAttribute('aria-hidden',a?'false':'true');});
     dots.forEach((d,k)=>d.classList.toggle('is-active',k===idx));
     document.dispatchEvent(new CustomEvent('vigilo-slide-change',{detail:{idx:idx}}));
   }
@@ -2046,6 +2047,25 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
     // Touch swipe
     let sx=0; car.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;paused=true},{passive:true});
     car.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}paused=false;start();},{passive:true});
+    // Trackpad / mouse-wheel horizontal swipe (two-finger left/right)
+    let wlock=false;
+    car.addEventListener('wheel',e=>{
+      if(Math.abs(e.deltaX)>Math.abs(e.deltaY)&&Math.abs(e.deltaX)>24){
+        e.preventDefault();
+        if(wlock)return; wlock=true;
+        (e.deltaX>0?next:prev)(); start();
+        setTimeout(()=>{wlock=false;},650);
+      }
+    },{passive:false});
+    // Mouse / trackpad click-drag
+    let dragX=null,dragMoved=false;
+    car.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')return;dragX=e.clientX;dragMoved=false;paused=true;});
+    car.addEventListener('pointermove',e=>{if(dragX!=null&&Math.abs(e.clientX-dragX)>6)dragMoved=true;});
+    const _endDrag=e=>{if(dragX==null)return;const dx=e.clientX-dragX;dragX=null;if(Math.abs(dx)>55){(dx<0?next:prev)();start();}paused=false;};
+    car.addEventListener('pointerup',_endDrag);
+    car.addEventListener('pointercancel',()=>{dragX=null;paused=false;});
+    // A real drag must not fire an accidental button/link click
+    car.addEventListener('click',e=>{if(dragMoved){e.preventDefault();e.stopPropagation();dragMoved=false;}},true);
     // Keyboard arrows when carousel focused
     document.addEventListener('keydown',e=>{if(!document.activeElement||!car.contains(document.activeElement))return;if(e.key==='ArrowLeft')prev();else if(e.key==='ArrowRight')next();});
     // Explicit play/pause (WCAG 2.2.2)
@@ -2060,6 +2080,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
     }
     var _origStart=start;
     start=function(){if(stopped)return;_origStart();};
+    show(idx);
     start();
     // Pause when tab hidden
     document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
