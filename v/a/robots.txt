@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-# Generative AI training opt-out (Content Signals)
-Content-Signal: search=yes,ai-train=no
-
-Sitemap: https://ctrmsl.com/sitemap.xml

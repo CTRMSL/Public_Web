@@ -16,6 +16,10 @@
 /3-lines-of-defence  /#three-lines  301
 /three-lines         /#three-lines  301
 
+# Legacy review short-link -> homepage (also handled by v/a/index.html for GitHub Pages)
+/v/a   /   301
+/v/a/  /   301
+
 # Common-typo redirects
 /about.html  /about/  301
 /privacy.html /privacy/ 301
