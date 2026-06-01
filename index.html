@@ -900,6 +900,90 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 .plans-note b{color:var(--text-mute);font-style:normal}
 @media (max-width:960px){.plans-grid{grid-template-columns:1fr;gap:18px}.tier{padding:30px 26px}.tier.featured{order:-1}}
 </style>
+<!-- ═══════════════════ VIGILO Visitor Interest capture (Version B) — styles (scoped .vf-) ═══════════════════ -->
+<style id="vf-embed-styles">
+:root{
+  --vf-bg:#060a1c; --vf-surface:#0e1638; --vf-surface-2:rgba(255,255,255,.04);
+  --vf-border:rgba(255,255,255,.10); --vf-border-hi:rgba(122,176,255,.24);
+  --vf-gold:#d6a849; --vf-gold-bright:#f0c574; --vf-gold-line:rgba(214,168,73,.4);
+  --vf-electric:#4ea8ff; --vf-electric-bright:#7fc2ff; --vf-cyan:#2fe0c8; --vf-emerald:#2ed47a;
+  --vf-text:#eef2ff; --vf-text-mute:#9aa6c8; --vf-text-faint:#8089b0; --vf-red:#ff7a8a;
+  --vf-sans:'Inter',system-ui,-apple-system,sans-serif;
+  --vf-display:'Sora','Inter',sans-serif; --vf-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+.vf-card{font-family:var(--vf-sans);color:var(--vf-text);background:linear-gradient(180deg,#0c1330,#0a1026);
+  border:1px solid var(--vf-gold-line);border-radius:18px;box-shadow:0 30px 80px -40px rgba(0,0,0,.7),0 0 0 1px rgba(214,168,73,.08);
+  padding:clamp(20px,4vw,34px);max-width:640px;width:100%;box-sizing:border-box;position:relative;overflow:hidden}
+.vf-card *,.vf-card *::before,.vf-card *::after{box-sizing:border-box}
+.vf-card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:radial-gradient(800px 300px at 100% -10%,rgba(78,168,255,.10),transparent 60%)}
+.vf-eyebrow{font-family:var(--vf-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--vf-gold-bright);display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+.vf-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--vf-gold);box-shadow:0 0 8px var(--vf-gold)}
+.vf-title{font-family:var(--vf-display);font-weight:700;font-size:clamp(20px,3.2vw,26px);letter-spacing:-.01em;margin:0 0 6px;color:#fff}
+.vf-sub{font-size:14px;color:var(--vf-text-mute);line-height:1.55;margin:0 0 20px}
+.vf-steps{display:flex;gap:8px;margin-bottom:22px}
+.vf-steps .vf-step{flex:1;height:4px;border-radius:3px;background:rgba(255,255,255,.10);transition:background .3s}
+.vf-steps .vf-step.is-active,.vf-steps .vf-step.is-done{background:linear-gradient(90deg,var(--vf-electric),var(--vf-cyan))}
+.vf-stepcount{font-family:var(--vf-mono);font-size:10.5px;color:var(--vf-text-faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.vf-panel{display:none;animation:vf-fade .35s ease}
+.vf-panel.is-active{display:block}
+@keyframes vf-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.vf-field{display:grid;gap:6px;margin-bottom:14px}
+.vf-field label{font-family:var(--vf-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--vf-text-mute);font-weight:600}
+.vf-req{color:var(--vf-gold-bright);margin-left:3px}
+.vf-field input,.vf-field select,.vf-field textarea{font-family:var(--vf-sans);font-size:14.5px;padding:11px 14px;
+  border:1px solid var(--vf-border-hi);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;width:100%;transition:border-color .15s,background .15s}
+.vf-field textarea{min-height:96px;resize:vertical}
+.vf-field input::placeholder,.vf-field textarea::placeholder{color:var(--vf-text-faint)}
+.vf-field input:focus,.vf-field select:focus,.vf-field textarea:focus{outline:none;border-color:var(--vf-electric);background:rgba(78,168,255,.08)}
+.vf-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path fill='%239aa6c8' d='M0 0l5 6 5-6z'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+.vf-field select option{background:#0e1638;color:#fff}
+.vf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vf-field.vf-invalid input,.vf-field.vf-invalid select,.vf-field.vf-invalid textarea{border-color:var(--vf-red);background:rgba(255,122,138,.08)}
+.vf-err{color:var(--vf-red);font-size:12px;font-family:var(--vf-sans);min-height:0;display:none}
+.vf-field.vf-invalid .vf-err{display:block}
+.vf-hint{font-size:11.5px;color:var(--vf-text-faint)}
+.vf-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+.vf-tile{border:1px solid var(--vf-border);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.025);cursor:pointer;font-size:13.5px;color:var(--vf-text);transition:border-color .2s,background .2s,transform .12s;display:flex;align-items:center;gap:9px}
+.vf-tile:hover{border-color:var(--vf-border-hi);transform:translateY(-1px)}
+.vf-tile.is-selected{border-color:var(--vf-gold-line);background:rgba(214,168,73,.08);color:#fff}
+.vf-tile .vf-tdot{width:8px;height:8px;border-radius:50%;background:var(--vf-electric);flex:none}
+.vf-tile.is-selected .vf-tdot{background:var(--vf-gold-bright);box-shadow:0 0 8px var(--vf-gold)}
+.vf-consent{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:13px;color:var(--vf-text-mute);line-height:1.5}
+.vf-consent input{width:18px;height:18px;margin-top:2px;accent-color:var(--vf-electric);flex:none}
+.vf-privacy{font-size:12px;color:var(--vf-text-faint);line-height:1.55;border:1px solid var(--vf-border);border-radius:10px;padding:12px 14px;background:rgba(255,255,255,.02);margin-bottom:14px}
+.vf-privacy a{color:var(--vf-electric-bright)}
+.vf-actions{display:flex;gap:12px;align-items:center;margin-top:18px}
+.vf-btn{font-family:var(--vf-sans);font-weight:700;font-size:15px;padding:13px 22px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:filter .15s,border-color .15s,background .15s}
+.vf-btn--primary{background:linear-gradient(180deg,var(--vf-electric-bright),var(--vf-electric));color:#02121f;box-shadow:0 8px 22px -10px rgba(78,168,255,.6)}
+.vf-btn--primary:hover:not(:disabled){filter:brightness(1.08)}
+.vf-btn--ghost{background:transparent;color:#fff;border-color:var(--vf-border-hi)}
+.vf-btn--ghost:hover{border-color:var(--vf-gold-line)}
+.vf-btn:disabled{opacity:.6;cursor:wait}
+.vf-spacer{flex:1}
+.vf-spinner{width:16px;height:16px;border:2px solid rgba(2,18,31,.35);border-top-color:#02121f;border-radius:50%;display:inline-block;animation:vf-spin .7s linear infinite;vertical-align:-3px;margin-right:8px}
+@keyframes vf-spin{to{transform:rotate(360deg)}}
+.vf-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;overflow:hidden}
+.vf-note{font-family:var(--vf-mono);font-size:10.5px;color:var(--vf-text-faint);text-align:center;letter-spacing:.04em;margin-top:14px}
+.vf-banner{display:none;border-radius:10px;padding:11px 14px;font-size:13px;margin-bottom:14px}
+.vf-banner.vf-show{display:block}
+.vf-banner--err{background:rgba(255,122,138,.10);border:1px solid rgba(255,122,138,.35);color:#ffc2cb}
+.vf-thanks{text-align:center;padding:18px 6px;display:none}
+.vf-thanks.is-active{display:block;animation:vf-fade .4s ease}
+.vf-thanks .vf-check{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--vf-emerald),#1a8a4a);color:#fff;display:grid;place-items:center;font-size:34px;margin:0 auto 16px;box-shadow:0 12px 32px -10px rgba(47,212,122,.5)}
+.vf-thanks h3{font-family:var(--vf-display);color:#fff;font-size:20px;margin:0 0 8px}
+.vf-thanks p{color:var(--vf-text-mute);font-size:14px;line-height:1.55;max-width:420px;margin:0 auto 18px}
+.vf-thanks .vf-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* embed wrapper — places Version B inside the Contact section as a complement */
+.vf-embed{margin:56px auto 0;max-width:760px;display:grid;gap:22px;justify-items:center}
+.vf-embed-head{text-align:center;max-width:620px}
+.vf-embed-eyebrow{font-family:var(--vf-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--vf-gold-bright);margin-bottom:8px}
+.vf-embed-title{font-family:var(--vf-display);font-weight:700;font-size:clamp(22px,3vw,28px);color:#fff;margin:0 0 8px}
+.vf-embed-sub{color:var(--vf-text-mute);font-size:14.5px;line-height:1.6;margin:0}
+.vf-embed-sub a{color:var(--vf-electric-bright)}
+@media (max-width:560px){ .vf-row{grid-template-columns:1fr} .vf-tiles{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){ .vf-panel,.vf-thanks{animation:none} .vf-spinner{animation-duration:1.4s} }
+</style>
 </head>
 <body data-theme="dark-enterprise">
 <a class="skip" href="#main">Skip to content</a>
@@ -1807,6 +1891,83 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         </div>
       </div>
 
+      <!-- ═══ VIGILO Visitor Interest — Version B (COMPLEMENTS the Request-a-Demo form above; does not replace it) ═══ -->
+      <div class="vf-embed" id="share-interest">
+        <div class="vf-embed-head">
+          <div class="vf-embed-eyebrow">Prefer a guided form?</div>
+          <h3 class="vf-embed-title">Share your interest</h3>
+          <p class="vf-embed-sub">Not ready to book a demo yet? Tell us what you're exploring and our team will follow up. The <a href="#" onclick="openAccessForm(event)">Request-a-demo form</a> remains the fastest path to a walkthrough and pilot.</p>
+        </div>
+        <div class="vf-card">
+          <form class="vf-form" data-vf-mode="detailed" novalidate>
+            <input type="hidden" name="submission_type" value="enquiry" />
+            <div class="vf-eyebrow">VIGILO · Share your interest</div>
+            <h2 class="vf-title">Share your audit analytics interest</h2>
+            <p class="vf-sub">A few quick details so our team can prepare a tailored walkthrough and a bounded pilot scope.</p>
+            <div class="vf-steps"><span class="vf-step"></span><span class="vf-step"></span><span class="vf-step"></span><span class="vf-step"></span></div>
+            <div class="vf-stepcount"></div>
+            <div class="vf-banner vf-banner--err"></div>
+
+            <!-- Step 1: About you -->
+            <div class="vf-panel">
+              <div class="vf-row">
+                <div class="vf-field"><label for="b-name">Name<span class="vf-req">*</span></label><input id="b-name" name="name" required autocomplete="name" placeholder="Full name" /><span class="vf-err"></span></div>
+                <div class="vf-field"><label for="b-email">Work email<span class="vf-req">*</span></label><input id="b-email" name="email" type="email" required autocomplete="email" placeholder="you@organisation.com" /><span class="vf-err"></span></div>
+              </div>
+              <div class="vf-row">
+                <div class="vf-field"><label for="b-phone">Contact no.</label><input id="b-phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. +91 98765 43210" /><span class="vf-err"></span></div>
+                <div class="vf-field"><label for="b-desig">Designation</label><input id="b-desig" name="designation" placeholder="e.g. Partner, CRO, Head of IA" /><span class="vf-err"></span></div>
+              </div>
+              <div class="vf-field"><label for="b-company">Company / firm<span class="vf-req">*</span></label><input id="b-company" name="company" required autocomplete="organization" placeholder="e.g. State Bank of India" /><span class="vf-err"></span></div>
+              <div class="vf-row">
+                <div class="vf-field"><label for="b-country">Country</label><input id="b-country" name="country" autocomplete="country-name" placeholder="India" /></div>
+                <div class="vf-field"><label for="b-city">City</label><input id="b-city" name="city" placeholder="Mumbai" /></div>
+              </div>
+              <div class="vf-actions"><span class="vf-spacer"></span><button class="vf-btn vf-btn--primary" data-vf-next type="button">Continue →</button></div>
+            </div>
+
+            <!-- Step 2: Interest -->
+            <div class="vf-panel">
+              <div class="vf-field"><label>What are you most interested in?</label></div>
+              <div class="vf-tiles">
+                <div class="vf-tile" data-vf-value="AuditIQ Product Demo"><span class="vf-tdot"></span>AuditIQ Product Demo</div>
+                <div class="vf-tile" data-vf-value="BFSI Analytics"><span class="vf-tdot"></span>BFSI Analytics</div>
+                <div class="vf-tile" data-vf-value="Loan / LMS Analytics"><span class="vf-tdot"></span>Loan / LMS Analytics</div>
+                <div class="vf-tile" data-vf-value="ECL / Ind AS 109"><span class="vf-tdot"></span>ECL / Ind AS 109</div>
+                <div class="vf-tile" data-vf-value="Client Response Portal"><span class="vf-tdot"></span>Client Response Portal</div>
+                <div class="vf-tile" data-vf-value="Pricing / Licensing"><span class="vf-tdot"></span>Pricing / Licensing</div>
+              </div>
+              <div class="vf-field"><label for="b-area">Area of interest<span class="vf-req">*</span></label><select id="b-area" name="area_of_interest" data-vf-options="area_of_interest" required><option value="" disabled selected>Or pick from the full list…</option></select><span class="vf-err"></span></div>
+              <div class="vf-row">
+                <div class="vf-field"><label for="b-org">Organisation type<span class="vf-req">*</span></label><select id="b-org" name="organisation_type" data-vf-options="organisation_type" required><option value="" disabled selected>Select one…</option></select><span class="vf-err"></span></div>
+                <div class="vf-field"><label for="b-deploy">Preferred deployment</label><select id="b-deploy" name="deployment_preference" data-vf-options="deployment_preference"><option value="" disabled selected>Select one…</option></select></div>
+              </div>
+              <div class="vf-field"><label for="b-timeline">Timeline for implementation</label><input id="b-timeline" name="timeline" placeholder="e.g. This quarter / next 6 months / exploring" /></div>
+              <div class="vf-actions"><button class="vf-btn vf-btn--ghost" data-vf-prev type="button">← Back</button><span class="vf-spacer"></span><button class="vf-btn vf-btn--primary" data-vf-next type="button">Continue →</button></div>
+            </div>
+
+            <!-- Step 3: Requirement -->
+            <div class="vf-panel">
+              <div class="vf-field"><label for="b-msg">Your requirement / use case<span class="vf-req">*</span></label><textarea id="b-msg" name="message" required placeholder="What outcome are you looking for? (Please do not include confidential client data.)"></textarea><span class="vf-err"></span></div>
+              <div class="vf-field"><label for="b-pack">Analytics pack interested in</label><input id="b-pack" name="analytics_pack" placeholder="e.g. LMS, P2P, GL, Inventory…" /></div>
+              <div class="vf-actions"><button class="vf-btn vf-btn--ghost" data-vf-prev type="button">← Back</button><span class="vf-spacer"></span><button class="vf-btn vf-btn--primary" data-vf-next type="button">Continue →</button></div>
+            </div>
+
+            <!-- Step 4: Consent -->
+            <div class="vf-panel">
+              <div class="vf-privacy">We collect this information to respond to your enquiry, understand product interest, and plan deployment. Please do not submit confidential client data, financial account details, PAN/Aadhaar, passwords, or sensitive personal information. We never sell or share your details. You may request correction or deletion anytime at <a href="mailto:privacy@ctrmsl.com">privacy@ctrmsl.com</a>. See our <a href="https://ctrmsl.com/privacy/">Privacy Policy</a>.</div>
+              <label class="vf-consent"><input type="checkbox" name="consent_given" /> <span>I consent to CTRMSL storing and using my information to respond to my enquiry, and I will not submit confidential/sensitive client data.<span class="vf-req">*</span></span></label>
+              <label class="vf-consent"><input type="checkbox" name="contact_permission" /> <span>I consent to be contacted for follow-up regarding this enquiry.</span></label>
+              <label class="vf-consent"><input type="checkbox" name="marketing_permission" /> <span>(Optional) Send me occasional product updates about AuditIQ.</span></label>
+              <div class="vf-actions"><button class="vf-btn vf-btn--ghost" data-vf-prev type="button">← Back</button><span class="vf-spacer"></span><button type="submit" class="vf-btn vf-btn--primary" data-vf-submit data-label="Submit request →">Submit request →</button></div>
+            </div>
+
+            <div class="vf-hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+          </form>
+          <div class="vf-thanks"><div class="vf-check">✓</div><h3>Request received</h3><p data-vf-thanks-msg>Thank you for your interest in AuditIQ. We have received your details and will review your requirement. Our team will get back to you shortly.</p><div class="vf-links"><a class="vf-btn vf-btn--ghost" href="https://ctrmsl.com/">Back to site</a></div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2358,6 +2519,169 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
     var hid=location.hash.slice(1);
     if(sectionMap[hid])setActive(hid);
   }
+})();
+</script>
+
+<!-- ═══════════════════ VIGILO Visitor Interest capture (Version B) — config + script ═══════════════════
+     Posts to the same-origin Cloudflare Worker proxy (ctrmsl.com/api/visitor-feedback), which injects the
+     SHARED_TOKEN server-side. No token in this page by design. The existing Request-a-Demo Google Form is
+     unchanged; this is an additional "Share your interest" path. -->
+<script>window.VF_CONFIG={endpoint:'https://ctrmsl.com/api/visitor-feedback'};</script>
+<script>
+(function () {
+  'use strict';
+  var CFG = window.VF_CONFIG || {};
+
+  var OPTIONS = {
+    organisation_type: ['Audit/Consultancy Firm','CA Firm','Statutory Audit Firm','Internal Audit Team','Forensic Audit Team','Bank','NBFC','Insurance Company','FinTech','Listed Company','Private Company','CFO / Finance Team','Risk Management Team','Compliance Team','Technology Partner','Student / Researcher','Other'],
+    area_of_interest: ['AuditIQ Product Demo','BFSI Analytics','Loan / LMS Analytics','ECL / Ind AS 109','P2P Analytics','O2C Analytics','GL / Journal Analytics','Inventory Analytics','PPE Analytics','TDS Reconciliation','MSME / PAN / GST Compliance','AML / Sanctions Screening','Lease Accounting / Ind AS 116','Client Response Portal','Website Feedback','Partnership Discussion','Pricing / Licensing','Technical Deployment','Other'],
+    deployment_preference: ['On-premise','Private cloud','Client-controlled cloud','Audit firm internal server','Need guidance','Not decided'],
+    feedback_category: ['Website Design','Product Information','Audit Analytics Feature','BFSI Analytics Requirement','Pricing / Licensing','Deployment','Security','Documentation','Demo Request','Client Portal','General Suggestion','Issue / Bug','Other'],
+    importance_level: ['Low','Medium','High','Critical']
+  };
+
+  function meta() {
+    var ua = navigator.userAgent || '';
+    var q = new URLSearchParams(location.search);
+    return {
+      source_url: location.href.split('#')[0],
+      source_title: document.title,
+      referrer: document.referrer || '',
+      utm_source: q.get('utm_source') || '', utm_medium: q.get('utm_medium') || '',
+      utm_campaign: q.get('utm_campaign') || '', utm_term: q.get('utm_term') || '', utm_content: q.get('utm_content') || '',
+      device: /Mobi|Android|iPhone|iPad/i.test(ua) ? 'Mobile' : 'Desktop',
+      browser: detectBrowser(ua), os: detectOS(ua),
+      screen: (window.screen ? screen.width + 'x' + screen.height : ''),
+      language: navigator.language || '',
+      timezone: (Intl && Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
+      region: '',
+      session_id: sessionId()
+    };
+  }
+  function detectBrowser(ua){ return /Edg/.test(ua)?'Edge':/OPR|Opera/.test(ua)?'Opera':/Chrome/.test(ua)?'Chrome':/Safari/.test(ua)?'Safari':/Firefox/.test(ua)?'Firefox':'Other'; }
+  function detectOS(ua){ return /Windows/.test(ua)?'Windows':/Mac OS X|Macintosh/.test(ua)?'macOS':/Android/.test(ua)?'Android':/iPhone|iPad|iOS/.test(ua)?'iOS':/Linux/.test(ua)?'Linux':'Other'; }
+  function sessionId(){ try{ var k='vf_sid', s=sessionStorage.getItem(k); if(!s){ s=(Date.now().toString(36)+Math.random().toString(36).slice(2,8)); sessionStorage.setItem(k,s);} return s; }catch(e){ return ''; } }
+
+  function len(s,min,max){ s=(s||'').trim(); return s.length>=min && s.length<=max; }
+  function email(s){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((s||'').trim()); }
+  function phoneOk(s){ s=(s||'').trim(); return !s || /^[+()\d\s-]{6,20}$/.test(s); }
+
+  function init(form) {
+    if (!form || form.__vfReady) return; form.__vfReady = true;
+    var startedAt = Date.now();
+    var mode = form.getAttribute('data-vf-mode') || 'detailed';
+
+    form.querySelectorAll('select[data-vf-options]').forEach(function (sel) {
+      var key = sel.getAttribute('data-vf-options'); if (!OPTIONS[key]) return;
+      OPTIONS[key].forEach(function (o) { var op = document.createElement('option'); op.textContent = o; sel.appendChild(op); });
+    });
+
+    var panels = Array.prototype.slice.call(form.querySelectorAll('.vf-panel'));
+    var steps  = Array.prototype.slice.call(form.querySelectorAll('.vf-steps .vf-step'));
+    var cur = 0;
+    function showStep(i){ cur=Math.max(0,Math.min(panels.length-1,i));
+      panels.forEach(function(p,k){ p.classList.toggle('is-active',k===cur); });
+      steps.forEach(function(s,k){ s.classList.toggle('is-active',k===cur); s.classList.toggle('is-done',k<cur); });
+      var sc=form.querySelector('.vf-stepcount'); if(sc&&panels.length>1) sc.textContent='Step '+(cur+1)+' of '+panels.length;
+      var first=panels[cur].querySelector('input,select,textarea'); if(first) first.focus();
+    }
+    if (panels.length) showStep(0);
+
+    form.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-vf-next],[data-vf-prev]'); if (!t) return;
+      e.preventDefault();
+      if (t.hasAttribute('data-vf-prev')) return showStep(cur-1);
+      if (validatePanel(panels[cur])) showStep(cur+1);
+    });
+
+    form.querySelectorAll('.vf-tile').forEach(function (tile) {
+      tile.addEventListener('click', function () {
+        form.querySelectorAll('.vf-tile').forEach(function(x){ x.classList.remove('is-selected'); });
+        tile.classList.add('is-selected');
+        var f = form.querySelector('[name="area_of_interest"]'); if (f) f.value = tile.getAttribute('data-vf-value') || tile.textContent.trim();
+      });
+    });
+
+    function fieldEl(el){ return el.closest('.vf-field'); }
+    function setErr(el, msg){ var f=fieldEl(el); if(!f) return; f.classList.add('vf-invalid'); var e=f.querySelector('.vf-err'); if(e) e.textContent=msg||''; }
+    function clearErr(el){ var f=fieldEl(el); if(f) f.classList.remove('vf-invalid'); }
+    form.addEventListener('input', function(e){ if(e.target.name) clearErr(e.target); });
+
+    function check(name, fn, msg){ var el=form.querySelector('[name="'+name+'"]'); if(!el) return true; if(!fn(el.value)){ setErr(el,msg); el.focus(); return false; } clearErr(el); return true; }
+
+    function validatePanel(panel){
+      if(!panel) return true;
+      var ok=true;
+      var names = Array.prototype.map.call(panel.querySelectorAll('[name]'), function(el){return el.name;});
+      function has(n){ return names.indexOf(n)>=0; }
+      var isFeedback = (form.querySelector('[name="submission_type"]')||{}).value === 'feedback' || mode==='feedback';
+      if(has('name') && form.querySelector('[name="name"]').required && ok)            ok=check('name',function(v){return len(v,5,100);},'Please enter your name (5–100 characters).');
+      if(has('email') && (form.querySelector('[name="email"]').required) && ok)         ok=check('email',email,'Please enter a valid work email.');
+      else if(has('email') && form.querySelector('[name="email"]').value && ok)          ok=check('email',email,'Please enter a valid email or leave it blank.');
+      if(has('company') && form.querySelector('[name="company"]').required && ok)       ok=check('company',function(v){return len(v,2,150);},'Please enter your company / firm.');
+      if(has('organisation_type') && form.querySelector('[name="organisation_type"]').required && ok) ok=check('organisation_type',function(v){return !!v;},'Please select your organisation type.');
+      if(has('area_of_interest') && form.querySelector('[name="area_of_interest"]').required && ok)   ok=check('area_of_interest',function(v){return !!v;},'Please choose an area of interest.');
+      if(has('phone') && ok)                                                            ok=check('phone',phoneOk,'Please enter a valid contact number.');
+      if(has('message') && form.querySelector('[name="message"]').required && ok)       ok=check('message',function(v){return len(v,10,2000);},'Please describe your requirement (10–2000 characters).');
+      if(has('feedback_category') && form.querySelector('[name="feedback_category"]').required && ok) ok=check('feedback_category',function(v){return !!v;},'Please choose a feedback category.');
+      if(has('feedback_text') && form.querySelector('[name="feedback_text"]').required && ok)         ok=check('feedback_text',function(v){return len(v,10,2000);},'Please share your feedback (10–2000 characters).');
+      if(has('consent_given') && ok){ var c=form.querySelector('[name="consent_given"]');
+        var needConsent = !isFeedback || (form.querySelector('[name="email"]')&&form.querySelector('[name="email"]').value) || (form.querySelector('[name="may_contact"]')&&form.querySelector('[name="may_contact"]').checked);
+        if(needConsent && !c.checked){ setErr(c,'Please accept the consent to proceed.'); ok=false; } }
+      return ok;
+    }
+
+    function setBusy(b){ var btn=form.querySelector('[data-vf-submit]'); if(!btn) return;
+      btn.disabled=b; btn.innerHTML = b ? '<span class="vf-spinner"></span>Submitting…' : btn.getAttribute('data-label')||'Submit'; }
+    function banner(msg){ var b=form.querySelector('.vf-banner'); if(!b) return; b.textContent=msg; b.classList.add('vf-show'); }
+    function clearBanner(){ var b=form.querySelector('.vf-banner'); if(b) b.classList.remove('vf-show'); }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); clearBanner();
+      for (var i=0;i<panels.length;i++){ if(!validatePanel(panels[i])){ showStep(i); return; } }
+      if(!panels.length && !validatePanel(form)) return;
+
+      if (!CFG.endpoint) { banner('Form is not configured yet. Please email info@ctrmsl.com.'); return; }
+
+      var fd = new FormData(form);
+      var payload = { token: CFG.token, form_elapsed_ms: Date.now()-startedAt, website: fd.get('website')||'', meta: meta() };
+      fd.forEach(function(v,k){ if(k==='website') return; payload[k]= (form.querySelector('[name="'+k+'"]')||{}).type==='checkbox' ? form.querySelector('[name="'+k+'"]').checked : v; });
+      payload.submission_type = (form.querySelector('[name="submission_type"]')||{}).value || (mode==='feedback'?'feedback':'enquiry');
+
+      if (form.__vfSent) return;
+      setBusy(true);
+
+      fetch(CFG.endpoint, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload) })
+        .then(function(r){ return r.json().catch(function(){ return { success:true, message:'Thank you. Your submission was received.' }; }); })
+        .then(function(res){
+          setBusy(false);
+          if (res && res.success){ form.__vfSent=true; showThanks(form, res.message); }
+          else banner((res && res.message) || 'Submission failed. Please check your details and try again.');
+        })
+        .catch(function(){ setBusy(false); banner('Network error. Please check your connection and try again, or email info@ctrmsl.com.'); });
+    });
+  }
+
+  function showThanks(form, msg){
+    var card = form.closest('.vf-card') || form.parentNode;
+    var t = card.querySelector('.vf-thanks'); if(!t){ form.style.display='none'; alert(msg); return; }
+    var p = t.querySelector('[data-vf-thanks-msg]'); if(p && msg) p.textContent = msg;
+    form.style.display='none'; t.classList.add('is-active'); t.setAttribute('tabindex','-1'); t.focus();
+  }
+
+  function wireModals(){
+    document.querySelectorAll('[data-vf-open]').forEach(function(btn){
+      btn.addEventListener('click', function(e){ e.preventDefault(); var m=document.querySelector(btn.getAttribute('data-vf-open')); if(m){ m.classList.add('is-open'); var f=m.querySelector('input,select,textarea'); if(f) setTimeout(function(){f.focus();},50); } });
+    });
+    document.querySelectorAll('.vf-modal').forEach(function(m){
+      m.addEventListener('click', function(e){ if(e.target.classList.contains('vf-backdrop')||e.target.closest('.vf-close')) m.classList.remove('is-open'); });
+    });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.querySelectorAll('.vf-modal.is-open').forEach(function(m){m.classList.remove('is-open');}); });
+  }
+
+  function boot(){ document.querySelectorAll('form.vf-form').forEach(init); wireModals(); }
+  if (document.readyState !== 'loading') boot(); else document.addEventListener('DOMContentLoaded', boot);
+  window.VFForm = { init: init, OPTIONS: OPTIONS };
 })();
 </script>
 </body>
