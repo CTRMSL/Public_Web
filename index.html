@@ -961,6 +961,12 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 .vf-tile.is-selected{border-color:var(--vf-gold-line);background:rgba(214,168,73,.08);color:#fff}
 .vf-tile .vf-tdot{width:8px;height:8px;border-radius:50%;background:var(--vf-electric);flex:none}
 .vf-tile.is-selected .vf-tdot{background:var(--vf-gold-bright);box-shadow:0 0 8px var(--vf-gold)}
+/* multi-select chips (area of interest, analytics packs) */
+.vf-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.vf-chips:empty{margin:0}
+.vf-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--vf-gold-line);border-radius:999px;background:rgba(214,168,73,.12);color:#fff;font-size:13px;line-height:1.2}
+.vf-chip button{background:transparent;border:0;color:var(--vf-text-mute);cursor:pointer;font-size:13px;line-height:1;padding:0;margin:0;display:grid;place-items:center}
+.vf-chip button:hover{color:#fff}
 .vf-consent{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:13px;color:var(--vf-text-mute);line-height:1.5}
 .vf-consent input{width:18px;height:18px;margin-top:2px;accent-color:var(--vf-electric);flex:none}
 .vf-privacy{font-size:12px;color:var(--vf-text-faint);line-height:1.55;border:1px solid var(--vf-border);border-radius:10px;padding:12px 14px;background:rgba(255,255,255,.02);margin-bottom:14px}
@@ -1941,7 +1947,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
           <form class="vf-form" data-vf-mode="detailed" novalidate>
             <input type="hidden" name="submission_type" value="enquiry" />
             <div class="vf-eyebrow">VIGILO · Share your interest</div>
-            <h2 class="vf-title">Share your audit analytics interest</h2>
+            <h2 class="vf-title">Share your interest in VIGILO Product</h2>
             <p class="vf-sub">A few quick details so our team can prepare a tailored walkthrough and a bounded pilot scope.</p>
             <div class="vf-steps"><span class="vf-step"></span><span class="vf-step"></span><span class="vf-step"></span><span class="vf-step"></span></div>
             <div class="vf-stepcount" aria-live="polite"></div>
@@ -1959,24 +1965,33 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
               </div>
               <div class="vf-field"><label for="b-company">Company / firm<span class="vf-req">*</span></label><input id="b-company" name="company" required autocomplete="organization" placeholder="e.g. State Bank of India" /><span class="vf-err"></span></div>
               <div class="vf-row">
-                <div class="vf-field"><label for="b-country">Country</label><input id="b-country" name="country" autocomplete="country-name" placeholder="India" /></div>
-                <div class="vf-field"><label for="b-city">City</label><input id="b-city" name="city" placeholder="Mumbai" /></div>
+                <div class="vf-field"><label for="b-country">Country</label><select id="b-country" name="country"></select></div>
+                <div class="vf-field"><label for="b-city-sel">City</label>
+                  <select id="b-city-sel" aria-label="City"></select>
+                  <input id="b-city-other" class="vf-city-other" placeholder="Enter your city" autocomplete="address-level2" style="display:none;margin-top:8px" />
+                  <input type="hidden" name="city" id="b-city-val" />
+                </div>
               </div>
               <div class="vf-actions"><span class="vf-spacer"></span><button class="vf-btn vf-btn--primary" data-vf-next type="button">Continue →</button></div>
             </div>
 
             <!-- Step 2: Interest -->
             <div class="vf-panel">
-              <div class="vf-field"><label>What are you most interested in?</label></div>
-              <div class="vf-tiles">
-                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="VIGILO Product Demo"><span class="vf-tdot"></span>VIGILO Product Demo</div>
-                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="BFSI Analytics"><span class="vf-tdot"></span>BFSI Analytics</div>
-                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Loan / LMS Analytics"><span class="vf-tdot"></span>Loan / LMS Analytics</div>
-                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="ECL / Ind AS 109"><span class="vf-tdot"></span>ECL / Ind AS 109</div>
-                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Client Response Portal"><span class="vf-tdot"></span>Client Response Portal</div>
-                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Pricing / Licensing"><span class="vf-tdot"></span>Pricing / Licensing</div>
+              <div class="vf-field" id="b-area-field">
+                <label id="b-area-label">Areas of interest<span class="vf-req">*</span> <span class="vf-hint">— select one or more</span></label>
+                <div class="vf-tiles">
+                  <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="VIGILO Product Demo"><span class="vf-tdot"></span>VIGILO Product Demo</div>
+                  <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="BFSI Analytics"><span class="vf-tdot"></span>BFSI Analytics</div>
+                  <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Loan / LMS Analytics"><span class="vf-tdot"></span>Loan / LMS Analytics</div>
+                  <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="ECL / Ind AS 109"><span class="vf-tdot"></span>ECL / Ind AS 109</div>
+                  <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Client Response Portal"><span class="vf-tdot"></span>Client Response Portal</div>
+                  <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Pricing / Licensing"><span class="vf-tdot"></span>Pricing / Licensing</div>
+                </div>
+                <select id="b-area-add" aria-label="Add an area of interest"><option value="" disabled selected>Add another area…</option></select>
+                <div class="vf-chips" id="b-area-chips" aria-live="polite"></div>
+                <input type="hidden" name="area_of_interest" id="b-area-val" required />
+                <span class="vf-err"></span>
               </div>
-              <div class="vf-field"><label for="b-area">Area of interest<span class="vf-req">*</span></label><select id="b-area" name="area_of_interest" data-vf-options="area_of_interest" required><option value="" disabled selected>Or pick from the full list…</option></select><span class="vf-err"></span></div>
               <div class="vf-row">
                 <div class="vf-field"><label for="b-org">Organisation type<span class="vf-req">*</span></label><select id="b-org" name="organisation_type" data-vf-options="organisation_type" required><option value="" disabled selected>Select one…</option></select><span class="vf-err"></span></div>
                 <div class="vf-field"><label for="b-deploy">Preferred deployment</label><select id="b-deploy" name="deployment_preference" data-vf-options="deployment_preference"><option value="" disabled selected>Select one…</option></select></div>
@@ -1988,7 +2003,11 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
             <!-- Step 3: Requirement -->
             <div class="vf-panel">
               <div class="vf-field"><label for="b-msg">Your requirement / use case<span class="vf-req">*</span></label><textarea id="b-msg" name="message" required placeholder="What outcome are you looking for? (Please do not include confidential client data.)"></textarea><span class="vf-err"></span></div>
-              <div class="vf-field"><label for="b-pack">Analytics pack interested in</label><input id="b-pack" name="analytics_pack" placeholder="e.g. LMS, P2P, GL, Inventory…" /></div>
+              <div class="vf-field"><label for="b-pack-add">Analytics packs interested in <span class="vf-hint">— select one or more</span></label>
+                <select id="b-pack-add" aria-label="Add an analytics pack"><option value="" disabled selected>Add an analytics pack…</option></select>
+                <div class="vf-chips" id="b-pack-chips" aria-live="polite"></div>
+                <input type="hidden" name="analytics_pack" id="b-pack-val" />
+              </div>
               <div class="vf-actions"><button class="vf-btn vf-btn--ghost" data-vf-prev type="button">← Back</button><span class="vf-spacer"></span><button class="vf-btn vf-btn--primary" data-vf-next type="button">Continue →</button></div>
             </div>
 
@@ -2804,6 +2823,119 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
   });
 
   if (!isSuppressed() && !formEngaged()) timer = setTimeout(show, DELAY_MS);
+})();
+</script>
+
+<!-- ═══ Visitor form enhancements: country/city dependent dropdowns + multi-select area & analytics packs ═══ -->
+<script>
+(function(){
+  'use strict';
+  function enhance(){
+    var form = document.querySelector('#vfFormModal form.vf-form') || document.querySelector('form.vf-form[data-vf-mode="detailed"]') || document.querySelector('form.vf-form');
+    if(!form || form.__vfEnhanced) return; form.__vfEnhanced = true;
+
+    var COUNTRIES = ['India','United States','China','Germany','Japan','United Kingdom','France','Italy','Brazil','Canada','Russia','Mexico','Australia','South Korea','Spain','Indonesia','Netherlands','Saudi Arabia','Türkiye','Switzerland','Poland','Taiwan','Belgium','Sweden','United Arab Emirates','Other'];
+    var CITIES = {
+      'India':['Mumbai','Delhi','Bengaluru','Hyderabad','Chennai','Kolkata','Pune','Ahmedabad','Gurugram','Noida'],
+      'United States':['New York','Los Angeles','Chicago','Houston','San Francisco','Boston','Dallas','Washington, D.C.','Seattle','Atlanta'],
+      'China':['Shanghai','Beijing','Shenzhen','Guangzhou','Chengdu','Hangzhou','Wuhan','Chongqing','Tianjin','Nanjing'],
+      'Germany':['Berlin','Munich','Frankfurt','Hamburg','Cologne','Stuttgart','Düsseldorf','Dortmund','Leipzig','Bremen'],
+      'Japan':['Tokyo','Yokohama','Osaka','Nagoya','Sapporo','Fukuoka','Kobe','Kyoto','Kawasaki','Saitama'],
+      'United Kingdom':['London','Manchester','Birmingham','Edinburgh','Glasgow','Leeds','Bristol','Liverpool','Cardiff','Belfast'],
+      'France':['Paris','Marseille','Lyon','Toulouse','Nice','Nantes','Strasbourg','Bordeaux','Lille','Rennes'],
+      'Italy':['Rome','Milan','Naples','Turin','Palermo','Bologna','Florence','Genoa','Venice','Verona'],
+      'Brazil':['São Paulo','Rio de Janeiro','Brasília','Salvador','Fortaleza','Belo Horizonte','Curitiba','Recife','Porto Alegre','Manaus'],
+      'Canada':['Toronto','Montreal','Vancouver','Calgary','Ottawa','Edmonton','Winnipeg','Quebec City','Hamilton','Mississauga'],
+      'Russia':['Moscow','Saint Petersburg','Novosibirsk','Yekaterinburg','Kazan','Nizhny Novgorod','Samara','Omsk','Rostov-on-Don','Ufa'],
+      'Mexico':['Mexico City','Guadalajara','Monterrey','Puebla','Tijuana','León','Querétaro','Mérida','Cancún','Toluca'],
+      'Australia':['Sydney','Melbourne','Brisbane','Perth','Adelaide','Canberra','Gold Coast','Newcastle','Hobart','Darwin'],
+      'South Korea':['Seoul','Busan','Incheon','Daegu','Daejeon','Gwangju','Suwon','Ulsan','Seongnam','Goyang'],
+      'Spain':['Madrid','Barcelona','Valencia','Seville','Zaragoza','Málaga','Bilbao','Murcia','Palma','Granada'],
+      'Indonesia':['Jakarta','Surabaya','Bandung','Medan','Semarang','Makassar','Palembang','Tangerang','Depok','Bekasi'],
+      'Netherlands':['Amsterdam','Rotterdam','The Hague','Utrecht','Eindhoven','Groningen','Tilburg','Almere','Breda','Nijmegen'],
+      'Saudi Arabia':['Riyadh','Jeddah','Mecca','Medina','Dammam','Al Khobar','Tabuk','Abha','Taif','Buraidah'],
+      'Türkiye':['Istanbul','Ankara','Izmir','Bursa','Antalya','Adana','Konya','Gaziantep','Kayseri','Mersin'],
+      'Switzerland':['Zurich','Geneva','Basel','Bern','Lausanne','Lucerne','Lugano','St. Gallen','Winterthur','Zug'],
+      'Poland':['Warsaw','Kraków','Łódź','Wrocław','Poznań','Gdańsk','Szczecin','Katowice','Lublin','Bydgoszcz'],
+      'Taiwan':['Taipei','New Taipei','Taoyuan','Taichung','Tainan','Kaohsiung','Hsinchu','Keelung','Chiayi','Changhua'],
+      'Belgium':['Brussels','Antwerp','Ghent','Charleroi','Liège','Bruges','Namur','Leuven','Mons','Aalst'],
+      'Sweden':['Stockholm','Gothenburg','Malmö','Uppsala','Västerås','Örebro','Linköping','Helsingborg','Norrköping','Lund'],
+      'United Arab Emirates':['Dubai','Abu Dhabi','Sharjah','Al Ain','Ajman','Ras Al Khaimah','Fujairah','Umm Al Quwain','Khor Fakkan','Dibba'],
+      'Other':[]
+    };
+    var PACKS = ['Procure-to-Pay (P2P)','Order-to-Cash (O2C)','General Ledger / Journal Entry','Inventory','Fixed Assets / PPE','HR / Payroll','Loan / LMS','ECL / Ind AS 109','IRAC / NPA classification','AML / Sanctions Screening','KYC','TDS / 26AS Reconciliation','GST Reconciliation','Treasury','Trade Finance','Deposits / CASA','Vendor / Related-Party','Other'];
+    var AREAS = (window.VFForm && window.VFForm.OPTIONS && window.VFForm.OPTIONS.area_of_interest) ||
+      ['VIGILO Product Demo','BFSI Analytics','Loan / LMS Analytics','ECL / Ind AS 109','P2P Analytics','O2C Analytics','GL / Journal Analytics','Inventory Analytics','PPE Analytics','TDS Reconciliation','MSME / PAN / GST Compliance','AML / Sanctions Screening','Lease Accounting / Ind AS 116','Client Response Portal','Website Feedback','Partnership Discussion','Pricing / Licensing','Technical Deployment','Other'];
+
+    function opt(v,t){ var o=document.createElement('option'); o.value=v; o.textContent=t||v; return o; }
+
+    // Country
+    var cSel=form.querySelector('#b-country');
+    if(cSel && !cSel.options.length){ COUNTRIES.forEach(function(c){ var o=opt(c); if(c==='India')o.selected=true; cSel.appendChild(o); }); }
+
+    // City — dependent on country, with manual fallback
+    var citySel=form.querySelector('#b-city-sel'), cityOther=form.querySelector('#b-city-other'), cityVal=form.querySelector('#b-city-val');
+    function fillCities(country){
+      if(!citySel) return;
+      citySel.innerHTML='';
+      var ph=opt('','Select city…'); ph.disabled=true; ph.selected=true; citySel.appendChild(ph);
+      (CITIES[country]||[]).forEach(function(ci){ citySel.appendChild(opt(ci)); });
+      citySel.appendChild(opt('__other__','Other (type your city)'));
+      if(cityOther){ cityOther.style.display='none'; cityOther.value=''; }
+      if(cityVal) cityVal.value='';
+    }
+    function syncCity(){
+      if(!citySel) return;
+      if(citySel.value==='__other__'){ if(cityOther){ cityOther.style.display=''; setTimeout(function(){cityOther.focus();},30); } if(cityVal) cityVal.value=(cityOther?cityOther.value.trim():''); }
+      else { if(cityOther) cityOther.style.display='none'; if(cityVal) cityVal.value=citySel.value||''; }
+    }
+    if(citySel){
+      fillCities(cSel?cSel.value:'India');
+      citySel.addEventListener('change', syncCity);
+      if(cityOther) cityOther.addEventListener('input', function(){ if(citySel.value==='__other__' && cityVal) cityVal.value=cityOther.value.trim(); });
+    }
+    if(cSel) cSel.addEventListener('change', function(){ fillCities(cSel.value); });
+
+    // Reusable select -> removable chips -> hidden joined value
+    function multi(addSel, chipsBox, hidden, options, onChange){
+      if(!addSel||!chipsBox||!hidden) return null;
+      var sel=[];
+      function render(){
+        chipsBox.innerHTML='';
+        sel.forEach(function(v){
+          var chip=document.createElement('span'); chip.className='vf-chip'; chip.appendChild(document.createTextNode(v));
+          var x=document.createElement('button'); x.type='button'; x.setAttribute('aria-label','Remove '+v); x.textContent='✕';
+          x.addEventListener('click', function(){ remove(v); });
+          chip.appendChild(x); chipsBox.appendChild(chip);
+        });
+        hidden.value=sel.join('; ');
+        if(sel.length){ var f=hidden.closest('.vf-field'); if(f) f.classList.remove('vf-invalid'); }
+        if(onChange) onChange(sel);
+      }
+      function add(v){ if(v && sel.indexOf(v)<0){ sel.push(v); render(); } }
+      function remove(v){ sel=sel.filter(function(s){return s!==v;}); render(); }
+      options.forEach(function(v){ addSel.appendChild(opt(v)); });
+      addSel.addEventListener('change', function(){ var v=addSel.value; if(v){ add(v); addSel.value=''; } });
+      return { add:add, remove:remove, toggle:function(v){ sel.indexOf(v)>=0?remove(v):add(v); } };
+    }
+
+    // Area of interest — tiles (multi-toggle) + add-dropdown + chips
+    var areaCtl=multi(form.querySelector('#b-area-add'), form.querySelector('#b-area-chips'), form.querySelector('#b-area-val'), AREAS, function(sel){
+      form.querySelectorAll('.vf-tile').forEach(function(t){ var on=sel.indexOf(t.getAttribute('data-vf-value'))>=0; t.classList.toggle('is-selected',on); t.setAttribute('aria-pressed',on?'true':'false'); });
+    });
+    if(areaCtl){
+      form.querySelectorAll('.vf-tile').forEach(function(t){
+        var c=t.cloneNode(true); t.parentNode.replaceChild(c,t); // drop any prior single-select listeners
+        function act(){ areaCtl.toggle(c.getAttribute('data-vf-value')); }
+        c.addEventListener('click', act);
+        c.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); act(); } });
+      });
+    }
+
+    // Analytics packs — add-dropdown + chips
+    multi(form.querySelector('#b-pack-add'), form.querySelector('#b-pack-chips'), form.querySelector('#b-pack-val'), PACKS);
+  }
+  if(document.readyState!=='loading') enhance(); else document.addEventListener('DOMContentLoaded', enhance);
 })();
 </script>
 </body>
