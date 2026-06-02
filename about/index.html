@@ -6,6 +6,12 @@
 <title>About VIGILO by CTR — Built by Auditors. Engineered for Assurance.</title>
 <meta name="description" content="VIGILO by CTR — built by auditors. Architected by CA. Chandra Mohan, FCA, CISA, CIA, CFE. 20+ years of practice, 150+ entities, 1,050+ codified checks." />
 <link rel="canonical" href="https://ctrmsl.com/about/" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"AboutPage","@id":"https://ctrmsl.com/about/#aboutpage","url":"https://ctrmsl.com/about/","name":"About — VIGILO by CTR","isPartOf":{"@id":"https://ctrmsl.com/#site"},"about":{"@id":"https://ctrmsl.com/#org"}},
+  {"@type":"Person","@id":"https://ctrmsl.com/about/#founder","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect","worksFor":{"@id":"https://ctrmsl.com/#org"},"description":"Chartered Accountant (FCA, CISA, CIA, CFE, IFRS-ICAI, FAFD-ICAI) with 20+ years of statutory, internal, investigation and forensic audit practice across 150+ entities, with a sustained focus on BFSI."}
+]}
+</script>
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <!-- Open Graph -->
 <meta property="og:title" content="About VIGILO by CTR — Built by Auditors. Engineered for Assurance." />
@@ -93,7 +99,16 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 .btn-ghost:hover{border-color:var(--electric);color:var(--electric-bright);background:rgba(78,168,255,.08)}
 .btn-lg{padding:14px 24px;font-size:15px}
 .nav-cta{display:flex;align-items:center;gap:10px}
-@media (max-width:880px){.nav-links{display:none}}
+.nav-toggle{display:none;padding:8px;border-radius:8px;color:#fff;background:transparent;border:0;cursor:pointer}
+.nav-toggle svg{display:block}
+.nav-toggle .icn-close{display:none}
+.nav-toggle.open .icn-open{display:none}
+.nav-toggle.open .icn-close{display:block}
+@media (max-width:880px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg-2,#0a1026);border-bottom:1px solid var(--border,rgba(255,255,255,.1));padding:14px 20px;flex-direction:column;gap:2px;margin-left:0}
+  .nav-links.open{display:flex}
+}
 
 /* Hero */
 .about-hero{padding:96px 0 64px;position:relative;text-align:center}
@@ -229,7 +244,7 @@ footer{padding:56px 0 32px;background:#04081a;border-top:1px solid var(--border)
     <a class="brand brand--logo" href="../">
       <img src="../assets/vigilo_logo_new.png" alt="VIGILO by CTR — Analytics & Visualization" />
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="../#product">Product</a>
       <a href="../#packs">Analytics Packs</a>
       <a href="../#plans">Plans</a>
@@ -242,6 +257,10 @@ footer{padding:56px 0 32px;background:#04081a;border-top:1px solid var(--border)
     </div>
     <div class="nav-cta">
       <a href="../#contact" class="btn btn-primary">Request a Demo →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg class="icn-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icn-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -488,6 +507,12 @@ footer{padding:56px 0 32px;background:#04081a;border-top:1px solid var(--border)
 
 <script>
 (function(){
+  // Mobile nav toggle
+  var nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+  if(nt&&nl){
+    nt.addEventListener('click',function(){var o=nl.classList.toggle('open');nt.classList.toggle('open',o);nt.setAttribute('aria-expanded',o);});
+    nl.addEventListener('click',function(e){if(e.target.tagName==='A'){nl.classList.remove('open');nt.classList.remove('open');nt.setAttribute('aria-expanded','false');}});
+  }
   // Reveal on scroll
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduce&&'IntersectionObserver' in window){

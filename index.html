@@ -26,14 +26,26 @@
 <meta name="twitter:image" content="https://ctrmsl.com/assets/og-cover.png" />
 <!-- Security meta (origin-fallback; primary defence is HTTP headers — see _headers) -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://ctrmsl.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://docs.google.com; form-action 'self' https://docs.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://docs.google.com; form-action 'self' https://docs.google.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <!-- JSON-LD structured data -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
   {"@type":"Organization","@id":"https://ctrmsl.com/#org","name":"VIGILO by CTR","legalName":"CTR Management Services (Pvt) Ltd","url":"https://ctrmsl.com/","logo":"https://ctrmsl.com/assets/vigilo_logo_new.png","sameAs":["https://www.linkedin.com/company/vigilo-by-ctr"],"description":"Financial Intelligence Platform for the three lines of defence — created by auditors, engineered for assurance.","founder":{"@type":"Person","name":"CA. Chandra Mohan","jobTitle":"Founder & Architect"}},
   {"@type":"SoftwareApplication","@id":"https://ctrmsl.com/#product","name":"VIGILO","applicationCategory":"BusinessApplication","operatingSystem":"Web / Private VPC / On-premise","offers":{"@type":"Offer","category":"Standard, Pro, Pro+"},"description":"1,050+ automated checks across 10 process cycles for statutory and internal audit teams.","publisher":{"@id":"https://ctrmsl.com/#org"}},
-  {"@type":"WebSite","@id":"https://ctrmsl.com/#site","url":"https://ctrmsl.com/","name":"VIGILO by CTR","publisher":{"@id":"https://ctrmsl.com/#org"}}
+  {"@type":"WebSite","@id":"https://ctrmsl.com/#site","url":"https://ctrmsl.com/","name":"VIGILO by CTR","publisher":{"@id":"https://ctrmsl.com/#org"}},
+  {"@type":"FAQPage","@id":"https://ctrmsl.com/#faqs","mainEntity":[
+    {"@type":"Question","name":"Is VIGILO sampling or full-population testing?","acceptedAnswer":{"@type":"Answer","text":"Full-population. 100% of records in scope — every transaction, not a statistical sample — run through 1,050+ automated checks. Only the exceptions are surfaced for review."}},
+    {"@type":"Question","name":"Does our data have to leave our environment?","acceptedAnswer":{"@type":"Answer","text":"No. VIGILO supports on-premise and private-cloud (private-VPC) deployment. Analytics run inside your own information-security boundary; no client-identifiable data needs to leave."}},
+    {"@type":"Question","name":"Which systems can VIGILO read data from?","acceptedAnswer":{"@type":"Answer","text":"Data exported from the systems you already run — core banking (Finacle, FLEXCUBE, BaNCS), ERP/finance (SAP, Oracle, Tally, Dynamics), lending and LMS platforms, the GSTN and TRACES portals, and flat files (Excel, CSV, database extracts)."}},
+    {"@type":"Question","name":"How quickly do we see value?","acceptedAnswer":{"@type":"Answer","text":"Engagements start with a bounded pilot on a defined scope of your own data. Once data is ingested, exception reports are typically available within 24 hours — no disruption to existing systems."}},
+    {"@type":"Question","name":"How is VIGILO different from ACL / IDEA / Excel?","acceptedAnswer":{"@type":"Answer","text":"Full-population testing on 10M+ records, Python-integrated pipelines, 40% to 50% fewer overall audit man-hours, exception-led outputs (not just data dumps), and versioned rule logic with a defensible audit trail."}},
+    {"@type":"Question","name":"Which regulatory frameworks does VIGILO map to?","acceptedAnswer":{"@type":"Answer","text":"RBI Master Directions, IRAC norms, Ind AS 109 / IFRS 9, Basel III, KYC / AML / FATCA, IBC 2016, GST / TDS reconciliation, and Rule 11(g) audit-trail requirements under the Companies Act."}},
+    {"@type":"Question","name":"Is the output defensible for EQCR and regulator review?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every exception is traceable to source data, rule version, reviewer and supporting evidence — engineered for partner review, EQCR, TCWG reporting and regulator queries."}},
+    {"@type":"Question","name":"Is my data secure?","acceptedAnswer":{"@type":"Answer","text":"On-prem / private-VPC deployment, role-based access and segregation of duties, full audit trail of every action, encryption in transit and at rest, source-to-output lineage, and rule versioning. Client-identifiable data does not leave your boundary."}},
+    {"@type":"Question","name":"Can we get a trial / pilot?","acceptedAnswer":{"@type":"Answer","text":"Yes — a bounded pilot on a defined scope of your own data with a clear deliverable. Request a demo and we respond within one business day with a scoped pilot proposal."}},
+    {"@type":"Question","name":"What support do we get?","acceptedAnswer":{"@type":"Answer","text":"Implementation support, methodology validation by a Chartered-Accountant review board, ongoing analytics support, and full documentation of rule libraries, thresholds and evidence packs."}}
+  ]}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,7 +89,7 @@ h1,h2,h3,h4,h5,p,li,blockquote{overflow-wrap:break-word;word-wrap:break-word;hyp
   .eyebrow{font-size:10px !important}
 }
 @media (max-width:380px){.hero-title{font-size:24px !important;line-height:1.2 !important} .section-h2{font-size:21px !important}}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 :focus-visible{outline:2px solid var(--electric);outline-offset:3px;border-radius:6px}
@@ -1022,7 +1034,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 <nav class="nav" aria-label="Primary">
   <div class="nav-inner">
     <a class="brand brand--logo" href="#main" aria-label="VIGILO by CTR home">
-      <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR — Analytics & Visualization" />
+      <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR — Analytics & Visualization" width="600" height="217" />
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#product" data-spy="product">Product</a>
@@ -1125,7 +1137,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
             <div class="device-screen">
               <span class="device-dots"><i></i><i></i><i></i></span>
               <span class="device-url">app.vigilo.ctrmsl.com / executive-reports</span>
-              <img src="assets/executive_reports_1.png" alt="VIGILO executive dashboard with portfolio KPIs, exception trends and assurance checkpoints" loading="lazy" width="1600" />
+              <img src="assets/executive_reports_1.png" alt="VIGILO executive dashboard with portfolio KPIs, exception trends and assurance checkpoints" loading="lazy" width="1600" height="834" />
             </div>
             <div class="float-card tl">
               <div class="lbl">Exceptions surfaced</div>
@@ -1156,7 +1168,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
           </p>
           <div class="hero-cta">
             <a href="#" class="btn btn-primary btn-lg" onclick="openDemo(event)">▶ Watch Demo</a>
-            <a href="#workflow" class="btn btn-ghost btn-lg">Download Overview</a>
+            <a href="#workflow" class="btn btn-ghost btn-lg">See How It Works</a>
           </div>
           <div class="hero-meta">
             <span><span class="dot-bullet"></span><b>Defensible</b> evidence trail</span>
@@ -1167,7 +1179,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         <div>
           <div class="wf" aria-label="VIGILO workflow steps">
             <div class="wf-step"><div class="n">01</div><div><h4>Connect &amp; Register Data</h4><p>Import tables — core banking, ERP, LMS, GSTN, files.</p></div></div>
-            <div class="wf-step"><div class="n">02</div><div><h4>Map Columns &amp; Approve Logic</h4><p>Risk-driven normalization with versioned, governed rules.</p></div></div>
+            <div class="wf-step"><div class="n">02</div><div><h4>Map Columns &amp; Approve Logic</h4><p>Risk-driven normalisation with versioned, governed rules.</p></div></div>
             <div class="wf-step"><div class="n">03</div><div><h4>Run Analytics on 100% Population</h4><p>1,050+ checks across LMS, P2P, O2C, GL and more.</p></div></div>
             <div class="wf-step"><div class="n">04</div><div><h4>Review, Decide &amp; Act</h4><p>Triage exceptions, drive timely action, generate evidence packs and management/working-paper exports.</p></div></div>
           </div>
@@ -1379,7 +1391,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 
     <div class="shot-grid">
       <figure class="shot-main reveal" id="shotMain">
-        <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard with KPIs, active analytics and exception summaries" loading="lazy" id="shotMainImg" />
+        <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard with KPIs, active analytics and exception summaries" loading="lazy" id="shotMainImg" width="1200" height="639" />
         <figcaption>
           <b id="shotTitle">Engagement Dashboard</b>
           <span id="shotTag">01 / 06 · Overview</span>
@@ -1387,27 +1399,27 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       </figure>
       <div class="shot-thumb-stack" role="tablist" aria-label="Screenshots">
         <button class="thumb is-active reveal" role="tab" aria-selected="true" data-shot="assets/dashboard_1.png" data-title="Engagement Dashboard" data-desc="Active analytics, KPIs and exception summaries at a glance." data-tag="01 / 06 · Overview">
-          <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard thumbnail — active analytics, KPIs, exception summaries" loading="lazy" />
+          <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard thumbnail — active analytics, KPIs, exception summaries" loading="lazy" width="1200" height="639" />
           <div class="meta"><h4>Engagement Dashboard</h4><p>Active analytics, KPIs and exception summaries.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/analytics_window.png" data-title="Analytics Catalogue" data-desc="Browse, configure and execute the analytics library." data-tag="02 / 06 · Library">
-          <img src="assets/analytics_window.png" alt="Analytics catalogue window — browse and execute the analytics library" loading="lazy" />
+          <img src="assets/analytics_window.png" alt="Analytics catalogue window — browse and execute the analytics library" loading="lazy" width="1600" height="844" />
           <div class="meta"><h4>Analytics Catalogue</h4><p>Browse, configure and execute the library.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/executive_reports_1.png" data-title="Executive Reports" data-desc="Portfolio-wide risk lens for CROs, CFOs and partners." data-tag="03 / 06 · Executive">
-          <img src="assets/executive_reports_1.png" alt="Executive reports — portfolio risk lens for CROs, CFOs and partners" loading="lazy" />
+          <img src="assets/executive_reports_1.png" alt="Executive reports — portfolio risk lens for CROs, CFOs and partners" loading="lazy" width="1600" height="834" />
           <div class="meta"><h4>Executive Reports</h4><p>Portfolio risk lens for CROs, CFOs and partners.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/ecl_summary.png" data-title="ECL Summary" data-desc="Ind AS 109 / IFRS 9 staging, PD/LGD/EAD movement." data-tag="04 / 06 · ECL">
-          <img src="assets/ecl_summary.png" alt="ECL summary report — Ind AS 109 / IFRS 9 staging movement view" loading="lazy" />
+          <img src="assets/ecl_summary.png" alt="ECL summary report — Ind AS 109 / IFRS 9 staging movement view" loading="lazy" width="1600" height="1069" />
           <div class="meta"><h4>ECL Summary</h4><p>Ind AS 109 staging &amp; PD/LGD/EAD movement.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/gl_granular_review.png" data-title="GL Granular Review" data-desc="JV scrutiny, postings and control-account anomalies." data-tag="05 / 06 · GL">
-          <img src="assets/gl_granular_review.png" alt="GL granular review interface — JV scrutiny and control-account anomaly detection" loading="lazy" />
+          <img src="assets/gl_granular_review.png" alt="GL granular review interface — JV scrutiny and control-account anomaly detection" loading="lazy" width="1600" height="928" />
           <div class="meta"><h4>GL Granular Review</h4><p>JV scrutiny &amp; control-account anomalies.</p></div>
         </button>
         <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/variance_analytics.png" data-title="Variance Analytics" data-desc="Period-over-period bridges, outlier detection." data-tag="06 / 06 · Variance">
-          <img src="assets/variance_analytics.png" alt="Variance analytics — period-over-period bridges and outlier detection" loading="lazy" />
+          <img src="assets/variance_analytics.png" alt="Variance analytics — period-over-period bridges and outlier detection" loading="lazy" width="1600" height="1113" />
           <div class="meta"><h4>Variance Analytics</h4><p>Period-over-period bridges &amp; outliers.</p></div>
         </button>
       </div>
@@ -1622,10 +1634,10 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <p class="section-sub">Bar, multi-line, pie, doughnut, split table-plus-chart — every exception comes with the picture that makes it actionable.</p>
     </div>
     <div class="viz-grid">
-      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_monthly_bars.png" alt="Bar chart of monthly transaction volumes showing outliers" loading="lazy" /></div><figcaption class="meta"><div class="tag">Monthly Trend</div><h4>Volumes &amp; outliers at a glance</h4><p>Period-over-period bars surface spikes, dips and seasonality that drive sampling decisions.</p></figcaption></figure>
-      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_state_bars.png" alt="Vertical bar chart by state code showing exception concentration" loading="lazy" /></div><figcaption class="meta"><div class="tag">Distribution</div><h4>Where exceptions concentrate</h4><p>State / branch / vendor / product distribution — find the hot spots before fieldwork.</p></figcaption></figure>
-      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_lms_npa_bars.png" alt="LMS NPA timing bar chart by product" loading="lazy" /></div><figcaption class="meta"><div class="tag">LMS · NPA Stage Ageing</div><h4>DPD ageing &amp; staging migration</h4><p>Visualise the Stage 1 → 2 → 3 movement and the products driving NPA build-up.</p></figcaption></figure>
-      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_table_plus_bar.png" alt="Split view showing exception transactions table next to bar chart" loading="lazy" /></div><figcaption class="meta"><div class="tag">Drill-Through</div><h4>Chart ↔ underlying transactions</h4><p>Click a bar to drop straight into the exception register — chart and evidence in one view.</p></figcaption></figure>
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_monthly_bars.png" alt="Bar chart of monthly transaction volumes showing outliers" loading="lazy" width="1600" height="920" /></div><figcaption class="meta"><div class="tag">Monthly Trend</div><h4>Volumes &amp; outliers at a glance</h4><p>Period-over-period bars surface spikes, dips and seasonality that drive sampling decisions.</p></figcaption></figure>
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_state_bars.png" alt="Vertical bar chart by state code showing exception concentration" loading="lazy" width="1600" height="920" /></div><figcaption class="meta"><div class="tag">Distribution</div><h4>Where exceptions concentrate</h4><p>State / branch / vendor / product distribution — find the hot spots before fieldwork.</p></figcaption></figure>
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_lms_npa_bars.png" alt="LMS NPA timing bar chart by product" loading="lazy" width="1600" height="1069" /></div><figcaption class="meta"><div class="tag">LMS · NPA Stage Ageing</div><h4>DPD ageing &amp; staging migration</h4><p>Visualise the Stage 1 → 2 → 3 movement and the products driving NPA build-up.</p></figcaption></figure>
+      <figure class="viz-card reveal"><div class="img-wrap"><img src="assets/chart_table_plus_bar.png" alt="Split view showing exception transactions table next to bar chart" loading="lazy" width="1600" height="933" /></div><figcaption class="meta"><div class="tag">Drill-Through</div><h4>Chart ↔ underlying transactions</h4><p>Click a bar to drop straight into the exception register — chart and evidence in one view.</p></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1640,7 +1652,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
     </div>
     <div class="flow">
       <div class="flow-step reveal"><div class="n">STEP 01</div><h4>Connect data</h4><p>Register sources, extracts and tables — core banking, ERP, LMS, GSTN, files.</p></div>
-      <div class="flow-step reveal"><div class="n">STEP 02</div><h4>Map &amp; approve</h4><p>Risk-driven normalization with reviewed, versioned rule logic.</p></div>
+      <div class="flow-step reveal"><div class="n">STEP 02</div><h4>Map &amp; approve</h4><p>Risk-driven normalisation with reviewed, versioned rule logic.</p></div>
       <div class="flow-step reveal"><div class="n">STEP 03</div><h4>Run on 100% population</h4><p>1,050+ checks executed on the full dataset — exceptions surfaced.</p></div>
       <div class="flow-step reveal"><div class="n">STEP 04</div><h4>Review, decide &amp; act</h4><p>Triage, decide and drive timely action — defensible evidence for management review and audit defence.</p></div>
     </div>
@@ -1957,7 +1969,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
             <div class="vf-panel">
               <div class="vf-field"><label>What are you most interested in?</label></div>
               <div class="vf-tiles">
-                <div class="vf-tile" data-vf-value="AuditIQ Product Demo"><span class="vf-tdot"></span>AuditIQ Product Demo</div>
+                <div class="vf-tile" data-vf-value="VIGILO Product Demo"><span class="vf-tdot"></span>VIGILO Product Demo</div>
                 <div class="vf-tile" data-vf-value="BFSI Analytics"><span class="vf-tdot"></span>BFSI Analytics</div>
                 <div class="vf-tile" data-vf-value="Loan / LMS Analytics"><span class="vf-tdot"></span>Loan / LMS Analytics</div>
                 <div class="vf-tile" data-vf-value="ECL / Ind AS 109"><span class="vf-tdot"></span>ECL / Ind AS 109</div>
@@ -1985,13 +1997,13 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
               <div class="vf-privacy">We collect this information to respond to your enquiry, understand product interest, and plan deployment. Please do not submit confidential client data, financial account details, PAN/Aadhaar, passwords, or sensitive personal information. We never sell or share your details. You may request correction or deletion anytime at <a href="mailto:privacy@ctrmsl.com">privacy@ctrmsl.com</a>. See our <a href="https://ctrmsl.com/privacy/">Privacy Policy</a>.</div>
               <label class="vf-consent"><input type="checkbox" name="consent_given" /> <span>I consent to CTRMSL storing and using my information to respond to my enquiry, and I will not submit confidential/sensitive client data.<span class="vf-req">*</span></span></label>
               <label class="vf-consent"><input type="checkbox" name="contact_permission" /> <span>I consent to be contacted for follow-up regarding this enquiry.</span></label>
-              <label class="vf-consent"><input type="checkbox" name="marketing_permission" /> <span>(Optional) Send me occasional product updates about AuditIQ.</span></label>
+              <label class="vf-consent"><input type="checkbox" name="marketing_permission" /> <span>(Optional) Send me occasional product updates about VIGILO.</span></label>
               <div class="vf-actions"><button class="vf-btn vf-btn--ghost" data-vf-prev type="button">← Back</button><span class="vf-spacer"></span><button type="submit" class="vf-btn vf-btn--primary" data-vf-submit data-label="Submit request →">Submit request →</button></div>
             </div>
 
             <div class="vf-hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
           </form>
-          <div class="vf-thanks"><div class="vf-check">✓</div><h3>Request received</h3><p data-vf-thanks-msg>Thank you for your interest in AuditIQ. We have received your details and will review your requirement. Our team will get back to you shortly.</p><div class="vf-links"><a class="vf-btn vf-btn--ghost" href="https://ctrmsl.com/">Back to site</a></div></div>
+          <div class="vf-thanks"><div class="vf-check">✓</div><h3>Request received</h3><p data-vf-thanks-msg>Thank you for your interest in VIGILO. We have received your details and will review your requirement. Our team will get back to you shortly.</p><div class="vf-links"><a class="vf-btn vf-btn--ghost" href="https://ctrmsl.com/">Back to site</a></div></div>
         </div>
       </div>
 
@@ -2117,7 +2129,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   <div class="container">
     <div class="ft-grid">
       <div class="col brand-col">
-        <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR" />
+        <img src="assets/vigilo_logo_new.png" alt="VIGILO by CTR" width="600" height="217" />
         <p><span class="gold-rotate">Created by Auditors · Engineered for Assurance.</span><br/>A Financial Intelligence Platform for the three lines of defence, across industries.</p>
       </div>
       <div class="col">
@@ -2570,7 +2582,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
 
   var OPTIONS = {
     organisation_type: ['Audit/Consultancy Firm','CA Firm','Statutory Audit Firm','Internal Audit Team','Forensic Audit Team','Bank','NBFC','Insurance Company','FinTech','Listed Company','Private Company','CFO / Finance Team','Risk Management Team','Compliance Team','Technology Partner','Student / Researcher','Other'],
-    area_of_interest: ['AuditIQ Product Demo','BFSI Analytics','Loan / LMS Analytics','ECL / Ind AS 109','P2P Analytics','O2C Analytics','GL / Journal Analytics','Inventory Analytics','PPE Analytics','TDS Reconciliation','MSME / PAN / GST Compliance','AML / Sanctions Screening','Lease Accounting / Ind AS 116','Client Response Portal','Website Feedback','Partnership Discussion','Pricing / Licensing','Technical Deployment','Other'],
+    area_of_interest: ['VIGILO Product Demo','BFSI Analytics','Loan / LMS Analytics','ECL / Ind AS 109','P2P Analytics','O2C Analytics','GL / Journal Analytics','Inventory Analytics','PPE Analytics','TDS Reconciliation','MSME / PAN / GST Compliance','AML / Sanctions Screening','Lease Accounting / Ind AS 116','Client Response Portal','Website Feedback','Partnership Discussion','Pricing / Licensing','Technical Deployment','Other'],
     deployment_preference: ['On-premise','Private cloud','Client-controlled cloud','Audit firm internal server','Need guidance','Not decided'],
     feedback_category: ['Website Design','Product Information','Audit Analytics Feature','BFSI Analytics Requirement','Pricing / Licensing','Deployment','Security','Documentation','Demo Request','Client Portal','General Suggestion','Issue / Bug','Other'],
     importance_level: ['Low','Medium','High','Critical']
