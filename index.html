@@ -60,7 +60,7 @@
   --bg:#060a1c; --bg-2:#0a1230; --bg-3:#101a40;
   --surface:#0e1638; --surface-2:rgba(255,255,255,.035); --surface-hi:rgba(255,255,255,.06);
   --border:rgba(255,255,255,.08); --border-hi:rgba(122,176,255,.24);
-  --text:#eef2ff; --text-mute:#9aa6c8; --text-faint:#6b76a0;
+  --text:#eef2ff; --text-mute:#9aa6c8; --text-faint:#8a93bd;
   --electric:#4ea8ff; --electric-bright:#7fc2ff;
   --cyan:#2fe0c8; --emerald:#2ed47a; --amber:#ffb547; --red:#ff6b7a;
   --gold:#d6a849; --gold-bright:#f0c574;
@@ -1397,28 +1397,28 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
           <span id="shotTag">01 / 06 · Overview</span>
         </figcaption>
       </figure>
-      <div class="shot-thumb-stack" role="tablist" aria-label="Screenshots">
-        <button class="thumb is-active reveal" role="tab" aria-selected="true" data-shot="assets/dashboard_1.png" data-title="Engagement Dashboard" data-desc="Active analytics, KPIs and exception summaries at a glance." data-tag="01 / 06 · Overview">
+      <div class="shot-thumb-stack" role="group" aria-label="Screenshots">
+        <button class="thumb is-active reveal" data-shot="assets/dashboard_1.png" data-title="Engagement Dashboard" data-desc="Active analytics, KPIs and exception summaries at a glance." data-tag="01 / 06 · Overview">
           <img src="assets/dashboard_1.png" alt="VIGILO engagement dashboard thumbnail — active analytics, KPIs, exception summaries" loading="lazy" width="1200" height="639" />
           <div class="meta"><h4>Engagement Dashboard</h4><p>Active analytics, KPIs and exception summaries.</p></div>
         </button>
-        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/analytics_window.png" data-title="Analytics Catalogue" data-desc="Browse, configure and execute the analytics library." data-tag="02 / 06 · Library">
+        <button class="thumb reveal" data-shot="assets/analytics_window.png" data-title="Analytics Catalogue" data-desc="Browse, configure and execute the analytics library." data-tag="02 / 06 · Library">
           <img src="assets/analytics_window.png" alt="Analytics catalogue window — browse and execute the analytics library" loading="lazy" width="1600" height="844" />
           <div class="meta"><h4>Analytics Catalogue</h4><p>Browse, configure and execute the library.</p></div>
         </button>
-        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/executive_reports_1.png" data-title="Executive Reports" data-desc="Portfolio-wide risk lens for CROs, CFOs and partners." data-tag="03 / 06 · Executive">
+        <button class="thumb reveal" data-shot="assets/executive_reports_1.png" data-title="Executive Reports" data-desc="Portfolio-wide risk lens for CROs, CFOs and partners." data-tag="03 / 06 · Executive">
           <img src="assets/executive_reports_1.png" alt="Executive reports — portfolio risk lens for CROs, CFOs and partners" loading="lazy" width="1600" height="834" />
           <div class="meta"><h4>Executive Reports</h4><p>Portfolio risk lens for CROs, CFOs and partners.</p></div>
         </button>
-        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/ecl_summary.png" data-title="ECL Summary" data-desc="Ind AS 109 / IFRS 9 staging, PD/LGD/EAD movement." data-tag="04 / 06 · ECL">
+        <button class="thumb reveal" data-shot="assets/ecl_summary.png" data-title="ECL Summary" data-desc="Ind AS 109 / IFRS 9 staging, PD/LGD/EAD movement." data-tag="04 / 06 · ECL">
           <img src="assets/ecl_summary.png" alt="ECL summary report — Ind AS 109 / IFRS 9 staging movement view" loading="lazy" width="1600" height="1069" />
           <div class="meta"><h4>ECL Summary</h4><p>Ind AS 109 staging &amp; PD/LGD/EAD movement.</p></div>
         </button>
-        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/gl_granular_review.png" data-title="GL Granular Review" data-desc="JV scrutiny, postings and control-account anomalies." data-tag="05 / 06 · GL">
+        <button class="thumb reveal" data-shot="assets/gl_granular_review.png" data-title="GL Granular Review" data-desc="JV scrutiny, postings and control-account anomalies." data-tag="05 / 06 · GL">
           <img src="assets/gl_granular_review.png" alt="GL granular review interface — JV scrutiny and control-account anomaly detection" loading="lazy" width="1600" height="928" />
           <div class="meta"><h4>GL Granular Review</h4><p>JV scrutiny &amp; control-account anomalies.</p></div>
         </button>
-        <button class="thumb reveal" role="tab" aria-selected="false" data-shot="assets/variance_analytics.png" data-title="Variance Analytics" data-desc="Period-over-period bridges, outlier detection." data-tag="06 / 06 · Variance">
+        <button class="thumb reveal" data-shot="assets/variance_analytics.png" data-title="Variance Analytics" data-desc="Period-over-period bridges, outlier detection." data-tag="06 / 06 · Variance">
           <img src="assets/variance_analytics.png" alt="Variance analytics — period-over-period bridges and outlier detection" loading="lazy" width="1600" height="1113" />
           <div class="meta"><h4>Variance Analytics</h4><p>Period-over-period bridges &amp; outliers.</p></div>
         </button>
@@ -1472,9 +1472,9 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
       <div class="popviz-side reveal">
         <h3>Sampling vs Full-Population</h3>
         <p>A typical statutory sample tests ~5% of records. <b style="color:var(--text)">95% of the population is never examined.</b> VIGILO runs <b style="color:var(--electric-bright)">1,050+ automated checks across every record</b> — visualised here as 900 dots representing your data.</p>
-        <div class="popviz-toggles" role="tablist" aria-label="Coverage mode">
-          <button class="popviz-toggle" data-mode="sample" role="tab" aria-selected="false">Sampling (~5%)</button>
-          <button class="popviz-toggle is-on" data-mode="full" role="tab" aria-selected="true">VIGILO · 100%</button>
+        <div class="popviz-toggles" role="group" aria-label="Coverage mode">
+          <button class="popviz-toggle" data-mode="sample">Sampling (~5%)</button>
+          <button class="popviz-toggle is-on" data-mode="full">VIGILO · 100%</button>
         </div>
       </div>
 
@@ -1944,8 +1944,8 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
             <h2 class="vf-title">Share your audit analytics interest</h2>
             <p class="vf-sub">A few quick details so our team can prepare a tailored walkthrough and a bounded pilot scope.</p>
             <div class="vf-steps"><span class="vf-step"></span><span class="vf-step"></span><span class="vf-step"></span><span class="vf-step"></span></div>
-            <div class="vf-stepcount"></div>
-            <div class="vf-banner vf-banner--err"></div>
+            <div class="vf-stepcount" aria-live="polite"></div>
+            <div class="vf-banner vf-banner--err" role="alert"></div>
 
             <!-- Step 1: About you -->
             <div class="vf-panel">
@@ -1969,12 +1969,12 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
             <div class="vf-panel">
               <div class="vf-field"><label>What are you most interested in?</label></div>
               <div class="vf-tiles">
-                <div class="vf-tile" data-vf-value="VIGILO Product Demo"><span class="vf-tdot"></span>VIGILO Product Demo</div>
-                <div class="vf-tile" data-vf-value="BFSI Analytics"><span class="vf-tdot"></span>BFSI Analytics</div>
-                <div class="vf-tile" data-vf-value="Loan / LMS Analytics"><span class="vf-tdot"></span>Loan / LMS Analytics</div>
-                <div class="vf-tile" data-vf-value="ECL / Ind AS 109"><span class="vf-tdot"></span>ECL / Ind AS 109</div>
-                <div class="vf-tile" data-vf-value="Client Response Portal"><span class="vf-tdot"></span>Client Response Portal</div>
-                <div class="vf-tile" data-vf-value="Pricing / Licensing"><span class="vf-tdot"></span>Pricing / Licensing</div>
+                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="VIGILO Product Demo"><span class="vf-tdot"></span>VIGILO Product Demo</div>
+                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="BFSI Analytics"><span class="vf-tdot"></span>BFSI Analytics</div>
+                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Loan / LMS Analytics"><span class="vf-tdot"></span>Loan / LMS Analytics</div>
+                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="ECL / Ind AS 109"><span class="vf-tdot"></span>ECL / Ind AS 109</div>
+                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Client Response Portal"><span class="vf-tdot"></span>Client Response Portal</div>
+                <div class="vf-tile" role="button" tabindex="0" aria-pressed="false" data-vf-value="Pricing / Licensing"><span class="vf-tdot"></span>Pricing / Licensing</div>
               </div>
               <div class="vf-field"><label for="b-area">Area of interest<span class="vf-req">*</span></label><select id="b-area" name="area_of_interest" data-vf-options="area_of_interest" required><option value="" disabled selected>Or pick from the full list…</option></select><span class="vf-err"></span></div>
               <div class="vf-row">
@@ -2113,7 +2113,7 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
   <div class="demo-card">
     <button class="demo-close" type="button" onclick="closeDemo()" aria-label="Close demo">×</button>
     <h3 id="demoTitle" class="sr">VIGILO product demo</h3>
-    <video class="demo-vid" controls playsinline preload="none" poster="assets/dashboard_1.png">
+    <video class="demo-vid" controls playsinline preload="none" poster="assets/dashboard_1.png" aria-label="VIGILO product walkthrough — visual demo of the analytics dashboard and exception reporting">
       <source src="vigilo-professional-demo.mp4" type="video/mp4" />
       Your browser does not support HTML5 video. <a href="vigilo-professional-demo.mp4">Download the demo</a>.
     </video>
@@ -2174,6 +2174,16 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 
 <!-- ═══════════════════ Scripts ═══════════════════ -->
 <script>
+// ── Shared modal a11y: trap Tab within the open modal + restore focus to the opener on close ──
+(function(){
+  var prev=null, cur=null;
+  function focusables(m){ return Array.prototype.slice.call(m.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')).filter(function(el){return el.offsetParent!==null;}); }
+  function onKey(e){ if(e.key!=='Tab'||!cur)return; var f=focusables(cur); if(!f.length)return; var a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}
+    else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();} }
+  window.__vfModalEnter=function(m){ if(!m)return; prev=document.activeElement; cur=m; document.addEventListener('keydown',onKey,true); };
+  window.__vfModalExit=function(){ document.removeEventListener('keydown',onKey,true); cur=null; if(prev&&prev.focus){try{prev.focus();}catch(e){}} prev=null; };
+})();
 // ── Request-demo form modal (Google Forms-backed) ──
 (function(){
   function open(e){
@@ -2183,9 +2193,10 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
     if(form)form.hidden=false;
     if(thanks)thanks.hidden=true;
     modal.hidden=false;document.body.style.overflow='hidden';
+    if(window.__vfModalEnter)window.__vfModalEnter(modal);
     var first=modal.querySelector('input,select,button');if(first)setTimeout(function(){first.focus();},120);
   }
-  function close(){var m=document.getElementById('accessModal');if(!m)return;m.hidden=true;document.body.style.overflow='';}
+  function close(){var m=document.getElementById('accessModal');if(!m)return;m.hidden=true;document.body.style.overflow='';if(window.__vfModalExit)window.__vfModalExit();}
   function submit(form){
     if(form.website&&form.website.value)return false; // honeypot
     var btn=form.querySelector('.af-submit');
@@ -2215,8 +2226,8 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 })();
 
 // ── Demo video modal — exposed globally for inline onclick ──
-window.openDemo=function(e){if(e&&e.preventDefault)e.preventDefault();var m=document.getElementById('demoModal');if(!m)return;m.hidden=false;document.body.style.overflow='hidden';var v=m.querySelector('video');if(v){try{v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(_){}}};
-window.closeDemo=function(){var m=document.getElementById('demoModal');if(!m)return;m.hidden=true;document.body.style.overflow='';var v=m.querySelector('video');if(v){try{v.pause();}catch(_){}}};
+window.openDemo=function(e){if(e&&e.preventDefault)e.preventDefault();var m=document.getElementById('demoModal');if(!m)return;m.hidden=false;document.body.style.overflow='hidden';if(window.__vfModalEnter)window.__vfModalEnter(m);var v=m.querySelector('video');if(v){try{v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(_){}}};
+window.closeDemo=function(){var m=document.getElementById('demoModal');if(!m)return;m.hidden=true;document.body.style.overflow='';if(window.__vfModalExit)window.__vfModalExit();var v=m.querySelector('video');if(v){try{v.pause();}catch(_){}}};
 document.addEventListener('keydown',function(e){if(e.key==='Escape')window.closeDemo();});
 
 (function(){
@@ -2643,16 +2654,20 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
     });
 
     form.querySelectorAll('.vf-tile').forEach(function (tile) {
-      tile.addEventListener('click', function () {
-        form.querySelectorAll('.vf-tile').forEach(function(x){ x.classList.remove('is-selected'); });
-        tile.classList.add('is-selected');
+      function activate(){
+        form.querySelectorAll('.vf-tile').forEach(function(x){ x.classList.remove('is-selected'); x.setAttribute('aria-pressed','false'); });
+        tile.classList.add('is-selected'); tile.setAttribute('aria-pressed','true');
         var f = form.querySelector('[name="area_of_interest"]'); if (f) f.value = tile.getAttribute('data-vf-value') || tile.textContent.trim();
-      });
+      }
+      tile.addEventListener('click', activate);
+      tile.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); activate(); } });
     });
 
     function fieldEl(el){ return el.closest('.vf-field'); }
-    function setErr(el, msg){ var f=fieldEl(el); if(!f) return; f.classList.add('vf-invalid'); var e=f.querySelector('.vf-err'); if(e) e.textContent=msg||''; }
-    function clearErr(el){ var f=fieldEl(el); if(f) f.classList.remove('vf-invalid'); }
+    function setErr(el, msg){ var f=fieldEl(el); if(!f) return; f.classList.add('vf-invalid'); var e=f.querySelector('.vf-err');
+      if(e){ e.textContent=msg||''; if(!e.id) e.id='vferr-'+((el.name||'f')+'-'+Math.random().toString(36).slice(2,7)); e.setAttribute('role','alert'); el.setAttribute('aria-describedby',e.id); }
+      el.setAttribute('aria-invalid','true'); }
+    function clearErr(el){ var f=fieldEl(el); if(f) f.classList.remove('vf-invalid'); el.removeAttribute('aria-invalid'); }
     form.addEventListener('input', function(e){ if(e.target.name) clearErr(e.target); });
 
     function check(name, fn, msg){ var el=form.querySelector('[name="'+name+'"]'); if(!el) return true; if(!fn(el.value)){ setErr(el,msg); el.focus(); return false; } clearErr(el); return true; }
@@ -2720,12 +2735,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
   function vfLockScroll(lock){ try{ document.body.style.overflow = lock ? 'hidden' : ''; }catch(e){} }
   function wireModals(){
     document.querySelectorAll('[data-vf-open]').forEach(function(btn){
-      btn.addEventListener('click', function(e){ e.preventDefault(); var m=document.querySelector(btn.getAttribute('data-vf-open')); if(m){ m.classList.add('is-open'); vfLockScroll(true); var f=m.querySelector('input,select,textarea'); if(f) setTimeout(function(){f.focus();},50); } });
+      btn.addEventListener('click', function(e){ e.preventDefault(); var m=document.querySelector(btn.getAttribute('data-vf-open')); if(m){ m.classList.add('is-open'); vfLockScroll(true); if(window.__vfModalEnter)window.__vfModalEnter(m); var f=m.querySelector('input,select,textarea'); if(f) setTimeout(function(){f.focus();},50); } });
     });
     document.querySelectorAll('.vf-modal').forEach(function(m){
-      m.addEventListener('click', function(e){ if(e.target.classList.contains('vf-backdrop')||e.target.closest('.vf-close')){ m.classList.remove('is-open'); vfLockScroll(false); } });
+      m.addEventListener('click', function(e){ if(e.target.classList.contains('vf-backdrop')||e.target.closest('.vf-close')){ m.classList.remove('is-open'); vfLockScroll(false); if(window.__vfModalExit)window.__vfModalExit(); } });
     });
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ var open=document.querySelectorAll('.vf-modal.is-open'); open.forEach(function(m){m.classList.remove('is-open');}); if(open.length) vfLockScroll(false); } });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ var open=document.querySelectorAll('.vf-modal.is-open'); open.forEach(function(m){m.classList.remove('is-open');}); if(open.length){ vfLockScroll(false); if(window.__vfModalExit)window.__vfModalExit(); } } });
   }
 
   function boot(){ document.querySelectorAll('form.vf-form').forEach(init); wireModals(); }
