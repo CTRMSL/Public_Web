@@ -974,13 +974,43 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
 .vf-thanks h3{font-family:var(--vf-display);color:#fff;font-size:20px;margin:0 0 8px}
 .vf-thanks p{color:var(--vf-text-mute);font-size:14px;line-height:1.55;max-width:420px;margin:0 auto 18px}
 .vf-thanks .vf-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-/* embed wrapper — places Version B inside the Contact section as a complement */
-.vf-embed{margin:56px auto 0;max-width:760px;display:grid;gap:22px;justify-items:center}
-.vf-embed-head{text-align:center;max-width:620px}
-.vf-embed-eyebrow{font-family:var(--vf-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--vf-gold-bright);margin-bottom:8px}
-.vf-embed-title{font-family:var(--vf-display);font-weight:700;font-size:clamp(22px,3vw,28px);color:#fff;margin:0 0 8px}
-.vf-embed-sub{color:var(--vf-text-mute);font-size:14.5px;line-height:1.6;margin:0}
-.vf-embed-sub a{color:var(--vf-electric-bright)}
+/* modal wrapper — reused for the Version-B form (opened by the teaser CTA) */
+.vf-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.vf-modal.is-open{display:flex}
+.vf-modal .vf-backdrop{position:absolute;inset:0;background:rgba(3,6,18,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.vf-modal .vf-card{position:relative;z-index:1;margin:auto;max-height:92vh;overflow-y:auto}
+.vf-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--vf-border-hi);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;font-size:16px;line-height:1;display:grid;place-items:center;z-index:2}
+.vf-close:hover{border-color:var(--vf-gold-line)}
+
+/* timed slide-in teaser popup (desktop bottom-right above taskbar; mobile bottom banner) */
+.vf-teaser{position:fixed;z-index:120;right:max(22px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));
+  width:340px;max-width:calc(100vw - 44px);box-sizing:border-box;padding:18px 20px 20px;
+  background:var(--vf-surface);border:1px solid var(--vf-border-hi);border-radius:14px;
+  box-shadow:0 18px 48px -12px rgba(0,0,0,.65),0 0 0 1px rgba(0,0,0,.2);color:var(--vf-text);font-family:var(--vf-sans);
+  opacity:0;transform:translateY(16px);transition:opacity .32s ease,transform .32s cubic-bezier(.16,.84,.44,1);will-change:opacity,transform;pointer-events:none}
+.vf-teaser.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.vf-teaser.is-leaving{opacity:0;transform:translateY(16px);pointer-events:none}
+.vf-teaser__eyebrow{margin:0 0 6px;font-family:var(--vf-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--vf-gold-bright)}
+.vf-teaser__eyebrow span{color:var(--vf-gold);font-size:9px;vertical-align:middle}
+.vf-teaser__head{margin:0 0 6px;font-family:var(--vf-display);font-size:18px;line-height:1.25;font-weight:600;color:var(--vf-text)}
+.vf-teaser__sub{margin:0 0 16px;font-size:13.5px;line-height:1.45;color:var(--vf-text-mute)}
+.vf-teaser__cta{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:11px 16px;font-family:var(--vf-sans);font-size:14px;font-weight:600;color:#07122b;background:linear-gradient(180deg,var(--vf-electric-bright),var(--vf-electric));border:1px solid var(--vf-electric-bright);border-radius:9px;cursor:pointer;transition:filter .18s ease,transform .06s ease}
+.vf-teaser__cta:hover{filter:brightness(1.07)}
+.vf-teaser__cta:active{transform:translateY(1px)}
+.vf-teaser__cta:focus-visible{outline:2px solid var(--vf-electric-bright);outline-offset:2px}
+.vf-teaser__close{position:absolute;top:8px;right:8px;width:30px;height:30px;display:grid;place-items:center;font-size:13px;line-height:1;color:var(--vf-text-mute);background:transparent;border:1px solid var(--vf-border);border-radius:8px;cursor:pointer;transition:color .15s ease,border-color .15s ease,background .15s ease}
+.vf-teaser__close:hover{color:var(--vf-text);border-color:var(--vf-border-hi);background:rgba(255,255,255,.04)}
+.vf-teaser__close:focus-visible{outline:2px solid var(--vf-electric-bright);outline-offset:2px}
+@media (max-width:560px){
+  .vf-teaser{right:max(10px,env(safe-area-inset-right));left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:auto;max-width:none;padding:16px 16px 18px;transform:translateY(20px)}
+  .vf-teaser.is-visible{transform:translateY(0)}
+  .vf-teaser.is-leaving{transform:translateY(20px)}
+  .vf-teaser__close{width:34px;height:34px}
+}
+@media (prefers-reduced-motion:reduce){
+  .vf-teaser{transition:opacity .2s ease;transform:none !important}
+  .vf-teaser.is-visible,.vf-teaser.is-leaving{transform:none !important}
+}
 @media (max-width:560px){ .vf-row{grid-template-columns:1fr} .vf-tiles{grid-template-columns:1fr} }
 @media (prefers-reduced-motion:reduce){ .vf-panel,.vf-thanks{animation:none} .vf-spinner{animation-duration:1.4s} }
 </style>
@@ -1891,14 +1921,11 @@ footer{padding:64px 0 36px;background:#04081a;border-top:1px solid var(--border)
         </div>
       </div>
 
-      <!-- ═══ VIGILO Visitor Interest — Version B (COMPLEMENTS the Request-a-Demo form above; does not replace it) ═══ -->
-      <div class="vf-embed" id="share-interest">
-        <div class="vf-embed-head">
-          <div class="vf-embed-eyebrow">Prefer a guided form?</div>
-          <h3 class="vf-embed-title">Share your interest</h3>
-          <p class="vf-embed-sub">Not ready to book a demo yet? Tell us what you're exploring and our team will follow up. The <a href="#" onclick="openAccessForm(event)">Request-a-demo form</a> remains the fastest path to a walkthrough and pilot.</p>
-        </div>
+      <!-- ═══ VIGILO Visitor Interest — Version B form (hidden modal; opened by the timed teaser popup #vfTeaser) ═══ -->
+      <div class="vf-modal" id="vfFormModal" role="dialog" aria-modal="true" aria-label="Share your audit analytics interest">
+        <div class="vf-backdrop"></div>
         <div class="vf-card">
+          <button class="vf-close" type="button" aria-label="Close">✕</button>
           <form class="vf-form" data-vf-mode="detailed" novalidate>
             <input type="hidden" name="submission_type" value="enquiry" />
             <div class="vf-eyebrow">VIGILO · Share your interest</div>
@@ -2522,6 +2549,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
 })();
 </script>
 
+<!-- ═══ Timed slide-in teaser (15s) — bottom-right desktop / bottom mobile; opens #vfFormModal ═══ -->
+<aside class="vf-teaser" id="vfTeaser" role="region" aria-label="Share your audit analytics interest" hidden>
+  <button class="vf-teaser__close" type="button" aria-label="Dismiss this message">✕</button>
+  <p class="vf-teaser__eyebrow"><span aria-hidden="true">●</span> VIGILO</p>
+  <h2 class="vf-teaser__head">Exploring audit analytics?</h2>
+  <p class="vf-teaser__sub">See VIGILO run on your own data.</p>
+  <button class="vf-teaser__cta" type="button" data-vf-open="#vfFormModal">Request a walkthrough</button>
+</aside>
+
 <!-- ═══════════════════ VIGILO Visitor Interest capture (Version B) — config + script ═══════════════════
      Posts to the same-origin Cloudflare Worker proxy (ctrmsl.com/api/visitor-feedback), which injects the
      SHARED_TOKEN server-side. No token in this page by design. The existing Request-a-Demo Google Form is
@@ -2669,19 +2705,78 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')window.close
     form.style.display='none'; t.classList.add('is-active'); t.setAttribute('tabindex','-1'); t.focus();
   }
 
+  function vfLockScroll(lock){ try{ document.body.style.overflow = lock ? 'hidden' : ''; }catch(e){} }
   function wireModals(){
     document.querySelectorAll('[data-vf-open]').forEach(function(btn){
-      btn.addEventListener('click', function(e){ e.preventDefault(); var m=document.querySelector(btn.getAttribute('data-vf-open')); if(m){ m.classList.add('is-open'); var f=m.querySelector('input,select,textarea'); if(f) setTimeout(function(){f.focus();},50); } });
+      btn.addEventListener('click', function(e){ e.preventDefault(); var m=document.querySelector(btn.getAttribute('data-vf-open')); if(m){ m.classList.add('is-open'); vfLockScroll(true); var f=m.querySelector('input,select,textarea'); if(f) setTimeout(function(){f.focus();},50); } });
     });
     document.querySelectorAll('.vf-modal').forEach(function(m){
-      m.addEventListener('click', function(e){ if(e.target.classList.contains('vf-backdrop')||e.target.closest('.vf-close')) m.classList.remove('is-open'); });
+      m.addEventListener('click', function(e){ if(e.target.classList.contains('vf-backdrop')||e.target.closest('.vf-close')){ m.classList.remove('is-open'); vfLockScroll(false); } });
     });
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.querySelectorAll('.vf-modal.is-open').forEach(function(m){m.classList.remove('is-open');}); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ var open=document.querySelectorAll('.vf-modal.is-open'); open.forEach(function(m){m.classList.remove('is-open');}); if(open.length) vfLockScroll(false); } });
   }
 
   function boot(){ document.querySelectorAll('form.vf-form').forEach(init); wireModals(); }
   if (document.readyState !== 'loading') boot(); else document.addEventListener('DOMContentLoaded', boot);
   window.VFForm = { init: init, OPTIONS: OPTIONS };
+})();
+</script>
+
+<!-- ═══ Timed teaser controller: 15s delay, show-once (30-day cap), non-intrusive, a11y-safe ═══ -->
+<script>
+(function () {
+  'use strict';
+  var DELAY_MS = 15000;
+  var STORE_KEY = 'vf_teaser_dismissed_v1';
+  var TTL_MS = 30 * 24 * 60 * 60 * 1000;          // 30-day frequency cap
+  var teaser = document.getElementById('vfTeaser');
+  if (!teaser) return;
+  var closeBtn = teaser.querySelector('.vf-teaser__close');
+  var ctaBtn   = teaser.querySelector('.vf-teaser__cta');
+  var timer = null, shown = false;
+
+  function isSuppressed() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return false;
+      var ts = parseInt(raw, 10);
+      if (isNaN(ts)) return true;
+      if (Date.now() - ts > TTL_MS) { localStorage.removeItem(STORE_KEY); return false; }
+      return true;
+    } catch (e) { return false; }
+  }
+  function suppress() { try { localStorage.setItem(STORE_KEY, String(Date.now())); } catch (e) {} }
+  function anyModalOpen() { return !!document.querySelector('.vf-modal.is-open, .access-modal:not([hidden]), .demo-modal:not([hidden])'); }
+  function formEngaged() { try { return sessionStorage.getItem('vf_form_engaged') === '1'; } catch (e) { return false; } }
+
+  function show() {
+    if (shown || isSuppressed() || formEngaged() || anyModalOpen()) return;
+    shown = true;
+    teaser.hidden = false;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { teaser.classList.add('is-visible'); }); });
+  }
+  function hide(opts) {
+    opts = opts || {};
+    teaser.classList.remove('is-visible');
+    teaser.classList.add('is-leaving');
+    if (opts.persist) suppress();
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fallback;
+    var done = function () { teaser.hidden = true; teaser.classList.remove('is-leaving'); teaser.removeEventListener('transitionend', onEnd); clearTimeout(fallback); };
+    var onEnd = function (e) { if (e.target === teaser && e.propertyName === 'opacity') done(); };
+    teaser.addEventListener('transitionend', onEnd);
+    fallback = setTimeout(done, reduced ? 260 : 440);
+  }
+
+  closeBtn.addEventListener('click', function () { hide({ persist: true }); });
+  // CTA: mark engaged + suppress, animate the teaser out; do NOT preventDefault so the
+  // existing modal opener (data-vf-open) still fires and opens #vfFormModal.
+  ctaBtn.addEventListener('click', function () { try { sessionStorage.setItem('vf_form_engaged', '1'); } catch (e) {} suppress(); hide(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && teaser.classList.contains('is-visible') && !anyModalOpen()) hide({ persist: true });
+  });
+
+  if (!isSuppressed() && !formEngaged()) timer = setTimeout(show, DELAY_MS);
 })();
 </script>
 </body>
